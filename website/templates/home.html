@@ -1,0 +1,1748 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CENTERLINE - Healthcare Infrastructure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #ffffff;
+    background: #073d4b;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    min-height: 75px;
+    padding: 0 5.8%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-logo {
+    display: block;
+    width: 175px;
+    height: 52px;
+    overflow: hidden;
+    text-decoration: none;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.navbar-logo-img {
+    width: 276px !important;
+    max-width: none !important;
+    height: 111px !important;
+    margin-top: -47px !important;
+    margin-left: -50px !important;
+    display: block !important;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #304953;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #20a8b8;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #20a8b8;
+    color: #ffffff;
+    padding: 11px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #168c9c;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   HERO SECTION - DESKTOP
+========================================= */
+
+.hero {
+    min-height: 800px;
+    padding: 45px 6.2%;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+gap: 25px;
+    align-items: center;
+    background:
+        radial-gradient(
+            ellipse at 75% 45%,
+            rgba(14, 94, 111, 0.35),
+            transparent 55%
+        ),
+        linear-gradient(
+            115deg,
+            #062b36 0%,
+            #073d4b 65%,
+            #075261 100%
+        );
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 750px;
+    min-width: 0;
+    padding: 20px 0;
+    align-self: center;
+}
+
+.hero-subtitle {
+    color: #79e4ed;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: clamp(72px, 6.5vw, 110px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
+}
+.hero-description {
+    max-width: 650px;
+    color: #e0e9ed;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.75;
+    margin-top: 15px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+/* 
+.explore-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 17px 34px;
+    background: #20a8b8;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.explore-button:hover {
+    background: #168c9c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(32, 168, 184, 0.25);
+}
+
+.explore-button span {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.explore-button:hover span {
+    transform: translateX(5px);
+} */
+
+/* ===== EXPLORE BUTTON ANIMATION ===== */
+
+.explore-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 17px 34px;
+    background: #20a8b8;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    animation: buttonPulse 2.4s ease-in-out infinite;
+}
+
+.explore-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    transform: skewX(-20deg);
+}
+
+.explore-button:hover {
+    background: #168c9c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(32, 168, 184, 0.35);
+    animation: none;
+}
+
+.explore-button:hover::before {
+    left: 130%;
+    transition: left 0.7s ease;
+}
+
+.explore-button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.explore-button span {
+    display: inline-block;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.explore-button:hover span {
+    transform: translateX(8px);
+}
+
+@keyframes buttonPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(32, 168, 184, 0.5); }
+    50%      { box-shadow: 0 0 0 12px rgba(32, 168, 184, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .explore-button { animation: none; }
+}
+
+
+
+/* =========================================
+   HERO IMAGE CARD
+========================================= */
+
+.hero-image-wrapper {
+    width: 100%;
+    max-width: 750px;
+    height: 780px;
+    justify-self: end;
+    align-self: center;
+    overflow: hidden;
+    border-radius: 22px;
+    animation: imageFadeIn 1s ease both;
+}
+
+
+
+.image-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.image-card:hover img {
+    transform: scale(1.02);
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.about-section {
+    min-height: 700px;
+    background: #f2f7f9;
+    color: #0b3040;
+    padding: 100px 5%;
+    scroll-margin-top: 75px;
+}
+
+.about-container {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 55px;
+    align-items: center;
+}
+.about-image {
+    width: 90%;
+    max-width: 440px;
+    height: 540px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #e5eef1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.02);
+}
+
+.about-content {
+    width: 100%;
+}
+
+.about-content .about-label {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #20a8b8;
+    margin-bottom: 20px;
+}
+
+.about-content h2 {
+    font-size: clamp(42px, 4vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    font-size: 20px;
+    line-height: 1.85;
+    margin-bottom: 20px;
+}
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.about-features div {
+    background: #ffffff;
+    color: #0b3040;
+    min-height: 100px;
+    padding: 18px 12px;
+    border: 1px solid #dce9ed;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    box-shadow: 0 5px 15px rgba(7, 61, 75, 0.05);
+    transition: all 0.3s ease;
+}
+
+.about-features div:hover {
+    background: #20a8b8;
+    color: #ffffff;
+    border-color: #20a8b8;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(32, 168, 184, 0.20);
+}
+
+/* =========================================
+   SERVICES SECTION
+========================================= */
+
+.services-section {
+    background: #ffffff;
+    color: #0b3040;
+    padding: 100px 5% 110px;
+    scroll-margin-top: 75px;
+}
+
+.services-container {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.services-label {
+    color: #20a8b8;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.services-title {
+    max-width: 1000px;
+    font-size: clamp(42px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 25px;
+}
+
+.services-description {
+    max-width: 950px;
+    color: #71818b;
+    font-size: 21px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    min-height: 350px;
+    padding: 35px 32px;
+    background: #ffffff;
+    border: 1px solid #d8e5eb;
+    border-radius: 18px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    animation: serviceAppear 0.8s ease both;
+}
+
+.service-card:nth-child(2) { animation-delay: 0.1s; }
+.service-card:nth-child(3) { animation-delay: 0.2s; }
+.service-card:nth-child(4) { animation-delay: 0.3s; }
+.service-card:nth-child(5) { animation-delay: 0.4s; }
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: #20a8b8;
+    box-shadow: 0 18px 35px rgba(7, 61, 75, 0.12);
+}
+
+.service-number {
+    display: block;
+    color: #20a8b8;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 23px;
+}
+
+.service-card h3 {
+    color: #0b3040;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.service-card p {
+    color: #71818b;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+@keyframes serviceAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    } 
+}
+
+
+/* =========================================
+   SOLUTIONS SECTION
+========================================= */
+
+.solutions-section {
+    padding: 100px 0;
+    background: #082b3a;
+    color: #ffffff;
+    scroll-margin-top: 75px;
+}
+
+.solutions-container {
+    width: min(1500px, 88%);
+    margin: auto;
+}
+
+.solutions-heading {
+    max-width: 950px;
+    margin-bottom: 55px;
+}
+
+.solutions-eyebrow {
+    color: #20a9bd;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.solutions-heading h2 {
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 10px 0 18px;
+}
+
+.solutions-lead {
+    font-size: 20px;
+    color: #cfe3e7;
+    line-height: 1.7;
+}
+
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.solutions-card {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    padding: 38px;
+    min-height: 320px;
+    border-radius: 16px;
+    transition: 0.25s ease;
+}
+
+.solutions-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.solutions-card h3 {
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+
+.solutions-card p {
+    color: #cfe3e7;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.solutions-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.solutions-tag {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 14px;
+    border-radius: 100px;
+    font-size: 14px;
+    color: #d9edf1;
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+    .solutions-container {
+        width: 92%;
+    }
+
+    .solutions-grid {
+        gap: 22px;
+    }
+
+    .solutions-card {
+        padding: 28px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .solutions-section {
+        padding: 60px 0;
+    }
+
+    .solutions-heading {
+        margin-bottom: 35px;
+    }
+
+    .solutions-heading h2 {
+        font-size: 32px;
+    }
+
+    .solutions-lead {
+        font-size: 16px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .solutions-card {
+        padding: 25px;
+        min-height: auto;
+    }
+
+    .solutions-card h3 {
+        font-size: 21px;
+    }
+
+    .solutions-card p {
+        font-size: 16px;
+    }
+
+    .solutions-tag {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+
+/* =========================================
+   CLIENTS SECTION
+========================================= */
+
+.clients-section {
+    background: #f2f7f9;
+    color: #0b3040;
+    padding: 100px 5%;
+    scroll-margin-top: 75px;
+}
+
+.clients-container {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.clients-label {
+    color: #20a8b8;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.clients-title {
+    max-width: 850px;
+    font-size: clamp(38px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.clients-description {
+    max-width: 850px;
+    color: #71818b;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 45px;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.client-card {
+    background: #ffffff;
+    border: 1px solid #d8e5eb;
+    border-radius: 18px;
+    padding: 38px;
+    min-height: 230px;
+    transition: all 0.35s ease;
+}
+
+.client-card:hover {
+    transform: translateY(-8px);
+    border-color: #20a8b8;
+    box-shadow: 0 15px 35px rgba(7, 61, 75, 0.10);
+}
+
+
+.client-number {
+    color: #20a8b8;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.client-card h3 {
+    color: #0b3040;
+    font-size: 25px;
+    margin: 22px 0 10px;
+}
+
+.client-card p {
+    color: #71818b;
+    font-size: 18px;
+}
+
+.client-location {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    background: #e5f5f7;
+    color: #0b6680;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+}
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.contact-section {
+    background: linear-gradient(
+        115deg,
+        #0b4655 0%,
+        #0d5968 60%,
+        #107080 100%
+    );
+    color: #ffffff;
+    padding: 110px 5%;
+    scroll-margin-top: 90px;
+}
+
+.contact-container {
+    max-width: 1460px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.25fr 0.9fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.contact-content {
+    max-width: 800px;
+}
+
+.contact-label {
+    color: #79e4ed;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.contact-title {
+    max-width: 750px;
+    font-size: clamp(38px, 4vw, 54px);
+    line-height: 1.12;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.contact-description {
+    color: #e0e9ed;
+    max-width: 800px;
+    font-size: 19px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 18px 28px;
+    background: #20a8b8;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 800;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.contact-button:hover {
+    background: #168c9c;
+    transform: translateY(-3px);
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(205, 239, 242, 0.25);
+    border-radius: 20px;
+    padding: 42px 38px;
+    min-height: 485px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-item {
+    margin-bottom: 22px;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item h3 {
+    color: #9de5e9;
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.contact-item p,
+.contact-item a {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #9de5e9;
+}
+
+/* CONTACT RESPONSIVE */
+
+@media (max-width: 992px) {
+    .contact-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+
+    .contact-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 760px) {
+    .contact-section {
+        padding: 70px 6%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contact-title {
+        font-size: 38px;
+    }
+
+    .contact-description {
+        font-size: 17px;
+    }
+
+    .contact-card {
+        min-height: auto;
+        padding: 30px 25px;
+    }
+}
+/* =========================================
+   LAPTOP RESPONSIVE
+========================================= */
+
+@media (max-width: 1200px) {
+
+       .hero {
+        padding: 40px 5%;
+        gap: 25px;
+    }
+
+    .hero-title {
+        font-size: clamp(38px, 9vw, 52px);
+         line-height: 1.1;
+    }
+
+   .hero-image-wrapper {
+        max-width: 100%;
+        height: 450px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-card {
+        padding: 30px 24px;
+    }
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 0 4%;
+        gap: 15px;
+    }
+
+    .navbar-logo {
+        width: 155px;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .nav-links a {
+        font-size: 15px;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding: 55px 6%;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 780px;
+        margin: auto;
+    }
+
+    .hero-title {
+        font-size: clamp(48px, 7vw, 68px);
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 620px;
+        height: 520px;
+        justify-self: center;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-image {
+        height: 380px;
+    }
+
+    .about-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        min-height: auto;
+        padding: 14px 5%;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .navbar-logo {
+        width: 145px;
+        height: 44px;
+    }
+
+    .navbar-logo-img {
+        width: 230px !important;
+        height: 92px !important;
+        margin-top: -39px !important;
+        margin-left: -42px !important;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .cta-button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    /* HERO */
+
+    .hero {
+        padding: 45px 5%;
+        gap: 30px;
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+
+    .hero-subtitle {
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+    }
+
+    .hero-title {
+        font-size: clamp(39px, 8.5vw, 54px);
+        line-height: 1.12;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+    }
+
+    .hero-description {
+        width: 100%;
+        font-size: 16px;
+        line-height: 1.75;
+        text-align: left;
+    }
+
+    .hero-buttons {
+        margin-top: 25px;
+    }
+
+    .explore-button {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 500px;
+        height: 430px;
+        justify-self: center;
+    }
+
+    .image-card {
+        padding: 8px;
+    }
+
+    /* ABOUT */
+
+    .about-section {
+        padding: 60px 5%;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-image {
+        height: 320px;
+        padding: 10px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .about-content p {
+        font-size: 17px;
+    }
+
+    /* SERVICES */
+
+    .services-section {
+        padding: 65px 5%;
+    }
+
+    .services-title {
+        font-size: 38px;
+    }
+
+    .services-description {
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .service-card {
+        min-height: 300px;
+        padding: 25px 20px;
+    }
+
+    .service-card h3 {
+        font-size: 19px;
+    }
+
+    .service-card p {
+        font-size: 16px;
+    }
+
+    /* SOLUTIONS */
+
+    .solutions-section {
+        padding: 65px 0;
+    }
+
+    .solutions-heading h2 {
+        font-size: 34px;
+    }
+
+    .solutions-card {
+        padding: 24px;
+    }
+
+    /* CLIENTS */
+
+    .clients-section {
+        padding: 65px 5%;
+    }
+
+    .clients-title {
+        font-size: 36px;
+    }
+
+    .clients-description {
+        font-size: 17px;
+    }
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .client-card {
+        padding: 28px;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section {
+        padding: 70px 6%;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 38px 5%;
+    }
+
+    .hero-title {
+        font-size: 35px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-image-wrapper {
+        height: 340px;
+    }
+
+    .about-image {
+        height: 270px;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: auto;
+    }
+
+    .solutions-container {
+        width: 90%;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+}
+
+
+ </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <header class="navbar">
+
+        <a href="#home" class="navbar-logo" aria-label="Centerline Technical Services">
+            <img
+                src="{% static '1000217145.jpg' %}"
+                alt="Centerline Technical Services"
+                class="navbar-logo-img"
+            >
+        </a>
+
+      <nav>
+    <ul class="nav-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+        <div class="nav-cta">
+            <a href="#contact" class="cta-button">Talk to us</a>
+        </div>
+
+    </header>
+
+    <!-- Home Section -->
+
+    <main class="hero" id="home">
+
+        <section class="hero-content">
+
+            <p class="hero-subtitle">
+                HEALTHCARE INFRASTRUCTURE SOLUTION PROVIDER
+            </p>
+
+            <h1 class="hero-title">
+                Engineering<br>
+                safer, smarter<br>
+                healthcare environments.
+            </h1>
+
+            <p class="hero-description">
+                Centerline delivers turnkey healthcare infrastructure
+                solutions spanning ventilation, modular construction,
+                infection control, medical gas and<br>
+                hospital electrical systems.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#services" class="explore-button">
+                    Explore Our Services
+                    <span>→</span>
+                </a>
+            </div>
+
+        </section>
+
+        <div class="hero-image-wrapper">
+
+            <div class="image-card">
+
+                <img
+                    src="{% static 'images/Gemini_Generated_Image_c2gdl8c2gdl8c2gd.png' %}"
+                    alt="Centerline Healthcare Infrastructure"
+                >
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- About Section -->
+
+
+
+    <section class="about-section" id="about">
+
+        <div class="about-container">
+
+            <div class="about-image">
+                <img
+                    src="{% static 'images/Gemini_Generated_Image_c2gdl8c2gdl8c2gd.png' %}"
+                    alt="About Centerline"
+                >
+            </div>
+
+            <div class="about-content">
+
+                <p class="about-label">ABOUT CENTERLINE</p>
+
+                <h2>Built around healthcare needs.</h2>
+
+                <p>
+                    Founded in 2024, Centerline addresses critical
+                    infrastructural needs with a focus on efficiency,
+                    safety and adaptability.
+                </p>
+
+                <p>
+                    We design, develop, supply, install, test,
+                    commission and maintain healthcare infrastructure.
+                </p>
+
+               <div class="about-features">
+    <div>Turnkey solutions</div>
+    <div>Latest technology</div>
+    <div>Project management</div>
+    <div>Safety &amp; reliability</div>
+    <div>Patient-care focus</div>
+</div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html> 
+
+
+
+
+<!-- Services Section -->
+
+
+
+
+<section class="services-section" id="services">
+
+    <div class="services-container">
+
+        <p class="services-label">WHAT WE DO</p>
+
+        <h2 class="services-title">
+            Integrated healthcare infrastructure services.
+        </h2>
+
+        <p class="services-description">
+            A focused portfolio designed around the technical and operational
+            requirements of modern healthcare facilities.
+        </p>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <span class="service-number">01</span>
+                <h3>Healthcare HVAC Systems</h3>
+                <p>
+                    Specialized ventilation and air-handling solutions
+                    supporting infection control, patient safety and
+                    clinical operations.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">02</span>
+                <h3>Healthcare Modular Construction</h3>
+                <p>
+                    Fast, precise and scalable modular solutions for
+                    patient rooms, diagnostic areas, laboratories and
+                    other facilities.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">03</span>
+                <h3>Infection Control Systems</h3>
+                <p>
+                    Multi-layered infrastructure integrating design,
+                    engineering, equipment and operational controls.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">04</span>
+                <h3>Medical Gas Supply</h3>
+                <p>
+                    BHU and pendant solutions delivering medical gases,
+                    power, data and lighting at the point of care.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-number">05</span>
+                <h3>Hospital Electrical Systems</h3>
+                <p>
+                    Redundant, reliable electrical infrastructure with
+                    emergency power, ATS, UPS, grounding and
+                    specialized systems.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SOLUTIONS SECTION -->
+
+
+
+<section id="solutions" class="solutions-section">
+
+    <div class="solutions-container">
+
+        <div class="solutions-heading">
+
+            <div class="solutions-eyebrow">
+                Technical solutions
+            </div>
+
+            <h2>
+                Designed for demanding clinical environments.
+            </h2>
+
+            <p class="solutions-lead">
+                The company profile highlights application-specific engineering across operating rooms, isolation rooms, protective environments, pharmacies, laboratories and imaging spaces.
+            </p>
+
+        </div>
+
+        <div class="solutions-grid">
+
+            <!-- Healthcare HVAC -->
+
+            <div class="solutions-card">
+
+                <h3>Healthcare HVAC</h3>
+
+                <p>
+                    Application-focused airflow and pressure strategies support different clinical modalities.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">Positive pressure</span>
+                    <span class="solutions-tag">Negative pressure</span>
+                    <span class="solutions-tag">HEPA filtration</span>
+                    <span class="solutions-tag">Laminar flow</span>
+                    <span class="solutions-tag">Differential pressure monitoring</span>
+                    <span class="solutions-tag">UV exhaust</span>
+                </div>
+
+            </div>
+
+            <!-- Infection Control -->
+
+            <div class="solutions-card">
+
+                <h3>Infection Control</h3>
+
+                <p>
+                    Infrastructure measures include patient-room design, negative-pressure rooms, protective environments, UV-C disinfection, water safety and electronic monitoring.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">AIIR</span>
+                    <span class="solutions-tag">PE rooms</span>
+                    <span class="solutions-tag">UV-C</span>
+                    <span class="solutions-tag">Water safety</span>
+                    <span class="solutions-tag">RTLS</span>
+                    <span class="solutions-tag">Telehealth</span>
+                </div>
+
+            </div>
+
+            <!-- Medical Gas & Pendants -->
+
+            <div class="solutions-card">
+
+                <h3>Medical Gas & Pendants</h3>
+
+                <p>
+                    Bed Head Units and pendants consolidate critical utilities at the point of care while improving floor clearance and flexibility.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">O₂</span>
+                    <span class="solutions-tag">Vacuum</span>
+                    <span class="solutions-tag">Medical Air</span>
+                    <span class="solutions-tag">N₂</span>
+                    <span class="solutions-tag">N₂O</span>
+                    <span class="solutions-tag">AGSS</span>
+                    <span class="solutions-tag">Data</span>
+                </div>
+
+            </div>
+
+            <!-- Hospital Electrical -->
+
+            <div class="solutions-card">
+
+                <h3>Hospital Electrical</h3>
+
+                <p>
+                    Layered backup architecture supports continuity of critical healthcare operations.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">Generators</span>
+                    <span class="solutions-tag">UPS</span>
+                    <span class="solutions-tag">ATS</span>
+                    <span class="solutions-tag">Technical grounding</span>
+                    <span class="solutions-tag">IPS</span>
+                    <span class="solutions-tag">LIM</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================
+     CLIENTS SECTION
+================================ -->
+
+<section class="clients-section" id="clients">
+
+    <div class="clients-container">
+
+        <p class="clients-label">OUR CLIENTELE</p>
+
+        <h2 class="clients-title">
+            Trusted healthcare environments.
+        </h2>
+
+        <p class="clients-description">
+            Centerline is committed to supporting healthcare
+            facilities through reliable and integrated
+            infrastructure solutions. Our company profile
+            identifies the following UAE healthcare clients.
+        </p>
+
+        <div class="clients-grid">
+
+            <!-- Client 1 -->
+
+            <div class="client-card">
+
+                <span class="client-number">01 / HEALTHCARE</span>
+
+                <h3>Ministry of Health UAE</h3>
+
+                <p>Dhaid Hospital</p>
+
+                <span class="client-location">
+                    United Arab Emirates
+                </span>
+
+            </div>
+
+            <!-- Client 2 -->
+
+            <div class="client-card">
+
+                <span class="client-number">02 / HEALTHCARE</span>
+
+                <h3>Ministry of Health UAE</h3>
+
+                <p>Al Qassimi Hospital</p>
+
+                <span class="client-location">
+                    United Arab Emirates
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section" id="contact">
+
+    <div class="contact-container">
+
+        <!-- LEFT CONTENT -->
+
+        <div class="contact-content">
+
+            <p class="contact-label">GET IN TOUCH</p>
+
+            <h2 class="contact-title">
+                Let's build better healthcare infrastructure.
+            </h2>
+
+            <p class="contact-description">
+                Centerline supports healthcare projects with integrated
+                design, supply, installation, testing, commissioning
+                and maintenance capabilities.
+            </p>
+
+            <a href="mailto:sales@centerline.ae" class="contact-button">
+                Email Centerline
+            </a>
+
+        </div>
+
+        <!-- RIGHT CONTACT CARD -->
+
+        <div class="contact-card">
+
+            <div class="contact-item">
+                <h3>WEBSITE</h3>
+                <p>
+                    <a href="https://www.centerline.ae" target="_blank">
+                        www.centerline.ae
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>EMAIL</h3>
+                <p>
+                    <a href="mailto:sales@centerline.ae">
+                        sales@centerline.ae
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>PHONE</h3>
+                <p>
+                    <a href="tel:+971505204975">+971 50 520 4975</a><br>
+                    <a href="tel:+971553106547">+971 55 310 6547</a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>EMAIL</h3>
+                <p>
+                    <a href="mailto:syedmohd@centerline.ae">
+                        syedmohd@centerline.ae
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>LOCATIONS</h3>
+                <p>Dubai · Abu Dhabi</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+<footer style="
+    background: #071f2a;
+    color: #c5d6da;
+    text-align: center;
+    padding: 25px 15px;
+">
+
+    <p>
+        © 2026 Centerline Technical Services.
+        All Rights Reserved.
+    </p>
+
+    <p style="margin-top: 8px; font-size: 13px;">
+        Dubai | Abu Dhabi | United Arab Emirates
+    </p>
+
+</footer>
+
+
+
+
+</body>
+</html>
+
+
