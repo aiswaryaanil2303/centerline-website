@@ -1,0 +1,851 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Clients | Centerline</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+    /* GENERAL */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+        color: #183b47;
+        background: #f5f8f9;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar {
+        min-height: 82px;
+        padding: 12px 5%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo img,
+    .navbar-logo-img {
+        width: 175px;
+        max-height: 60px;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .logo img:hover,
+    .navbar-logo-img:hover {
+        transform: scale(1.04);
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #183b47;
+        font-size: 15px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #078a91;
+    }
+
+    .nav-contact {
+        text-decoration: none;
+        background: #087e86;
+        color: white;
+        padding: 12px 23px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .nav-contact:hover {
+        background: #07545e;
+        transform: translateY(-3px);
+    }
+
+
+    /* CLIENTS HERO */
+
+    .clients-hero {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        min-height: 480px;
+        background: #073542;
+        color: white;
+        padding: 100px 6%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clients-hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+
+    .clients-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            120deg,
+            rgba(7, 53, 66, 0.85),
+            rgba(7, 82, 97, 0.70)
+        );
+        z-index: -1;
+    }
+
+    .hero-content {
+        max-width: 900px;
+        margin: auto;
+        position: relative;
+        z-index: 1;
+        animation: clientHeroFade 1.2s ease forwards;
+    }
+
+    .hero-label {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #8de1df;
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(38px, 5vw, 62px);
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 22px;
+    }
+
+    .hero-content p {
+        max-width: 750px;
+        margin: auto;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #e0edef;
+    }
+
+    @keyframes clientHeroFade {
+        from {
+            opacity: 0;
+            transform: translateY(35px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    /* CLIENTS SECTION */
+
+    .clients-section {
+        padding: 100px 5%;
+        background: #f2f7f9;
+        color: #183b47;
+    }
+
+    .clients-container {
+        max-width: 1400px;
+        margin: auto;
+    }
+
+
+    /* SECTION HEADING */
+
+    .section-heading {
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto 55px;
+        opacity: 0;
+        transform: translateY(35px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section-heading.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .section-heading h2 {
+        font-family: 'Manrope', sans-serif;
+        font-size: clamp(32px, 4vw, 46px);
+        margin-bottom: 18px;
+        color: #103b48;
+    }
+
+    .section-heading p {
+        color: #71818b;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+
+    /* CLIENT GRID */
+
+    .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: auto;
+        align-items: stretch;
+    }
+
+
+    /* CLIENT CARD */
+
+    .client-card {
+        width: 100%;
+        height: 210px;
+        min-height: 210px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        perspective: 1000px;
+        opacity: 0;
+        transform: translateY(25px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .client-card.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .client-card:hover {
+        transform: translateY(-8px);
+    }
+
+
+    /* FLIP ANIMATION */
+
+    .client-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.7s ease;
+    }
+
+    .client-card:hover .client-card-inner {
+        transform: rotateY(180deg);
+    }
+
+
+    /* FRONT AND BACK */
+
+    .client-card-front,
+    .client-card-back {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #dce9ed;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+
+    /* FRONT SIDE */
+
+    .client-card-front {
+        background: #ffffff;
+        box-shadow: 0 5px 18px rgba(7, 61, 75, 0.05);
+    }
+
+
+    /* CLIENT LOGO */
+
+    .client-logo {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border-radius: 9px;
+        padding: 10px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .client-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.4s ease;
+    }
+
+    .client-card:hover .client-logo img {
+        transform: scale(1.06);
+    }
+
+
+    /* FRONT TEXT */
+
+    .client-card-front h3 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #183b47;
+    }
+
+
+    /* BACK SIDE */
+
+    .client-card-back {
+        background: linear-gradient(
+            135deg,
+            #073542,
+            #087e86
+        );
+        border-color: transparent;
+        color: #ffffff;
+        transform: rotateY(180deg);
+    }
+
+    .client-card-back h3 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        color: #ffffff;
+        margin-bottom: 12px;
+    }
+
+    .client-card-back p {
+        color: #d4e6e9;
+        font-size: 16px;
+        line-height: 1.7;
+        margin-top: 0;
+    }
+
+
+    /* CLOSING SECTION */
+
+    .clients-closing {
+        padding: 75px 6%;
+        text-align: center;
+        background: #eaf2f3;
+    }
+
+    .clients-closing h2 {
+        font-family: 'Manrope', sans-serif;
+        font-size: 32px;
+        margin-bottom: 15px;
+        color: #103b48;
+    }
+
+    .clients-closing p {
+        max-width: 700px;
+        margin: 0 auto 25px;
+        color: #526b73;
+        line-height: 1.8;
+    }
+
+    .closing-button {
+        display: inline-block;
+        text-decoration: none;
+        background: #087e86;
+        color: white;
+        padding: 13px 26px;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    .closing-button:hover {
+        background: #07545e;
+        transform: translateY(-3px);
+    }
+
+
+    /* TABLET RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+        .clients-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .nav-links {
+            gap: 16px;
+        }
+    }
+
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 760px) {
+
+        .navbar {
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-links {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .clients-hero {
+            padding: 75px 6%;
+        }
+
+        .clients-section {
+            padding: 70px 5%;
+        }
+    }
+
+
+    /* SMALL MOBILE */
+
+    @media (max-width: 520px) {
+
+        .clients-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .logo img,
+        .navbar-logo-img {
+            width: 135px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+        }
+
+        .client-card {
+            height: 210px;
+            min-height: 210px;
+        }
+
+        .clients-hero p {
+            font-size: 16px;
+        }
+
+        .clients-closing h2 {
+            font-size: 26px;
+        }
+    }
+
+</style>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
+            <img src="{% static 'images/centerline-logo-transparent.png' %}"
+                 alt="Centerline Technical Services"
+                 class="navbar-logo-img">
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/about/">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/solutions/">Solutions</a></li>
+                <li><a href="/#clients" class="active">Clients</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a href="/#contact" class="nav-contact">Talk to us</a>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="clients-hero">
+
+        <video class="clients-hero-video" autoplay muted loop playsinline>
+            <source src="{% static 'images/stock-video-rooftop-modern-energy-efficient-office-featuring-ventilation-systems-solar-panels.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="hero-content">
+
+            <div class="hero-label">OUR CLIENTS</div>
+
+            <h1>Trusted partnerships. Better healthcare.</h1>
+
+            <p>
+                We are proud to work with leading healthcare institutions
+                and organizations, delivering reliable healthcare
+                infrastructure solutions.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CLIENTS SECTION -->
+
+    <section class="clients-section" id="clients">
+
+        <div class="clients-container">
+
+            <!-- SECTION HEADING -->
+
+            <div class="section-heading">
+
+                <h2>Our Clients</h2>
+
+                <p>
+                    Our clientele includes healthcare institutions,
+                    hospitals and organizations across the region.
+                </p>
+
+            </div>
+
+
+            <!-- CLIENT GRID: ALL 9 CARDS -->
+
+            <div class="clients-grid">
+
+
+                <!-- CLIENT 1: EMIRATES HEALTH SERVICES -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/emirates-health-services.jpg' %}"
+                                     alt="Emirates Health Services">
+                            </div>
+
+                            <h3>Emirates Health Services</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Emirates Health Services</h3>
+                            <p>Ministry of Health, UAE</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 2: BURJEEL -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/burjeel.jpg' %}"
+                                     alt="Burjeel">
+                            </div>
+
+                            <h3>Burjeel</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Burjeel</h3>
+                            <p>Burjeel Holdings</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 3: ART -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/art.jpg' %}"
+                                     alt="ART">
+                            </div>
+
+                            <h3>ART</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>ART</h3>
+                            <p>Healthcare organization</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 4: SHEIKH KHALIFA HOSPITAL -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/mubadarat-sheikh-khalifa-hospital.jpg' %}"
+                                     alt="Mubadarat and Sheikh Khalifa Hospital">
+                            </div>
+
+                            <h3>Sheikh Khalifa Hospital</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Sheikh Khalifa Hospital</h3>
+                            <p>Mubadarat – Fujairah</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 5: ELYZEE HOSPITAL -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/elyzee-hospital.jpg' %}"
+                                     alt="Elyzee Hospital">
+                            </div>
+
+                            <h3>Elyzee Hospital</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Elyzee Hospital</h3>
+                            <p>Healthcare institution</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 6: MEDICLINIC -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/mediclinic.jpg' %}"
+                                     alt="Mediclinic">
+                            </div>
+
+                            <h3>Mediclinic</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Mediclinic</h3>
+                            <p>Healthcare provider</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 7: MINISTRY OF HEALTH OMAN -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/ministry-of-health-oman.jpg' %}"
+                                     alt="Ministry of Health Oman">
+                            </div>
+
+                            <h3>Ministry of Health</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Ministry of Health</h3>
+                            <p>Oman</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 8: ROYAL HOSPITAL -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/royal-hospital.jpg' %}"
+                                     alt="Royal Hospital">
+                            </div>
+
+                            <h3>Royal Hospital</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Royal Hospital</h3>
+                            <p>Healthcare institution</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- CLIENT 9: AL QASSIMI HOSPITAL -->
+
+                <div class="client-card">
+                    <div class="client-card-inner">
+
+                        <div class="client-card-front">
+
+                            <div class="client-logo">
+                                <img src="{% static 'images/clients/al-qassimi-hospital.jpg' %}"
+                                     alt="Al Qassimi Hospital">
+                            </div>
+
+                            <h3>Al Qassimi Hospital</h3>
+
+                        </div>
+
+                        <div class="client-card-back">
+                            <h3>Al Qassimi Hospital</h3>
+                            <p>Ministry of Health, UAE</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- END CLIENT GRID -->
+
+        </div>
+
+    </section>
+
+
+    <!-- CLOSING SECTION -->
+
+    <section class="clients-closing">
+
+        <h2>Building lasting healthcare partnerships.</h2>
+
+        <p>
+            We look forward to supporting more healthcare organizations
+            with reliable and practical infrastructure solutions.
+        </p>
+
+        <a href="/#contact" class="closing-button">Talk to us</a>
+
+    </section>
+
+
+    <!-- SCROLL ANIMATIONS -->
+
+    <script>
+
+        const animatedElements = document.querySelectorAll(
+            '.section-heading, .client-card'
+        );
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add('show');
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.15
+        });
+
+        animatedElements.forEach((element) => {
+            observer.observe(element);
+        });
+
+    </script>
+
+</body>
+</html>

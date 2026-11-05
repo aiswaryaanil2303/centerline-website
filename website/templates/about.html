@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>About Us | Centerline Technical Services</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +38,7 @@
         .navbar {
             width: 100%;
             min-height: 82px;
-            padding: 12px 5%;
+            padding: 12px 5.8%;
             background: #ffffff;
             display: flex;
             align-items: center;
@@ -51,11 +50,13 @@
             box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .logo img {
-            width: 165px;
-            max-height: 60px;
-            object-fit: contain;
-        }
+        .logo img,
+.navbar-logo-img {
+    width: 175px;
+    max-height: 60px;
+    object-fit: contain;
+    display: block;
+}
 
         .nav-links {
             display: flex;
@@ -65,14 +66,31 @@
 
         .nav-links a {
             color: #183b48;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
+            position: relative;
             transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: #168b9b;
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
             color: #168b9b;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .nav-contact {
@@ -87,63 +105,97 @@
 
         .nav-contact:hover {
             background: #0b6573;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(11, 101, 115, 0.2);
         }
+/* ABOUT HERO WITH VIDEO BACKGROUND */
 
-        /* ABOUT HERO */
+.about-hero {
+    min-height: 470px;
+    padding: 95px 7%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    background: #092f3d;
+}
 
-        .about-hero {
-            min-height: 440px;
-            padding: 85px 7%;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            color: #ffffff;
-            background:
-                radial-gradient(circle at 85% 20%, rgba(39, 151, 163, 0.35), transparent 30%),
-                linear-gradient(115deg, #092f3d, #0c5260);
-        }
+/* Background video */
 
-        .about-hero::after {
-            content: "";
-            position: absolute;
-            width: 380px;
-            height: 380px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 50%;
-            right: 8%;
-            top: 35px;
-        }
+.about-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
 
-        .hero-content {
-            max-width: 780px;
-            position: relative;
-            z-index: 1;
-        }
+/* Dark overlay */
 
-        .eyebrow {
-            color: #7dd3d4;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(3, 30, 42, 0.72),
+        rgba(3, 43, 57, 0.45),
+        rgba(3, 30, 42, 0.65)
+    );
+    z-index: 1;
+}
 
-        .about-hero h1 {
-            font-family: 'Manrope', sans-serif;
-            font-size: clamp(38px, 5vw, 62px);
-            line-height: 1.15;
-            font-weight: 800;
-            margin-bottom: 22px;
-        }
+/* Decorative circle */
 
-        .about-hero p {
-            max-width: 650px;
-            color: #d5e7e9;
-            font-size: 17px;
-            line-height: 1.8;
-        }
+.about-hero::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    right: 8%;
+    top: 30px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Hero content */
+
+.hero-content {
+    width: 100%;
+    max-width: 1450px;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+}
+
+.eyebrow {
+    color: #7dd3d4;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about-hero h1 {
+    max-width: 900px;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(48px, 5.5vw, 76px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.about-hero p {
+    max-width: 720px;
+    color: #d5e7e9;
+    font-size: 18px;
+    line-height: 1.8;
+}
 
         /* COMPANY INTRODUCTION */
 
@@ -153,17 +205,17 @@
         }
 
         .company-container {
-            max-width: 1300px;
+            max-width: 1450px;
             margin: auto;
             display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 75px;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 65px;
             align-items: center;
         }
 
         .company-image {
             width: 100%;
-            height: 500px;
+            height: 540px;
             padding: 15px;
             border-radius: 20px;
             background: #e1edef;
@@ -191,7 +243,7 @@
 
         .company-content h2 {
             font-family: 'Manrope', sans-serif;
-            font-size: clamp(30px, 3.5vw, 43px);
+            font-size: clamp(32px, 3.5vw, 46px);
             line-height: 1.25;
             color: #103746;
             margin-bottom: 25px;
@@ -199,19 +251,19 @@
 
         .company-content p {
             color: #5b7078;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.9;
             margin-bottom: 18px;
         }
 
         .company-highlight {
             margin-top: 25px;
-            padding: 20px 22px;
+            padding: 22px 24px;
             border-left: 4px solid #1595a1;
             border-radius: 0 8px 8px 0;
             background: #e6f1f2;
             color: #174451;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.8;
             font-weight: 600;
         }
@@ -219,14 +271,14 @@
         /* WHY CHOOSE US */
 
         .why-section {
-            padding: 95px 7%;
+            padding: 100px 7%;
             color: #ffffff;
             background: linear-gradient(120deg, #092f3d, #0b4855);
         }
 
         .section-heading {
-            max-width: 720px;
-            margin: 0 auto 55px;
+            max-width: 780px;
+            margin: 0 auto 60px;
             text-align: center;
         }
 
@@ -236,43 +288,45 @@
 
         .section-heading h2 {
             font-family: 'Manrope', sans-serif;
-            font-size: clamp(30px, 4vw, 42px);
+            font-size: clamp(32px, 4vw, 46px);
             line-height: 1.25;
             margin-bottom: 16px;
         }
 
         .section-heading p {
             color: #c4d9dc;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.8;
         }
 
         .features-container {
-            max-width: 1300px;
+            max-width: 1450px;
             margin: auto;
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 18px;
+            gap: 20px;
         }
 
         .feature-card {
-            min-height: 230px;
-            padding: 28px 20px;
-            border-radius: 13px;
+            min-height: 260px;
+            padding: 32px 24px;
+            border-radius: 15px;
             background: #ffffff;
             color: #143b49;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dce9eb;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.35s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+            transform: translateY(-8px);
+            border-color: #138b98;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
         }
 
         .feature-number {
-            width: 43px;
-            height: 43px;
+            width: 46px;
+            height: 46px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -282,31 +336,31 @@
             font-family: 'Manrope', sans-serif;
             font-size: 16px;
             font-weight: 800;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         .feature-card h3 {
             font-family: 'Manrope', sans-serif;
-            font-size: 17px;
+            font-size: 18px;
             line-height: 1.4;
-            margin-bottom: 12px;
+            margin-bottom: 13px;
         }
 
         .feature-card p {
             color: #687d84;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.7;
         }
 
         /* OUR APPROACH */
 
         .approach-section {
-            padding: 90px 7%;
+            padding: 100px 7%;
             background: #ffffff;
         }
 
         .approach-container {
-            max-width: 1150px;
+            max-width: 1450px;
             margin: auto;
             text-align: center;
         }
@@ -318,61 +372,72 @@
         .approach-container h2 {
             font-family: 'Manrope', sans-serif;
             color: #103746;
-            font-size: clamp(28px, 4vw, 40px);
+            font-size: clamp(30px, 4vw, 44px);
             margin-bottom: 20px;
         }
 
         .approach-container > p {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             color: #627780;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.9;
         }
 
         .approach-steps {
-            margin-top: 45px;
+            margin-top: 55px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
+            gap: 22px;
         }
 
         .approach-step {
-            padding: 25px 15px;
-            border-radius: 10px;
+            min-height: 115px;
+            padding: 35px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
             background: #f0f6f7;
-            border-bottom: 3px solid #168e9b;
+            border: 1px solid #dce9eb;
+            border-bottom: 4px solid #168e9b;
+            transition: all 0.3s ease;
+        }
+
+        .approach-step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(13, 57, 69, 0.10);
         }
 
         .approach-step h3 {
             color: #123e4b;
             font-family: 'Manrope', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         /* FOOTER */
 
         .footer {
-            padding: 55px 7% 25px;
+            padding: 60px 7% 25px;
             color: #d5e5e7;
             background: #082c39;
         }
 
         .footer-container {
-            max-width: 1300px;
+            max-width: 1450px;
             margin: auto;
             display: flex;
             justify-content: space-between;
-            gap: 40px;
+            gap: 50px;
             flex-wrap: wrap;
         }
 
         .footer-brand {
-            max-width: 420px;
+            max-width: 450px;
         }
 
         .footer-brand img {
-            width: 165px;
+            width: 175px;
             max-height: 65px;
             object-fit: contain;
             margin-bottom: 18px;
@@ -383,7 +448,7 @@
 
         .footer-brand p {
             color: #b6cbd0;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.8;
         }
 
@@ -391,8 +456,8 @@
         .footer-contact h3 {
             color: #ffffff;
             font-family: 'Manrope', sans-serif;
-            font-size: 16px;
-            margin-bottom: 18px;
+            font-size: 17px;
+            margin-bottom: 20px;
         }
 
         .footer-links a,
@@ -400,8 +465,12 @@
             display: block;
             color: #b6cbd0;
             font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 13px;
             line-height: 1.7;
+        }
+
+        .footer-links a {
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
@@ -409,9 +478,9 @@
         }
 
         .copyright {
-            max-width: 1300px;
-            margin: 40px auto 0;
-            padding-top: 20px;
+            max-width: 1450px;
+            margin: 45px auto 0;
+            padding-top: 22px;
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             color: #9fb7bd;
             font-size: 13px;
@@ -420,7 +489,7 @@
 
         /* TABLET RESPONSIVE */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1100px) {
             .company-container {
                 gap: 40px;
             }
@@ -434,7 +503,7 @@
             }
 
             .nav-links {
-                gap: 18px;
+                gap: 20px;
             }
         }
 
@@ -448,7 +517,7 @@
             }
 
             .logo img {
-                width: 135px;
+                width: 140px;
             }
 
             .nav-links {
@@ -469,28 +538,32 @@
             }
 
             .about-hero {
-                min-height: 380px;
-                padding: 70px 6%;
+                min-height: 390px;
+                padding: 75px 6%;
+            }
+
+            .about-hero h1 {
+                font-size: clamp(38px, 7vw, 52px);
             }
 
             .about-hero p {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .company-section,
             .why-section,
             .approach-section {
-                padding: 65px 6%;
+                padding: 70px 6%;
             }
 
             .company-container {
                 grid-template-columns: 1fr;
-                gap: 35px;
+                gap: 40px;
             }
 
             .company-image {
-                height: 430px;
-                max-width: 480px;
+                height: 450px;
+                max-width: 550px;
                 margin: auto;
             }
 
@@ -499,13 +572,13 @@
             }
 
             .feature-card {
-                min-height: 210px;
-                padding: 22px 17px;
+                min-height: 230px;
+                padding: 25px 20px;
             }
 
             .footer-container {
                 flex-direction: column;
-                gap: 30px;
+                gap: 35px;
             }
         }
 
@@ -535,6 +608,10 @@
                 padding: 10px;
             }
 
+            .company-content h2 {
+                font-size: 30px;
+            }
+
             .features-container {
                 grid-template-columns: 1fr;
             }
@@ -546,7 +623,77 @@
             .approach-steps {
                 grid-template-columns: 1fr;
             }
+
+            .approach-step {
+                min-height: 95px;
+            }
         }
+
+/* =================================
+   ABOUT PAGE SCROLL ANIMATIONS
+================================= */
+
+.about-reveal {
+    opacity: 0;
+    transition:
+        opacity 0.85s ease,
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.about-reveal.from-up {
+    transform: translateY(45px);
+}
+
+.about-reveal.from-left {
+    transform: translateX(-55px);
+}
+
+.about-reveal.from-right {
+    transform: translateX(55px);
+}
+
+.about-reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Keep card hover effects working */
+
+.feature-card.about-reveal.is-visible:hover {
+    transform: translateY(-8px);
+}
+
+.approach-step.about-reveal.is-visible:hover {
+    transform: translateY(-6px);
+}
+
+/* Mobile animation distance */
+
+@media (max-width: 760px) {
+    .about-reveal.from-up {
+        transform: translateY(25px);
+    }
+
+    .about-reveal.from-left,
+    .about-reveal.from-right {
+        transform: translateY(25px);
+    }
+
+    .about-reveal.is-visible {
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .about-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
     </style>
 </head>
 
@@ -555,13 +702,15 @@
     <!-- NAVBAR -->
     <header class="navbar">
 
-        <a href="/" class="logo">
-            <img src="{% static '1000217145.jpg' %}" alt="Centerline Logo">
-        </a>
+    <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
+    <img src="{% static 'images/centerline-logo-transparent.png' %}"
+         alt="Centerline Technical Services"
+         class="navbar-logo-img">
+</a>
 
         <nav class="nav-links">
-           <a href="/about/" class="active">About</a>
-            <a href="/#services">Services</a>
+            <a href="/about/" class="active">About</a>
+            <a href="/services/">Services</a>
             <a href="/#solutions">Solutions</a>
             <a href="/#clients">Clients</a>
             <a href="/#contact">Contact</a>
@@ -570,30 +719,42 @@
         <a href="/#contact" class="nav-contact">Talk to us</a>
 
     </header>
+<!-- ABOUT HERO -->
+<section class="about-hero">
 
+    <!-- Background Video -->
+    <video class="about-hero-video"
+           autoplay
+           muted
+           loop
+           playsinline>
+        <source src="{% static 'images/12966314_4096_2160_25fps.mp4' %}"
+                type="video/mp4">
+    </video>
 
-    <!-- ABOUT HERO -->
-    <section class="about-hero">
+    <!-- Dark Overlay -->
+    <div class="about-hero-overlay"></div>
 
-        <div class="hero-content">
+    <!-- Hero Content -->
+    <div class="hero-content">
 
-            <div class="eyebrow">ABOUT CENTERLINE</div>
+        <div class="eyebrow">ABOUT CENTERLINE</div>
 
-            <h1>Building better healthcare infrastructure.</h1>
+        <h1>Building better healthcare infrastructure.</h1>
 
-            <p>
-                Delivering integrated healthcare infrastructure solutions
-                through expertise, innovation and a commitment to quality
-                patient care.
-            </p>
+        <p>
+            Delivering integrated healthcare infrastructure solutions
+            through expertise, innovation and a commitment to quality
+            patient care.
+        </p>
 
-        </div>
+    </div>
+
+</section>
 
     </section>
 
-
     <!-- COMPANY INTRODUCTION -->
-
     <section class="company-section">
 
         <div class="company-container">
@@ -647,7 +808,6 @@
         </div>
 
     </section>
-
 
     <!-- WHY CHOOSE US -->
     <section class="why-section">
@@ -717,7 +877,6 @@
 
     </section>
 
-
     <!-- OUR APPROACH -->
     <section class="approach-section">
 
@@ -759,7 +918,6 @@
 
     </section>
 
-
     <!-- FOOTER -->
     <footer class="footer">
 
@@ -783,7 +941,7 @@
 
                 <a href="/">Home</a>
                 <a href="/about/">About Us</a>
-                <a href="/#services">Services</a>
+                <a href="/services/">Services</a>
                 <a href="/#solutions">Solutions</a>
                 <a href="/#contact">Contact</a>
 
@@ -805,6 +963,96 @@
         </div>
 
     </footer>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const animationGroups = [
+        {
+            selector: ".hero-content",
+            effect: "from-up"
+        },
+        {
+            selector: ".company-image",
+            effect: "from-left"
+        },
+        {
+            selector: ".company-content",
+            effect: "from-right"
+        },
+        {
+            selector: ".section-heading",
+            effect: "from-up"
+        },
+        {
+            selector: ".feature-card",
+            effect: "from-up",
+            stagger: true
+        },
+        {
+            selector: ".approach-container > .eyebrow, .approach-container > h2, .approach-container > p",
+            effect: "from-up"
+        },
+        {
+            selector: ".approach-step",
+            effect: "from-up",
+            stagger: true
+        },
+        {
+            selector: ".footer-brand, .footer-links, .footer-contact",
+            effect: "from-up"
+        }
+    ];
+
+    const animatedElements = [];
+
+    animationGroups.forEach(function (group) {
+
+        document.querySelectorAll(group.selector).forEach(function (element, index) {
+
+            element.classList.add("about-reveal", group.effect);
+
+            if (group.stagger) {
+                element.style.transitionDelay = (index * 120) + "ms";
+            }
+
+            animatedElements.push(element);
+        });
+
+    });
+
+    if (!("IntersectionObserver" in window)) {
+        animatedElements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+
+        entries.forEach(function (entry) {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+            } else {
+                entry.target.classList.remove("is-visible");
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    animatedElements.forEach(function (element) {
+        observer.observe(element);
+    });
+
+});
+</script>
+
+
+   
 
 </body>
 </html>

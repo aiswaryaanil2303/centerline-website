@@ -1,0 +1,788 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Gas Supply Systems | Centerline</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #123746;
+            background: #f3f8f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            width: 100%;
+            min-height: 82px;
+            padding: 12px 5%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo img {
+            width: 165px;
+            max-height: 60px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.04);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #183b48;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #168b9b;
+        }
+
+        .nav-contact {
+            padding: 12px 23px;
+            border-radius: 6px;
+            background: #138b98;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .nav-contact:hover {
+            background: #0b6573;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 15px rgba(19, 139, 152, 0.25);
+        }
+
+        /* HERO */
+
+        .hvac-hero {
+            padding: 110px 6%;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(39, 151, 163, 0.35), transparent 30%),
+                linear-gradient(115deg, #092f3d, #0c5260);
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        .eyebrow {
+            color: #7dd3d4;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hvac-hero h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hvac-hero p {
+            max-width: 950px;
+            color: #d5e7e9;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        /* MAIN CONTENT */
+
+        .hvac-section {
+            padding: 100px 5%;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 1550px;
+            margin: auto;
+        }
+
+        .intro-content {
+            max-width: 1200px;
+            margin-bottom: 75px;
+            animation: fadeUp 0.9s ease both;
+        }
+
+        .section-label {
+            color: #138b98;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .intro-content h2,
+        .objectives-section h2,
+        .features-section h2 {
+            font-family: 'Manrope', sans-serif;
+            color: #103746;
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.3;
+            margin-bottom: 22px;
+        }
+
+        .intro-content p {
+            color: #627780;
+            font-size: 17px;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        /* OBJECTIVES */
+
+        .objectives-section {
+            margin-bottom: 85px;
+        }
+
+        .objectives-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .objective-card {
+            background: #ffffff;
+            border: 1px solid #dce9eb;
+            border-radius: 14px;
+            padding: 38px 30px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(13, 57, 69, 0.05);
+            transition: all 0.35s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-8px);
+            border-color: #138b98;
+            box-shadow: 0 18px 35px rgba(13, 57, 69, 0.13);
+        }
+
+        .objective-number {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e2f2f2;
+            color: #138b98;
+            border-radius: 50%;
+            font-family: 'Manrope', sans-serif;
+            font-size: 19px;
+            font-weight: 800;
+            transition: all 0.35s ease;
+        }
+
+        .objective-card:hover .objective-number {
+            background: #138b98;
+            color: #ffffff;
+            transform: rotate(8deg);
+        }
+
+        .objective-card h3 {
+            font-family: 'Manrope', sans-serif;
+            color: #103746;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        /* MEDICAL GAS FEATURES */
+
+        .features-section {
+            padding: 65px;
+            background: #ffffff;
+            border: 1px solid #dce9eb;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(13, 57, 69, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .features-section:hover {
+            box-shadow: 0 14px 35px rgba(13, 57, 69, 0.09);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            min-height: 150px;
+            background: #f3f8f9;
+            border-left: 4px solid #138b98;
+            border-radius: 8px;
+            transition: all 0.35s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            background: #e8f4f5;
+            box-shadow: 0 10px 22px rgba(13, 57, 69, 0.08);
+            border-left-width: 7px;
+        }
+
+        .feature-card h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 19px;
+            color: #103746;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #687d84;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* CLOSING SECTION */
+
+        .closing-section {
+            padding: 85px 7%;
+            text-align: center;
+            color: #ffffff;
+            background: linear-gradient(120deg, #092f3d, #0b4855);
+        }
+
+        .closing-container {
+            max-width: 1000px;
+            margin: auto;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .closing-container h2 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+
+        .closing-container p {
+            color: #c4d9dc;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #ffffff;
+            color: #0b6573;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #dff3f3;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 55px 7% 25px;
+            color: #d5e5e7;
+            background: #082c39;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            max-width: 420px;
+        }
+
+        .footer-brand img {
+            width: 165px;
+            max-height: 65px;
+            object-fit: contain;
+            margin-bottom: 18px;
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-brand img:hover {
+            transform: scale(1.04);
+        }
+
+        .footer-brand p,
+        .footer-links a,
+        .footer-contact p {
+            color: #b6cbd0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            color: #ffffff;
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #70d1d2;
+            transform: translateX(3px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+        }
+
+        .copyright {
+            max-width: 1300px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: #9fb7bd;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 992px) {
+            .objectives-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .navbar {
+                padding: 12px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .logo img {
+                width: 135px;
+            }
+
+            .nav-links {
+                width: 100%;
+                order: 3;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px 22px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .nav-contact {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+
+            .hvac-hero {
+                padding: 65px 6%;
+                min-height: 380px;
+            }
+
+            .hvac-hero p {
+                font-size: 15px;
+            }
+
+            .hvac-section {
+                padding: 60px 6%;
+            }
+
+            .objectives-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-section {
+                padding: 28px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 12px 16px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hvac-hero h1 {
+                font-size: 34px;
+            }
+
+            .objective-card {
+                padding: 27px 20px;
+            }
+
+            .features-section {
+                padding: 22px;
+            }
+
+            .feature-card {
+                padding: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="/" class="logo">
+            <img src="{% static '1000217145.jpg' %}" alt="Centerline Logo">
+        </a>
+
+        <nav class="nav-links">
+            <a href="/about/">About</a>
+            <a href="/services/" class="active">Services</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#clients">Clients</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+
+        <a href="/#contact" class="nav-contact">Talk to us</a>
+
+    </header>
+
+    <!-- HERO -->
+    <section class="hvac-hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">OUR SERVICES / 04</div>
+
+            <h1>Medical Gas Supply Systems</h1>
+
+            <p>
+                Medical gas supply infrastructure, including Bed Head Units
+                (BHU) and medical pendants, designed to support the
+                requirements of healthcare facilities.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="hvac-section">
+
+        <div class="content-container">
+
+            <!-- INTRODUCTION -->
+            <div class="intro-content">
+
+                <div class="section-label">Medical Gas Supply Systems</div>
+
+                <h2>Supporting essential medical gas infrastructure.</h2>
+
+                <p>
+                    Medical gas systems are an important part of healthcare
+                    infrastructure. Hospitals require appropriately planned
+                    systems to support the supply and availability of medical
+                    gases in clinical areas.
+                </p>
+
+                <p>
+                    Centerline Technical Services focuses on medical gas
+                    supply infrastructure solutions, including Bed Head Units
+                    (BHU) and medical pendants, for healthcare facilities.
+                </p>
+
+                <p>
+                    Our approach considers the functional requirements of
+                    medical spaces and the importance of coordinated
+                    infrastructure planning.
+                </p>
+
+            </div>
+
+            <!-- CORE OBJECTIVES -->
+            <div class="objectives-section">
+
+                <div class="section-label">Our Purpose</div>
+
+                <h2>Key Objectives of Medical Gas Systems</h2>
+
+                <div class="objectives-grid">
+
+                    <div class="objective-card">
+                        <div class="objective-number">01</div>
+                        <h3>Reliable Medical Gas Infrastructure</h3>
+                    </div>
+
+                    <div class="objective-card">
+                        <div class="objective-number">02</div>
+                        <h3>Organized Clinical Spaces</h3>
+                    </div>
+
+                    <div class="objective-card">
+                        <div class="objective-number">03</div>
+                        <h3>Functional Bed Head Units</h3>
+                    </div>
+
+                    <div class="objective-card">
+                        <div class="objective-number">04</div>
+                        <h3>Medical Pendant Solutions</h3>
+                    </div>
+
+                    <div class="objective-card">
+                        <div class="objective-number">05</div>
+                        <h3>Coordinated Facility Planning</h3>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MEDICAL GAS FEATURES -->
+            <div class="features-section">
+
+                <div class="section-label">Solution Capabilities</div>
+
+                <h2>Healthcare-focused Medical Gas Solutions</h2>
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+                        <h3>Medical Gas Supply</h3>
+                        <p>
+                            Medical gas infrastructure planned around
+                            the requirements of healthcare facilities.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Bed Head Units (BHU)</h3>
+                        <p>
+                            Bed head unit solutions for organized
+                            clinical spaces and patient care areas.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Medical Pendants</h3>
+                        <p>
+                            Medical pendant infrastructure considered
+                            for functional healthcare environments.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Clinical Area Planning</h3>
+                        <p>
+                            Considering the functional requirements
+                            of different clinical areas.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Infrastructure Coordination</h3>
+                        <p>
+                            Coordinating medical gas requirements
+                            with wider healthcare infrastructure.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Facility Requirements</h3>
+                        <p>
+                            Solutions planned around the operational
+                            needs of medical facilities.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CLOSING -->
+    <section class="closing-section">
+
+        <div class="closing-container">
+
+            <div class="eyebrow">CENTERLINE TECHNICAL SERVICES</div>
+
+            <h2>Supporting essential healthcare infrastructure.</h2>
+
+            <p>
+                Medical gas supply solutions designed around the
+                functional requirements of modern healthcare facilities.
+            </p>
+
+            <a href="/services/" class="back-button">
+                ← Back to Services
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <img src="{% static '1000217145.jpg' %}" alt="Centerline Logo">
+
+                <p>
+                    Centerline Technical Services delivers integrated
+                    healthcare infrastructure solutions with a focus
+                    on quality, safety and reliability.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="/">Home</a>
+                <a href="/about/">About Us</a>
+                <a href="/services/">Services</a>
+                <a href="/#solutions">Solutions</a>
+                <a href="/#contact">Contact</a>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h3>Get in Touch</h3>
+
+                <p>Centerline Technical Services</p>
+                <p>Contact us for healthcare infrastructure enquiries.</p>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Centerline Technical Services. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>

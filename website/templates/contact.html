@@ -1,0 +1,564 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us - CENTERLINE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f2f7f9;
+            color: #0b3040;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            min-height: 75px;
+            padding: 0 5.8%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+  .logo img,
+.navbar-logo-img {
+    width: 175px;
+    max-height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #304953;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #20a8b8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #20a8b8;
+            color: #ffffff;
+            padding: 11px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #168c9c;
+            transform: translateY(-2px);
+        }
+
+        /* CONTACT SECTION */
+
+        .contact-section {
+            background: linear-gradient(
+                115deg,
+                #0b4655 0%,
+                #0d5968 60%,
+                #107080 100%
+            );
+            color: #ffffff;
+            padding: 110px 5%;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-container {
+            max-width: 1460px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.25fr 0.9fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+        }
+
+        .contact-label {
+            color: #79e4ed;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .contact-title {
+            max-width: 750px;
+            font-size: clamp(38px, 4vw, 54px);
+            line-height: 1.12;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .contact-description {
+            color: #e0e9ed;
+            max-width: 800px;
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 18px 28px;
+            background: #20a8b8;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 800;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .contact-button:hover {
+            background: #168c9c;
+            transform: translateY(-3px);
+        }
+
+        /* CONTACT DETAILS */
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(205, 239, 242, 0.25);
+            border-radius: 20px;
+            padding: 42px 38px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item h3 {
+            color: #9de5e9;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #9de5e9;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #071f2a;
+            color: #c5d6da;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            line-height: 1.7;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-card {
+                padding: 35px;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 760px) {
+            .navbar {
+                padding: 14px 5%;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .navbar-logo {
+                width: 145px;
+                height: 44px;
+            }
+
+            .navbar-logo-img {
+                width: 230px;
+                height: 92px;
+                margin-top: -39px;
+                margin-left: -42px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .cta-button {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            .contact-section {
+                padding: 70px 6%;
+            }
+
+            .contact-title {
+                font-size: 38px;
+            }
+
+            .contact-description {
+                font-size: 17px;
+            }
+
+            .contact-card {
+                padding: 28px 24px;
+            }
+        }
+
+        
+/* PREMIUM ANIMATIONS */
+
+/* Smooth page entrance */
+.contact-content {
+    animation: fadeInLeft 1s ease both;
+}
+
+.contact-card {
+    animation: fadeInRight 1s ease both;
+}
+
+/* Animated teal background glow */
+.contact-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: -120px;
+    right: -80px;
+    background: radial-gradient(
+        circle,
+        rgba(32, 168, 184, 0.22),
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: glowMove 7s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.contact-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Premium glass contact card */
+.contact-card {
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(205, 239, 242, 0.3);
+    box-shadow: 0 15px 45px rgba(0, 20, 30, 0.18);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 55px rgba(0, 20, 30, 0.28);
+}
+
+/* Contact details hover */
+.contact-item a {
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #9de5e9;
+    transform: translateX(5px);
+}
+
+/* Button hover */
+.contact-button {
+    box-shadow: 0 5px 18px rgba(32, 168, 184, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+    box-shadow: 0 10px 25px rgba(32, 168, 184, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glowMove {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-70px, 50px);
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .contact-content,
+    .contact-card,
+    .contact-section::before {
+        animation: none;
+    }
+
+    .contact-card,
+    .contact-item a,
+    .contact-button {
+        transition: none;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+       <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
+    <img src="{% static 'images/centerline-logo-transparent.png' %}"
+         alt="Centerline Technical Services"
+         class="navbar-logo-img">
+</a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/about/">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/solutions/">Solutions</a></li>
+                <li><a href="/clients/">Clients</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-cta">
+            <a href="/contact/" class="cta-button">Talk to us</a>
+        </div>
+
+    </header>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section">
+
+        <div class="contact-container">
+
+            <!-- LEFT CONTENT -->
+
+            <div class="contact-content">
+
+                <p class="contact-label">GET IN TOUCH</p>
+
+                <h1 class="contact-title">
+                    Let's build better healthcare infrastructure.
+                </h1>
+
+                <p class="contact-description">
+                    Centerline supports healthcare projects with integrated
+                    design, supply, installation, testing, commissioning
+                    and maintenance capabilities.
+                </p>
+
+                <a href="mailto:sales@centerline.ae" class="contact-button">
+                    Email Centerline
+                </a>
+
+            </div>
+
+            <!-- RIGHT CONTACT DETAILS -->
+
+            <div class="contact-card">
+
+                <!-- ABU DHABI -->
+
+                <div class="contact-item">
+
+                    <h3>ABU DHABI</h3>
+
+                    <p>Zahiya Area</p>
+
+                    <p>
+                        <a href="tel:+971505204975">
+                            +971 50 520 4975
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="tel:+971553106547">
+                            +971 55 310 6547
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="mailto:sales@centerline.ae">
+                            sales@centerline.ae
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="mailto:syedmohd@centerline.ae">
+                            syedmohd@centerline.ae
+                        </a>
+                    </p>
+
+                </div>
+
+                <!-- DUBAI -->
+
+                <div class="contact-item">
+
+                    <h3>DUBAI</h3>
+
+                    <p>Muteena Area</p>
+
+                    <p>
+                        <a href="tel:+971505204975">
+                            +971 50 520 4975
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="tel:+971553106547">
+                            +971 55 310 6547
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="mailto:sales@centerline.ae">
+                            sales@centerline.ae
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="mailto:syedmohd@centerline.ae">
+                            syedmohd@centerline.ae
+                        </a>
+                    </p>
+
+                </div>
+
+                <!-- WEBSITE -->
+
+                <div class="contact-item">
+
+                    <h3>WEBSITE</h3>
+
+                    <p>
+                        <a href="https://www.centerline.ae" target="_blank">
+                            www.centerline.ae
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            © 2026 Centerline Technical Services.
+            All Rights Reserved.
+        </p>
+
+        <p style="margin-top: 8px; font-size: 13px;">
+            Dubai | Abu Dhabi | United Arab Emirates
+        </p>
+    </footer>
+
+</body>
+</html>

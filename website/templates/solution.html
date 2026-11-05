@@ -1,0 +1,628 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | Centerline</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f5f8f9;
+            color: #163642;
+        }
+
+        /* Navbar */
+        .navbar {
+            min-height: 82px;
+            padding: 12px 5%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo img,
+.navbar-logo-img {
+    width: 175px;
+    max-height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+        .logo img:hover {
+            transform: scale(1.04);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #183b47;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #078a91;
+        }
+
+        .nav-contact {
+            text-decoration: none;
+            background: #087e86;
+            color: white;
+            padding: 12px 23px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .nav-contact:hover {
+            background: #07545e;
+            transform: translateY(-3px);
+        }
+
+        /* Hero with Background Video */
+
+.solution-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 480px;
+    background: #073542;
+    color: white;
+    padding: 100px 6%;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background Video */
+
+.solution-hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Dark Overlay */
+
+.solution-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(7, 53, 66, 0.85),
+        rgba(7, 82, 97, 0.70)
+    );
+    z-index: -1;
+}
+
+/* Hero Content */
+
+.hero-content {
+    max-width: 950px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Label */
+
+.hero-label {
+    color: #8de1df;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+        /* Solutions section */
+        .solutions-section {
+            padding: 90px 5% 110px;
+            background: linear-gradient(135deg, #082e3b, #073d4b);
+            color: white;
+        }
+
+        .solutions-container {
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 900px;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(34px, 4vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: #d4e6e9;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.075);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 16px;
+            padding: 36px;
+            min-height: 300px;
+            transition: transform 0.35s ease,
+                        background 0.35s ease,
+                        box-shadow 0.35s ease,
+                        border-color 0.35s ease;
+            opacity: 0;
+            transform: translateY(35px);
+        }
+
+        .solution-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-9px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(141, 225, 223, 0.55);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .solution-card h3 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .solution-card p {
+            color: #d7e8eb;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .solution-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .solution-tags span {
+            display: inline-block;
+            padding: 9px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: #e5f2f3;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .solution-tags span:hover {
+            background: #8de1df;
+            color: #073542;
+            border-color: #8de1df;
+            transform: translateY(-3px);
+        }
+
+        /* Closing section */
+        .solution-closing {
+            padding: 75px 6%;
+            text-align: center;
+            background: #eaf2f3;
+        }
+
+        .solution-closing h2 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #103b48;
+        }
+
+        .solution-closing p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #526b73;
+            line-height: 1.8;
+        }
+
+        .closing-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #087e86;
+            color: white;
+            padding: 13px 26px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .closing-button:hover {
+            background: #07545e;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #062b36;
+            color: white;
+            padding: 55px 6% 25px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 35px;
+        }
+
+        .footer-logo img {
+            width: 155px;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            color: #c5d8dc;
+            line-height: 1.8;
+            max-width: 350px;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #c5d8dc;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8de1df;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 35px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: #b7cbd0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .solutions-grid {
+                gap: 20px;
+            }
+
+            .solution-card {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-contact {
+                padding: 10px 15px;
+            }
+
+            .solution-hero {
+                padding: 75px 6%;
+            }
+
+            .solutions-section {
+                padding: 70px 5%;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-card {
+                min-height: auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                width: 135px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .solution-card {
+                padding: 25px;
+            }
+
+            .solution-card h3 {
+                font-size: 20px;
+            }
+
+            .section-heading p,
+            .solution-hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+     <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
+    <img src="{% static 'images/centerline-logo-transparent.png' %}"
+         alt="Centerline Technical Services"
+         class="navbar-logo-img">
+</a>
+
+        <nav class="nav-links">
+            <a href="/about/">About</a>
+            <a href="/services/">Services</a>
+            <a href="/solutions/" class="active">Solutions</a>
+            <a href="/#clients">Clients</a>
+            <a href="/#contact">Contact</a>
+        </nav>
+
+        <a href="/#contact" class="nav-contact">Talk to us</a>
+    </header>
+
+    <!-- Hero -->
+  
+<!-- Hero -->
+<section class="solution-hero">
+
+    <!-- Background Video -->
+    <video class="solution-hero-video" autoplay muted loop playsinline>
+        <source src="{% static 'images/stock-video-rooftop-modern-energy-efficient-office-featuring-ventilation-systems-solar-panels.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+
+        <div class="hero-label">OUR SOLUTIONS</div>
+
+        <h1>Integrated solutions for modern healthcare environments.</h1>
+
+        <p>
+            We bring together application-specific engineering and
+            healthcare infrastructure solutions to support safer,
+            smarter and more reliable clinical environments.
+        </p>
+
+    </div>
+</section>
+    <!-- Solutions -->
+    <section class="solutions-section">
+        <div class="solutions-container">
+
+            <div class="section-heading">
+                <h2>Designed for demanding clinical environments.</h2>
+                <p>
+                    The company profile highlights application-specific engineering
+                    across operating rooms, isolation rooms, protective environments,
+                    pharmacies, laboratories and imaging spaces.
+                </p>
+            </div>
+
+            <div class="solutions-grid">
+
+                <!-- Healthcare HVAC -->
+                <div class="solution-card">
+                    <h3>Healthcare HVAC</h3>
+                    <p>
+                        Application-focused airflow and pressure strategies
+                        support different clinical modalities.
+                    </p>
+
+                    <div class="solution-tags">
+                        <span>Positive pressure</span>
+                        <span>Negative pressure</span>
+                        <span>HEPA filtration</span>
+                        <span>Laminar flow</span>
+                        <span>Differential pressure monitoring</span>
+                        <span>UV exhaust</span>
+                    </div>
+                </div>
+
+                <!-- Infection Control -->
+                <div class="solution-card">
+                    <h3>Infection Control</h3>
+                    <p>
+                        Infrastructure measures include patient-room design,
+                        negative-pressure rooms, protective environments,
+                        UV-C disinfection, water safety and electronic monitoring.
+                    </p>
+
+                    <div class="solution-tags">
+                        <span>AIIR</span>
+                        <span>PE rooms</span>
+                        <span>UV-C</span>
+                        <span>Water safety</span>
+                        <span>RTLS</span>
+                        <span>Telehealth</span>
+                    </div>
+                </div>
+
+                <!-- Medical Gas -->
+                <div class="solution-card">
+                    <h3>Medical Gas &amp; Pendants</h3>
+                    <p>
+                        Bed Head Units and pendants consolidate critical
+                        utilities at the point of care while improving
+                        floor clearance and flexibility.
+                    </p>
+
+                    <div class="solution-tags">
+                        <span>O₂</span>
+                        <span>Vacuum</span>
+                        <span>Medical Air</span>
+                        <span>N₂</span>
+                        <span>N₂O</span>
+                        <span>AGSS</span>
+                        <span>Data</span>
+                    </div>
+                </div>
+
+                <!-- Hospital Electrical -->
+                <div class="solution-card">
+                    <h3>Hospital Electrical</h3>
+                    <p>
+                        Layered backup architecture supports continuity
+                        of critical healthcare operations.
+                    </p>
+
+                    <div class="solution-tags">
+                        <span>Generators</span>
+                        <span>UPS</span>
+                        <span>ATS</span>
+                        <span>Technical grounding</span>
+                        <span>IPS</span>
+                        <span>LIM</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="solution-closing">
+        <h2>Building better healthcare environments.</h2>
+        <p>
+            Explore our services to learn more about the infrastructure
+            solutions we provide for healthcare facilities.
+        </p>
+        <a href="/services/" class="closing-button">Explore Our Services</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div>
+                <a href="/" class="footer-logo">
+                    <img src="{% static '1000217145.jpg' %}" alt="Centerline Logo">
+                </a>
+                <p>
+                    Healthcare infrastructure solutions designed
+                    for safer and smarter clinical environments.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/services/">Services</a>
+                <a href="/solutions/">Solutions</a>
+                <a href="/#contact">Contact</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Centerline. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll animation -->
+   <script>
+    const animatedElements = document.querySelectorAll(
+        '.section-heading, .solution-card'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add('show');
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    animatedElements.forEach((element) => {
+        observer.observe(element);
+    });
+</script>
+   
+
+</body>
+</html>
