@@ -51,12 +51,12 @@
         }
 
         .logo img,
-.navbar-logo-img {
-    width: 175px;
-    max-height: 60px;
-    object-fit: contain;
-    display: block;
-}
+        .navbar-logo-img {
+            width: 175px;
+            max-height: 60px;
+            object-fit: contain;
+            display: block;
+        }
 
         .nav-links {
             display: flex;
@@ -108,115 +108,110 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 12px rgba(11, 101, 115, 0.2);
         }
-/* ABOUT HERO WITH VIDEO BACKGROUND */
 
-.about-hero {
-    min-height: 470px;
-    padding: 95px 7%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    color: #ffffff;
-    background: #092f3d;
-}
+        /* ABOUT HERO WITH VIDEO BACKGROUND */
 
-/* Background video */
+        .about-hero {
+            min-height: 470px;
+            padding: 95px 7%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            background: #092f3d;
+        }
 
-.about-hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-}
+        .about-hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
 
-/* Dark overlay */
+        .about-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(3, 30, 42, 0.72),
+                rgba(3, 43, 57, 0.45),
+                rgba(3, 30, 42, 0.65)
+            );
+            z-index: 1;
+        }
 
-.about-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(3, 30, 42, 0.72),
-        rgba(3, 43, 57, 0.45),
-        rgba(3, 30, 42, 0.65)
-    );
-    z-index: 1;
-}
+        .about-hero::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            right: 8%;
+            top: 30px;
+            z-index: 2;
+            pointer-events: none;
+        }
 
-/* Decorative circle */
+        .hero-content {
+            width: 100%;
+            max-width: 1450px;
+            margin: auto;
+            position: relative;
+            z-index: 3;
+        }
 
-.about-hero::after {
-    content: "";
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
-    right: 8%;
-    top: 30px;
-    z-index: 2;
-    pointer-events: none;
-}
+        .eyebrow {
+            color: #7dd3d4;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
-/* Hero content */
+        .about-hero h1 {
+            max-width: 900px;
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(48px, 5.5vw, 76px);
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
 
-.hero-content {
-    width: 100%;
-    max-width: 1450px;
-    margin: auto;
-    position: relative;
-    z-index: 3;
-}
-
-.eyebrow {
-    color: #7dd3d4;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.about-hero h1 {
-    max-width: 900px;
-    font-family: 'Manrope', sans-serif;
-    font-size: clamp(48px, 5.5vw, 76px);
-    line-height: 1.15;
-    font-weight: 800;
-    margin-bottom: 22px;
-}
-
-.about-hero p {
-    max-width: 720px;
-    color: #d5e7e9;
-    font-size: 18px;
-    line-height: 1.8;
-}
+        .about-hero p {
+            max-width: 720px;
+            color: #d5e7e9;
+            font-size: 18px;
+            line-height: 1.8;
+        }
 
         /* COMPANY INTRODUCTION */
 
         .company-section {
-            padding: 100px 7%;
+            padding: 80px 7%;
             background: #f3f8f9;
         }
 
         .company-container {
-            max-width: 1450px;
+            max-width: 1366px;
             margin: auto;
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 65px;
+            grid-template-columns: 0.82fr 1fr;
+            gap: 60px;
             align-items: center;
         }
 
+        /* IMAGE CARD */
+
         .company-image {
             width: 100%;
-            height: 540px;
-            padding: 15px;
+            height: 506px;
+            padding: 14px;
             border-radius: 20px;
             background: #e1edef;
             border: 1px solid #d1e2e5;
@@ -233,37 +228,48 @@
             display: block;
             object-fit: contain;
             object-position: center;
-            border-radius: 12px;
+            border-radius: 10px;
+        }
+
+        /* COMPANY TEXT */
+
+        .company-content {
+            width: 100%;
         }
 
         .company-content .eyebrow {
             color: #138b98;
-            margin-bottom: 15px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
         }
 
         .company-content h2 {
             font-family: 'Manrope', sans-serif;
-            font-size: clamp(32px, 3.5vw, 46px);
-            line-height: 1.25;
+            font-size: clamp(34px, 3.5vw, 44px);
+            line-height: 1.23;
+            font-weight: 800;
             color: #103746;
             margin-bottom: 25px;
         }
 
         .company-content p {
-            color: #5b7078;
-            font-size: 16px;
-            line-height: 1.9;
-            margin-bottom: 18px;
+            color: #627780;
+            font-size: 15.5px;
+            line-height: 1.85;
+            margin-bottom: 19px;
         }
+
+        /* COMMITMENT HIGHLIGHT */
 
         .company-highlight {
             margin-top: 25px;
-            padding: 22px 24px;
+            padding: 21px 22px;
             border-left: 4px solid #1595a1;
             border-radius: 0 8px 8px 0;
             background: #e6f1f2;
             color: #174451;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.8;
             font-weight: 600;
         }
@@ -516,7 +522,8 @@
                 gap: 15px;
             }
 
-            .logo img {
+            .logo img,
+            .navbar-logo-img {
                 width: 140px;
             }
 
@@ -565,6 +572,10 @@
                 height: 450px;
                 max-width: 550px;
                 margin: auto;
+            }
+
+            .company-content h2 {
+                font-size: clamp(30px, 5vw, 38px);
             }
 
             .features-container {
@@ -629,71 +640,60 @@
             }
         }
 
-/* =================================
-   ABOUT PAGE SCROLL ANIMATIONS
-================================= */
+        /* ABOUT PAGE SCROLL ANIMATIONS */
 
-.about-reveal {
-    opacity: 0;
-    transition:
-        opacity 0.85s ease,
-        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-}
+        .about-reveal {
+            opacity: 0;
+            transition:
+                opacity 0.85s ease,
+                transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
 
-.about-reveal.from-up {
-    transform: translateY(45px);
-}
+        .about-reveal.from-up {
+            transform: translateY(45px);
+        }
 
-.about-reveal.from-left {
-    transform: translateX(-55px);
-}
+        .about-reveal.from-left {
+            transform: translateX(-55px);
+        }
 
-.about-reveal.from-right {
-    transform: translateX(55px);
-}
+        .about-reveal.from-right {
+            transform: translateX(55px);
+        }
 
-.about-reveal.is-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-}
+        .about-reveal.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
 
-/* Keep card hover effects working */
+        .feature-card.about-reveal.is-visible:hover {
+            transform: translateY(-8px);
+        }
 
-.feature-card.about-reveal.is-visible:hover {
-    transform: translateY(-8px);
-}
+        .approach-step.about-reveal.is-visible:hover {
+            transform: translateY(-6px);
+        }
 
-.approach-step.about-reveal.is-visible:hover {
-    transform: translateY(-6px);
-}
+        @media (max-width: 760px) {
+            .about-reveal.from-up,
+            .about-reveal.from-left,
+            .about-reveal.from-right {
+                transform: translateY(25px);
+            }
 
-/* Mobile animation distance */
+            .about-reveal.is-visible {
+                transform: translateY(0);
+            }
+        }
 
-@media (max-width: 760px) {
-    .about-reveal.from-up {
-        transform: translateY(25px);
-    }
-
-    .about-reveal.from-left,
-    .about-reveal.from-right {
-        transform: translateY(25px);
-    }
-
-    .about-reveal.is-visible {
-        transform: translateY(0);
-    }
-}
-
-/* Accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-    .about-reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-}
+        @media (prefers-reduced-motion: reduce) {
+            .about-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
 
@@ -702,11 +702,11 @@
     <!-- NAVBAR -->
     <header class="navbar">
 
-    <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
-    <img src="{% static 'images/centerline-logo-transparent.png' %}"
-         alt="Centerline Technical Services"
-         class="navbar-logo-img">
-</a>
+        <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
+            <img src="{% static 'images/centerline-logo-transparent.png' %}"
+                 alt="Centerline Technical Services"
+                 class="navbar-logo-img">
+        </a>
 
         <nav class="nav-links">
             <a href="/about/" class="active">About</a>
@@ -719,38 +719,34 @@
         <a href="/#contact" class="nav-contact">Talk to us</a>
 
     </header>
-<!-- ABOUT HERO -->
-<section class="about-hero">
 
-    <!-- Background Video -->
-    <video class="about-hero-video"
-           autoplay
-           muted
-           loop
-           playsinline>
-        <source src="{% static 'images/12966314_4096_2160_25fps.mp4' %}"
-                type="video/mp4">
-    </video>
+    <!-- ABOUT HERO -->
+    <section class="about-hero">
 
-    <!-- Dark Overlay -->
-    <div class="about-hero-overlay"></div>
+        <video class="about-hero-video"
+               autoplay
+               muted
+               loop
+               playsinline>
+            <source src="{% static 'images/12966314_4096_2160_25fps.mp4' %}"
+                    type="video/mp4">
+        </video>
 
-    <!-- Hero Content -->
-    <div class="hero-content">
+        <div class="about-hero-overlay"></div>
 
-        <div class="eyebrow">ABOUT CENTERLINE</div>
+        <div class="hero-content">
 
-        <h1>Building better healthcare infrastructure.</h1>
+            <div class="eyebrow">ABOUT CENTERLINE</div>
 
-        <p>
-            Delivering integrated healthcare infrastructure solutions
-            through expertise, innovation and a commitment to quality
-            patient care.
-        </p>
+            <h1>Building better healthcare infrastructure.</h1>
 
-    </div>
+            <p>
+                Delivering integrated healthcare infrastructure solutions
+                through expertise, innovation and a commitment to quality
+                patient care.
+            </p>
 
-</section>
+        </div>
 
     </section>
 
@@ -761,8 +757,8 @@
 
             <div class="company-image">
                 <img
-                    src="{% static 'images/Gemini_Generated_Image_c2gdl8c2gdl8c2gd.png' %}"
-                    alt="Centerline healthcare infrastructure brochure">
+                    src="{% static 'images/Gemini_Generated_Image_29ap3u29ap3u29ap.png' %}"
+                    alt="Centerline HVAC and healthcare infrastructure">
             </div>
 
             <div class="company-content">
@@ -964,95 +960,93 @@
 
     </footer>
 
+    <!-- SCROLL ANIMATIONS -->
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
-    const animationGroups = [
-        {
-            selector: ".hero-content",
-            effect: "from-up"
-        },
-        {
-            selector: ".company-image",
-            effect: "from-left"
-        },
-        {
-            selector: ".company-content",
-            effect: "from-right"
-        },
-        {
-            selector: ".section-heading",
-            effect: "from-up"
-        },
-        {
-            selector: ".feature-card",
-            effect: "from-up",
-            stagger: true
-        },
-        {
-            selector: ".approach-container > .eyebrow, .approach-container > h2, .approach-container > p",
-            effect: "from-up"
-        },
-        {
-            selector: ".approach-step",
-            effect: "from-up",
-            stagger: true
-        },
-        {
-            selector: ".footer-brand, .footer-links, .footer-contact",
-            effect: "from-up"
-        }
-    ];
+            const animationGroups = [
+                {
+                    selector: ".hero-content",
+                    effect: "from-up"
+                },
+                {
+                    selector: ".company-image",
+                    effect: "from-left"
+                },
+                {
+                    selector: ".company-content",
+                    effect: "from-right"
+                },
+                {
+                    selector: ".section-heading",
+                    effect: "from-up"
+                },
+                {
+                    selector: ".feature-card",
+                    effect: "from-up",
+                    stagger: true
+                },
+                {
+                    selector: ".approach-container > .eyebrow, .approach-container > h2, .approach-container > p",
+                    effect: "from-up"
+                },
+                {
+                    selector: ".approach-step",
+                    effect: "from-up",
+                    stagger: true
+                },
+                {
+                    selector: ".footer-brand, .footer-links, .footer-contact",
+                    effect: "from-up"
+                }
+            ];
 
-    const animatedElements = [];
+            const animatedElements = [];
 
-    animationGroups.forEach(function (group) {
+            animationGroups.forEach(function (group) {
 
-        document.querySelectorAll(group.selector).forEach(function (element, index) {
+                document.querySelectorAll(group.selector).forEach(function (element, index) {
 
-            element.classList.add("about-reveal", group.effect);
+                    element.classList.add("about-reveal", group.effect);
 
-            if (group.stagger) {
-                element.style.transitionDelay = (index * 120) + "ms";
+                    if (group.stagger) {
+                        element.style.transitionDelay = (index * 120) + "ms";
+                    }
+
+                    animatedElements.push(element);
+                });
+
+            });
+
+            if (!("IntersectionObserver" in window)) {
+                animatedElements.forEach(function (element) {
+                    element.classList.add("is-visible");
+                });
+                return;
             }
 
-            animatedElements.push(element);
-        });
+            const observer = new IntersectionObserver(function (entries) {
 
-    });
+                entries.forEach(function (entry) {
 
-    if (!("IntersectionObserver" in window)) {
-        animatedElements.forEach(function (element) {
-            element.classList.add("is-visible");
-        });
-        return;
-    }
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    } else {
+                        entry.target.classList.remove("is-visible");
+                    }
 
-    const observer = new IntersectionObserver(function (entries) {
+                });
 
-        entries.forEach(function (entry) {
+            }, {
+                threshold: 0.15
+            });
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-            } else {
-                entry.target.classList.remove("is-visible");
-            }
+            animatedElements.forEach(function (element) {
+                observer.observe(element);
+            });
 
         });
-
-    }, {
-        threshold: 0.15
-    });
-
-    animatedElements.forEach(function (element) {
-        observer.observe(element);
-    });
-
-});
-</script>
-
-
-   
+    </script>
 
 </body>
 </html>

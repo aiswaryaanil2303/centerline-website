@@ -232,7 +232,6 @@ img {
     gap: 55px;
     align-items: center;
 }
-
 .about-image {
     width: 100%;
     max-width: 500px;
@@ -250,11 +249,13 @@ img {
 .about-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     border-radius: 12px;
     transition: transform 0.5s ease;
 }
+ 
+
 
 .about-image:hover img {
     transform: scale(1.02);
@@ -267,7 +268,7 @@ img {
 
 .about-content .about-label {
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 70.about-image0;
     letter-spacing: 2px;
     color: #20a8b8;
     margin-bottom: 18px;
@@ -2066,9 +2067,9 @@ footer p {
         <div class="about-container">
 
             <div class="about-image">
-                <img src="{% static 'images/Gemini_Generated_Image_c2gdl8c2gdl8c2gd.png' %}"
-                     alt="About Centerline">
-            </div>
+    <img src="{% static 'images/Gemini_Generated_Image_29ap3u29ap3u29ap.png' %}"
+         alt="Centerline HVAC and healthcare infrastructure">
+</div>
 
             <div class="about-content">
                 <p class="about-label">ABOUT CENTERLINE</p>
