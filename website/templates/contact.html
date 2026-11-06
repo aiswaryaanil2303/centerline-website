@@ -194,13 +194,12 @@
 
         /* FOOTER */
 
-        footer {
-            background: #071f2a;
-            color: #c5d6da;
-            text-align: center;
-            padding: 25px 15px;
-        }
-
+       footer {
+    width: 100%;
+    background: #071f2a;
+    padding: 24px 15px;
+    text-align: center;
+}
         footer p {
             line-height: 1.7;
         }
@@ -396,6 +395,56 @@
     }
 }
 
+
+/* FOOTER COPYRIGHT */
+.copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+
+/* DEVELOPER CREDIT */
+.footer-credit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    color: #c5d6da;
+    font-size: 14px;
+}
+.footer-credit a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: #20a8b8;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .copyright {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 15px;
+    }
+
+    .footer-credit {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
     </style>
 </head>
 
@@ -548,17 +597,22 @@
     </section>
 
     <!-- FOOTER -->
+<footer>
+    <div class="copyright">
+        <p>© 2026 Centerline Technical Services. All Rights Reserved.</p>
 
-    <footer>
-        <p>
-            © 2026 Centerline Technical Services.
-            All Rights Reserved.
-        </p>
-
-        <p style="margin-top: 8px; font-size: 13px;">
-            Dubai | Abu Dhabi | United Arab Emirates
-        </p>
-    </footer>
+        <div class="footer-credit">
+            Designed and Developed by
+            <a href="https://www.inspirezesttechnologies.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+                InspireZest Technologies
+            </a>
+        </div>
+    </div>
+</footer>
+    </div>
+</div>
 
 </body>
 </html>

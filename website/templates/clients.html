@@ -12,478 +12,547 @@
 
 <style>
 
-    /* GENERAL */
+/* =====================================
+   GENERAL
+===================================== */
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: #183b47;
+    background: #f5f8f9;
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+    min-height: 82px;
+    padding: 12px 5%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.logo img,
+.navbar-logo-img {
+    width: 175px;
+    max-height: 60px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover,
+.navbar-logo-img:hover {
+    transform: scale(1.04);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #183b47;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #078a91;
+}
+
+.nav-contact {
+    text-decoration: none;
+    background: #087e86;
+    color: white;
+    padding: 12px 23px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-contact:hover {
+    background: #07545e;
+    transform: translateY(-3px);
+}
+
+
+/* =====================================
+   CLIENTS HERO
+===================================== */
+
+.clients-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 480px;
+    background: #073542;
+    color: white;
+    padding: 100px 6%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clients-hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.clients-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(7, 53, 66, 0.85),
+        rgba(7, 82, 97, 0.70)
+    );
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    animation: clientHeroFade 1.2s ease forwards;
+}
+
+.hero-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #8de1df;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.hero-content p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #e0edef;
+}
+
+@keyframes clientHeroFade {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
     }
 
-    html {
-        scroll-behavior: smooth;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================
+   CLIENTS SECTION
+===================================== */
+
+.clients-section {
+    padding: 100px 5%;
+    background: #f2f7f9;
+    color: #183b47;
+}
+
+.clients-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/* =====================================
+   SECTION HEADING
+===================================== */
+
+.section-heading {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 55px;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-heading.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-heading h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(32px, 4vw, 46px);
+    margin-bottom: 18px;
+    color: #103b48;
+}
+
+.section-heading p {
+    color: #71818b;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   CLIENT GRID
+===================================== */
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+    align-items: stretch;
+}
+
+
+/* =====================================
+   CLIENT CARDS
+===================================== */
+
+.client-card {
+    width: 100%;
+    height: 210px;
+    min-height: 210px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 16px;
+    perspective: 1200px;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.client-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =====================================
+   CARD FLIP ANIMATION
+===================================== */
+
+.client-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.client-card:hover .client-card-inner,
+.client-card:focus-within .client-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* =====================================
+   FRONT AND BACK SIDES
+===================================== */
+
+.client-card-front,
+.client-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* =====================================
+   FRONT SIDE
+===================================== */
+
+.client-card-front {
+    background: #ffffff;
+    border: 1px solid #dce9ed;
+    box-shadow: 0 5px 18px rgba(7, 61, 75, 0.05);
+    transform: rotateY(0deg);
+}
+
+
+/* LOGO CONTAINER */
+
+.client-logo {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    border-radius: 9px;
+    padding: 10px;
+    margin-bottom: 12px;
+
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+
+/* LOGO IMAGE */
+
+.client-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.client-card:hover .client-logo img {
+    transform: scale(1.06);
+}
+
+
+/* FRONT HEADING */
+
+.client-card-front h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #183b47;
+}
+
+
+/* =====================================
+   BACK SIDE
+===================================== */
+
+.client-card-back {
+    background: linear-gradient(
+        135deg,
+        #073542,
+        #087e86
+    );
+
+    border: 1px solid transparent;
+    color: #ffffff;
+
+    transform: rotateY(180deg);
+    box-shadow: 0 10px 25px rgba(7, 61, 75, 0.15);
+}
+
+.client-card-back h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.client-card-back p {
+    color: #d4e6e9;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 0;
+}
+
+
+/* CARD HOVER SHADOW */
+
+.client-card:hover {
+    box-shadow: 0 15px 25px rgba(32, 168, 184, 0.18);
+    border-radius: 16px;
+}
+
+
+/* =====================================
+   CLOSING SECTION
+===================================== */
+
+.clients-closing {
+    padding: 75px 6%;
+    text-align: center;
+    background: #eaf2f3;
+}
+
+.clients-closing h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #103b48;
+}
+
+.clients-closing p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: #526b73;
+    line-height: 1.8;
+}
+
+.closing-button {
+    display: inline-block;
+    text-decoration: none;
+    background: #087e86;
+    color: white;
+    padding: 13px 26px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.closing-button:hover {
+    background: #07545e;
+    transform: translateY(-3px);
+}
+
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+
+    .clients-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    body {
-        font-family: 'DM Sans', sans-serif;
-        color: #183b47;
-        background: #f5f8f9;
+    .nav-links {
+        gap: 16px;
     }
+}
 
 
-    /* NAVBAR */
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 760px) {
 
     .navbar {
-        min-height: 82px;
-        padding: 12px 5%;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .clients-hero {
+        padding: 75px 6%;
+    }
+
+    .clients-section {
+        padding: 70px 5%;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 520px) {
+
+    .clients-grid {
+        grid-template-columns: 1fr;
     }
 
     .logo img,
     .navbar-logo-img {
-        width: 175px;
-        max-height: 60px;
-        object-fit: contain;
-        display: block;
-        transition: transform 0.3s ease;
-    }
-
-    .logo img:hover,
-    .navbar-logo-img:hover {
-        transform: scale(1.04);
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-        list-style: none;
+        width: 135px;
     }
 
     .nav-links a {
-        text-decoration: none;
-        color: #183b47;
-        font-size: 15px;
-        font-weight: 600;
-        transition: color 0.3s ease;
+        font-size: 13px;
     }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-        color: #078a91;
-    }
-
-    .nav-contact {
-        text-decoration: none;
-        background: #087e86;
-        color: white;
-        padding: 12px 23px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.3s ease;
-    }
-
-    .nav-contact:hover {
-        background: #07545e;
-        transform: translateY(-3px);
-    }
-
-
-    /* CLIENTS HERO */
-
-    .clients-hero {
-        position: relative;
-        isolation: isolate;
-        overflow: hidden;
-        min-height: 480px;
-        background: #073542;
-        color: white;
-        padding: 100px 6%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .clients-hero-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-    }
-
-    .clients-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            120deg,
-            rgba(7, 53, 66, 0.85),
-            rgba(7, 82, 97, 0.70)
-        );
-        z-index: -1;
-    }
-
-    .hero-content {
-        max-width: 900px;
-        margin: auto;
-        position: relative;
-        z-index: 1;
-        animation: clientHeroFade 1.2s ease forwards;
-    }
-
-    .hero-label {
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 3px;
-        color: #8de1df;
-        margin-bottom: 20px;
-    }
-
-    .hero-content h1 {
-        font-family: 'Manrope', sans-serif;
-        font-size: clamp(38px, 5vw, 62px);
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 22px;
-    }
-
-    .hero-content p {
-        max-width: 750px;
-        margin: auto;
-        font-size: 18px;
-        line-height: 1.8;
-        color: #e0edef;
-    }
-
-    @keyframes clientHeroFade {
-        from {
-            opacity: 0;
-            transform: translateY(35px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-
-    /* CLIENTS SECTION */
-
-    .clients-section {
-        padding: 100px 5%;
-        background: #f2f7f9;
-        color: #183b47;
-    }
-
-    .clients-container {
-        max-width: 1400px;
-        margin: auto;
-    }
-
-
-    /* SECTION HEADING */
-
-    .section-heading {
-        text-align: center;
-        max-width: 850px;
-        margin: 0 auto 55px;
-        opacity: 0;
-        transform: translateY(35px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .section-heading.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .section-heading h2 {
-        font-family: 'Manrope', sans-serif;
-        font-size: clamp(32px, 4vw, 46px);
-        margin-bottom: 18px;
-        color: #103b48;
-    }
-
-    .section-heading p {
-        color: #71818b;
-        font-size: 17px;
-        line-height: 1.8;
-    }
-
-
-    /* CLIENT GRID */
-
-    .clients-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 25px;
-        max-width: 1200px;
-        margin: auto;
-        align-items: stretch;
-    }
-
-
-    /* CLIENT CARD */
 
     .client-card {
-        width: 100%;
         height: 210px;
         min-height: 210px;
-        padding: 0;
-        background: transparent;
-        border: none;
-        perspective: 1000px;
-        opacity: 0;
-        transform: translateY(25px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .client-card.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .client-card:hover {
-        transform: translateY(-8px);
-    }
-
-
-    /* FLIP ANIMATION */
-
-    .client-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: transform 0.7s ease;
-    }
-
-    .client-card:hover .client-card-inner {
-        transform: rotateY(180deg);
-    }
-
-
-    /* FRONT AND BACK */
-
-    .client-card-front,
-    .client-card-back {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        padding: 20px;
-        border-radius: 16px;
-        border: 1px solid #dce9ed;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-    }
-
-
-    /* FRONT SIDE */
-
-    .client-card-front {
-        background: #ffffff;
-        box-shadow: 0 5px 18px rgba(7, 61, 75, 0.05);
-    }
-
-
-    /* CLIENT LOGO */
-
-    .client-logo {
-        width: 100%;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #ffffff;
-        border-radius: 9px;
-        padding: 10px;
-        margin-bottom: 12px;
-        overflow: hidden;
-        flex-shrink: 0;
-    }
-
-    .client-logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: transform 0.4s ease;
-    }
-
-    .client-card:hover .client-logo img {
-        transform: scale(1.06);
-    }
-
-
-    /* FRONT TEXT */
-
-    .client-card-front h3 {
-        font-family: 'Manrope', sans-serif;
-        font-size: 18px;
-        line-height: 1.5;
-        color: #183b47;
-    }
-
-
-    /* BACK SIDE */
-
-    .client-card-back {
-        background: linear-gradient(
-            135deg,
-            #073542,
-            #087e86
-        );
-        border-color: transparent;
-        color: #ffffff;
-        transform: rotateY(180deg);
-    }
-
-    .client-card-back h3 {
-        font-family: 'Manrope', sans-serif;
-        font-size: 20px;
-        line-height: 1.5;
-        color: #ffffff;
-        margin-bottom: 12px;
-    }
-
-    .client-card-back p {
-        color: #d4e6e9;
+    .clients-hero p {
         font-size: 16px;
-        line-height: 1.7;
-        margin-top: 0;
-    }
-
-
-    /* CLOSING SECTION */
-
-    .clients-closing {
-        padding: 75px 6%;
-        text-align: center;
-        background: #eaf2f3;
     }
 
     .clients-closing h2 {
-        font-family: 'Manrope', sans-serif;
-        font-size: 32px;
-        margin-bottom: 15px;
-        color: #103b48;
+        font-size: 26px;
     }
+}
 
-    .clients-closing p {
-        max-width: 700px;
-        margin: 0 auto 25px;
-        color: #526b73;
-        line-height: 1.8;
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .client-card-inner {
+        transition: none;
     }
+}
 
-    .closing-button {
-        display: inline-block;
-        text-decoration: none;
-        background: #087e86;
-        color: white;
-        padding: 13px 26px;
-        border-radius: 6px;
-        font-weight: 600;
-        transition: 0.3s ease;
-    }
-
-    .closing-button:hover {
-        background: #07545e;
-        transform: translateY(-3px);
-    }
-
-
-    /* TABLET RESPONSIVE */
-
-    @media (max-width: 900px) {
-
-        .clients-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .nav-links {
-            gap: 16px;
-        }
-    }
-
-
-    /* MOBILE RESPONSIVE */
-
-    @media (max-width: 760px) {
-
-        .navbar {
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .nav-links {
-            order: 3;
-            width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .clients-hero {
-            padding: 75px 6%;
-        }
-
-        .clients-section {
-            padding: 70px 5%;
-        }
-    }
-
-
-    /* SMALL MOBILE */
-
-    @media (max-width: 520px) {
-
-        .clients-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .logo img,
-        .navbar-logo-img {
-            width: 135px;
-        }
-
-        .nav-links a {
-            font-size: 13px;
-        }
-
-        .client-card {
-            height: 210px;
-            min-height: 210px;
-        }
-
-        .clients-hero p {
-            font-size: 16px;
-        }
-
-        .clients-closing h2 {
-            font-size: 26px;
-        }
-    }
 
 </style>
 </head>
