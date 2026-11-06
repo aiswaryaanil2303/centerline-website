@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 /* =========================================
    GLOBAL STYLES
@@ -49,7 +51,7 @@ img {
     gap: 25px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .navbar-logo {
@@ -69,8 +71,14 @@ img {
     max-width: 100%;
     object-fit: contain;
     object-position: left center;
-    margin: 0;
-    padding: 0;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    flex: 1;
 }
 
 .nav-links {
@@ -92,6 +100,129 @@ img {
 .nav-links a:hover {
     color: #20a8b8;
 }
+
+/* =========================================
+   DESKTOP NAVIGATION DROPDOWNS
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 2px;
+    border: none;
+    background: transparent;
+    color: #304953;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: #20a8b8;
+}
+
+.dropdown-arrow {
+    display: inline-block;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown.is-open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: -20px;
+    width: 350px;
+    padding: 20px;
+    background: #ffffff;
+    border-top: 4px solid #20a8b8;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 15px 40px rgba(4, 39, 52, 0.16);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+    z-index: 1100;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu,
+.nav-dropdown.is-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex !important;
+    align-items: center;
+    gap: 13px;
+    padding: 16px 14px !important;
+    color: #304953 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-decoration: none;
+    border-radius: 8px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding 0.25s ease;
+}
+
+.dropdown-item:hover {
+    background: #edf8f9;
+    color: #168c9c !important;
+    padding-left: 20px !important;
+}
+
+.dropdown-number {
+    color: #20a8b8;
+    font-size: 13px;
+    font-weight: 800;
+    min-width: 24px;
+}
+
+.dropdown-view-all {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding: 16px 14px !important;
+    border-top: 1px solid #e5edef;
+    color: #168c9c !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+}
+
+.dropdown-view-all span {
+    font-size: 20px;
+    transition: transform 0.25s ease;
+}
+
+.dropdown-view-all:hover span {
+    transform: translateX(5px);
+}
+
+/* =========================================
+   CTA BUTTON
+========================================= */
 
 .cta-button {
     display: inline-block;
@@ -217,13 +348,8 @@ img {
 }
 
 @keyframes heroZoom {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.10);
-    }
+    from { transform: scale(1); }
+    to { transform: scale(1.10); }
 }
 
 /* =========================================
@@ -298,8 +424,6 @@ img {
     line-height: 1.75;
     margin-bottom: 18px;
 }
-
-/* ABOUT FEATURE CARDS */
 
 .about-features {
     display: grid;
@@ -404,8 +528,6 @@ img {
     margin-bottom: 45px;
 }
 
-/* SERVICE GRID */
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -426,21 +548,10 @@ img {
         border-color 0.4s ease;
 }
 
-.service-card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.service-card:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.service-card:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.service-card:nth-child(5) {
-    animation-delay: 0.4s;
-}
+.service-card:nth-child(2) { animation-delay: 0.1s; }
+.service-card:nth-child(3) { animation-delay: 0.2s; }
+.service-card:nth-child(4) { animation-delay: 0.3s; }
+.service-card:nth-child(5) { animation-delay: 0.4s; }
 
 .service-card:hover {
     transform: translateY(-12px) scale(1.025);
@@ -473,7 +584,6 @@ img {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -481,10 +591,6 @@ img {
 }
 
 /* SERVICES MARQUEE */
-
-.services-section {
-    overflow: hidden;
-}
 
 .services-marquee {
     position: relative;
@@ -557,13 +663,8 @@ img {
 }
 
 @keyframes servicesMarquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 /* =========================================
@@ -687,8 +788,6 @@ img {
     perspective: 1200px;
 }
 
-/* OUTER CARD */
-
 #clients .client-card {
     width: 100%;
     height: 310px;
@@ -712,14 +811,10 @@ img {
     transform: translateY(0);
 }
 
-/* SCROLL AND HOVER EFFECT */
-
 #clients .client-card.show:hover,
 #clients .client-card.reveal-visible:hover {
     transform: translateY(-8px) scale(1.015);
 }
-
-/* INNER FLIP CARD */
 
 #clients .client-card-inner {
     position: relative;
@@ -731,15 +826,10 @@ img {
     transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* FLIP EFFECT */
-/* CARD HOVER SHADOW */
-
 #clients .client-card:hover .client-card-inner {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
 }
-
-/* FRONT AND BACK SIDES */
 
 #clients .client-card-front,
 #clients .client-card-back {
@@ -749,25 +839,19 @@ img {
     height: 100%;
     padding: 28px 22px;
     border-radius: 16px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
-
-/* FRONT SIDE */
 
 #clients .client-card-front {
     transform: rotateY(0deg);
     z-index: 2;
 }
-
-/* CLIENT LOGO */
 
 #clients .client-card-front .client-logo {
     width: 100%;
@@ -777,7 +861,6 @@ img {
     background: transparent;
     border: none;
     border-radius: 10px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -798,8 +881,6 @@ img {
     transform: scale(1.06);
 }
 
-/* FRONT TEXT */
-
 #clients .client-card-front h3 {
     color: #0b3040;
     font-size: 19px;
@@ -813,19 +894,13 @@ img {
     line-height: 1.5;
 }
 
-/* BACK SIDE */
-
 #clients .client-card-back {
     background: linear-gradient(145deg, #082b3a, #105568);
     color: #ffffff;
     border: 1px solid #20a8b8;
     box-shadow: 0 15px 35px rgba(7, 61, 75, 0.20);
-
-    /* Keeps the back face correctly oriented */
     transform: rotateY(180deg) translateZ(1px);
 }
-
-/* BACK TEXT */
 
 #clients .client-card-back h3 {
     color: #ffffff;
@@ -840,10 +915,6 @@ img {
     line-height: 1.7;
 }
 
-#clients .client-card:hover .client-card-inner {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-}
 /* =========================================
    CONTACT SECTION
 ========================================= */
@@ -931,44 +1002,131 @@ img {
    FOOTER
 ========================================= */
 
-footer {
+footer.main-footer {
+    display: block;
     width: 100%;
-    padding: 25px 5%;
     background: #082b3a;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
+    color: #b7cbd1;
+    padding: 75px 7% 25px;
+    margin: 0;
+    text-align: left;
+}
+
+.main-footer .footer-container {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr 1fr;
+    gap: 65px;
+    max-width: 1650px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 65px;
+    text-align: left;
+}
+
+.main-footer .footer-about {
+    text-align: left;
+}
+
+.main-footer .footer-logo {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    height: 80px;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 7px;
+    object-fit: contain;
+    object-position: center;
+    box-sizing: border-box;
+    margin: 0 0 25px;
+}
+
+.main-footer .footer-about p {
+    color: #b7cbd1;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 530px;
+    text-align: left;
     margin: 0;
 }
 
-.copyright {
-    width: 100%;
-    font-size: 14px;
-    line-height: 1.7;
-    text-align: center;
+.main-footer .footer-container h3 {
     color: #ffffff;
-}
-
-.footer-credit {
-    margin-top: 5px;
-    color: #c7dce1;
-    font-size: 14px;
-    text-align: center;
-}
-
-.footer-credit a {
-    color: #ffffff;
+    font-size: 21px;
     font-weight: 700;
+    margin: 0 0 22px;
+    text-align: left;
+}
+
+.main-footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+    text-align: left;
+}
+
+.main-footer .footer-links a {
+    display: block;
+    color: #b7cbd1;
     text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.main-footer .footer-links a:hover {
+    color: #20a8b8;
+    padding-left: 4px;
+}
+
+.main-footer .footer-contact {
+    display: block;
+    text-align: left;
+}
+
+.main-footer .footer-contact p {
+    color: #b7cbd1;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 0 15px;
+    text-align: left;
+}
+
+.main-footer .copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: left;
+}
+
+.main-footer .copyright p {
+    color: #b7cbd1;
+    font-size: 14px;
+    margin: 0;
+}
+
+.main-footer .footer-credit {
+    color: #b7cbd1;
+    font-size: 14px;
+    text-align: right;
+}
+
+.main-footer .footer-credit a {
+    color: #20a8b8;
+    text-decoration: none;
+    font-weight: 700;
     transition: color 0.3s ease;
 }
 
-.footer-credit a:hover {
-    color: #70d1d2;
+.main-footer .footer-credit a:hover {
+    color: #ffffff;
 }
 
 /* =========================================
@@ -1011,29 +1169,11 @@ footer {
 }
 
 /* =========================================
-   RESPONSIVE NAVIGATION
-========================================= */
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 30px;
-    flex: 1;
-}
-
-.menu-toggle {
-    display: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-/* =========================================
    TABLET - 1200PX
 ========================================= */
 
 @media (max-width: 1200px) {
+
     .about-container {
         gap: 35px;
     }
@@ -1052,6 +1192,7 @@ footer {
 ========================================= */
 
 @media (max-width: 992px) {
+
     .navbar {
         min-height: 75px;
         padding: 10px 4%;
@@ -1072,7 +1213,8 @@ footer {
         gap: 15px;
     }
 
-    .nav-links a {
+    .nav-links a,
+    .dropdown-toggle {
         font-size: 14px;
     }
 
@@ -1120,6 +1262,15 @@ footer {
     .contact-container {
         grid-template-columns: 1fr;
     }
+
+    .main-footer .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .main-footer .footer-contact {
+        grid-column: 1 / -1;
+    }
 }
 
 /* =========================================
@@ -1127,6 +1278,7 @@ footer {
 ========================================= */
 
 @media (max-width: 760px) {
+
     .navbar {
         min-height: 75px;
         height: auto;
@@ -1153,6 +1305,9 @@ footer {
         width: 42px;
         height: 42px;
         padding: 8px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
         z-index: 1002;
     }
 
@@ -1214,6 +1369,52 @@ footer {
         padding: 14px 5px;
         font-size: 16px;
         font-weight: 600;
+    }
+
+    /* MOBILE DROPDOWNS */
+
+    .nav-links .nav-dropdown {
+        width: 100%;
+        border-bottom: 1px solid #edf1f2;
+    }
+
+    .nav-links .dropdown-toggle {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 5px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .nav-links .dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        background: #f4f9fa;
+        border: none;
+        border-radius: 10px;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+    }
+
+    .nav-links .nav-dropdown.is-open .dropdown-menu {
+        display: block;
+    }
+
+    .nav-links .dropdown-item {
+        padding: 15px 12px !important;
+        font-size: 14px !important;
+    }
+
+    .nav-links .dropdown-view-all {
+        padding: 15px 12px !important;
     }
 
     .nav-cta {
@@ -1416,199 +1617,36 @@ footer {
         padding: 30px 25px;
     }
 
-   
-/* =========================================
-   CENTERLINE FOOTER
-========================================= */
+    /* FOOTER */
 
-.main-footer {
-    display: block;
-    width: 100%;
-    padding: 75px 6% 25px;
-    margin: 0;
-    background: #082b3a;
-    color: #b7cbd1;
-    text-align: left;
-}
-
-.footer-container {
-    width: 100%;
-    max-width: 1650px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.35fr 0.55fr 1fr;
-    gap: 70px;
-    padding-bottom: 65px;
-}
-
-/* COMPANY INFORMATION */
-
-.footer-about {
-    max-width: 550px;
-}
-
-.footer-logo {
-    display: block;
-    width: 220px;
-    height: auto;
-    max-height: 100px;
-    object-fit: contain;
-    object-position: left center;
-    margin-bottom: 24px;
-}
-
-.footer-about p {
-    color: #b7cbd1;
-    font-size: 17px;
-    line-height: 1.9;
-    margin: 0;
-}
-
-/* QUICK LINKS */
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.footer-container h3 {
-    color: #ffffff;
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #b7cbd1;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #20a8b8;
-    padding-left: 4px;
-}
-
-/* GET IN TOUCH */
-
-.footer-contact p {
-    color: #b7cbd1;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 18px;
-}
-
-/* COPYRIGHT AND DEVELOPER CREDIT */
-
-.main-footer .copyright {
-    width: 100%;
-    max-width: 1650px;
-    margin: 0 auto;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-
-    text-align: left;
-    color: #b7cbd1;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-.main-footer .copyright p {
-    margin: 0;
-}
-
-.footer-credit {
-    color: #b7cbd1;
-    font-size: 14px;
-    text-align: right;
-}
-
-.footer-credit a {
-    color: #20a8b8;
-    font-weight: 700;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-credit a:hover {
-    color: #ffffff;
-}
-
-/* =========================================
-   FOOTER TABLET RESPONSIVE
-========================================= */
-
-@media (max-width: 992px) {
-
-    .footer-container {
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 45px;
+    footer.main-footer {
+        padding: 45px 6% 25px;
     }
 
-    .footer-contact {
-        grid-column: 1 / -1;
-    }
-}
-
-/* =========================================
-   FOOTER MOBILE RESPONSIVE
-========================================= */
-
-@media (max-width: 760px) {
-
-    .main-footer {
-        padding: 50px 6% 25px;
-    }
-
-    .footer-container {
+    .main-footer .footer-container {
         grid-template-columns: 1fr;
         gap: 35px;
-        padding-bottom: 40px;
+        padding-bottom: 35px;
     }
 
-    .footer-about {
-        max-width: 100%;
-    }
-
-    .footer-logo {
-        width: 190px;
-        max-height: 85px;
-        margin-bottom: 20px;
-    }
-
-    .footer-about p {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    .footer-container h3 {
-        font-size: 19px;
-        margin-bottom: 8px;
-    }
-
-    .footer-links {
-        gap: 16px;
-    }
-
-    .footer-links a {
-        font-size: 15px;
-    }
-
-    .footer-contact {
+    .main-footer .footer-contact {
         grid-column: auto;
     }
 
-    .footer-contact p {
+    .main-footer .footer-logo {
+        width: 185px;
+    }
+
+    .main-footer .footer-about p {
         font-size: 15px;
+    }
+
+    .main-footer .footer-container h3 {
+        font-size: 19px;
+    }
+
+    .main-footer .footer-links {
+        gap: 16px;
     }
 
     .main-footer .copyright {
@@ -1617,36 +1655,17 @@ footer {
         align-items: center;
         text-align: center;
         gap: 12px;
-        padding-top: 22px;
     }
 
-    .footer-credit {
+    .main-footer .footer-credit {
         text-align: center;
         font-size: 13px;
     }
 
     .main-footer .copyright p {
+        text-align: center;
         font-size: 13px;
     }
-}
-
-/* SMALL MOBILE */
-
-@media (max-width: 480px) {
-
-    .main-footer {
-        padding: 40px 5% 22px;
-    }
-
-    .footer-logo {
-        width: 175px;
-    }
-
-    .footer-container {
-        gap: 30px;
-    }
-}
-
 
     /* SCROLL ANIMATIONS */
 
@@ -1666,6 +1685,7 @@ footer {
 ========================================= */
 
 @media (max-width: 480px) {
+
     .navbar-logo {
         width: 155px;
         height: 48px;
@@ -1724,6 +1744,18 @@ footer {
     .contact-card {
         padding: 25px 20px;
     }
+
+    .main-footer {
+        padding: 40px 5% 22px !important;
+    }
+
+    .main-footer .footer-logo {
+        width: 175px !important;
+    }
+
+    .main-footer .footer-container {
+        gap: 30px;
+    }
 }
 
 /* =========================================
@@ -1731,6 +1763,7 @@ footer {
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -1749,245 +1782,136 @@ footer {
     }
 }
 
-
-/* ======================================
-   CENTERLINE FOOTER - FINAL OVERRIDE
-====================================== */
-
-footer.main-footer {
-    display: block !important;
-    width: 100% !important;
-    background: #082b3a !important;
-    color: #b7cbd1 !important;
-    padding: 75px 7% 25px !important;
-    margin: 0 !important;
-    text-align: left !important;
-    box-sizing: border-box;
-}
-
-.main-footer .footer-container {
-    display: grid !important;
-    grid-template-columns: 1.35fr 0.65fr 1fr !important;
-    gap: 65px !important;
-    max-width: 1650px;
-    width: 100%;
-    margin: 0 auto !important;
-    padding-bottom: 65px;
-    text-align: left !important;
-}
-
-.main-footer .footer-about {
-    text-align: left !important;
-}
-
-.main-footer .footer-logo {
-    display: block !important;
-    width: 220px !important;
-    max-width: 100%;
-    height: auto !important;
-    max-height: 100px;
-    object-fit: contain;
-    object-position: left center;
-    margin: 0 0 24px 0 !important;
-}
-
-.main-footer .footer-about p {
-    color: #b7cbd1 !important;
-    font-size: 17px;
-    line-height: 1.8;
-    max-width: 530px;
-    text-align: left !important;
-    margin: 0 !important;
-}
-
-.main-footer .footer-container h3 {
-    color: #ffffff !important;
-    font-size: 21px;
-    font-weight: 700;
-    margin: 0 0 22px 0 !important;
-    text-align: left !important;
-}
-
-.main-footer .footer-links {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 17px !important;
-    text-align: left !important;
-}
-
-.main-footer .footer-links a {
-    display: block;
-    color: #b7cbd1 !important;
-    text-decoration: none !important;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.main-footer .footer-links a:hover {
-    color: #20a8b8 !important;
-}
-
-.main-footer .footer-contact {
-    display: block !important;
-    text-align: left !important;
-}
-
-.main-footer .footer-contact p {
-    color: #b7cbd1 !important;
-    font-size: 16px;
-    line-height: 1.8;
-    margin: 0 0 15px 0 !important;
-    text-align: left !important;
-}
-
-/* COPYRIGHT */
-
-.main-footer .copyright {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    flex-wrap: wrap;
-    gap: 15px;
-    width: 100%;
-    max-width: 1650px;
-    margin: 0 auto !important;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    text-align: left !important;
-}
-
-.main-footer .copyright p {
-    color: #b7cbd1 !important;
-    font-size: 14px;
-    margin: 0 !important;
-}
-
-.main-footer .footer-credit {
-    color: #b7cbd1 !important;
-    font-size: 14px;
-    text-align: right;
-}
-
-.main-footer .footer-credit a {
-    color: #20a8b8 !important;
-    text-decoration: none !important;
-    font-weight: 700;
-}
-
-.main-footer .footer-credit a:hover {
-    color: #ffffff !important;
-}
-
-/* TABLET */
-
-@media (max-width: 992px) {
-    .main-footer .footer-container {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 40px !important;
-    }
-
-    .main-footer .footer-contact {
-        grid-column: 1 / -1;
-    }
-}
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-    footer.main-footer {
-        padding: 45px 6% 25px !important;
-    }
-
-    .main-footer .footer-container {
-        grid-template-columns: 1fr !important;
-        gap: 35px !important;
-        padding-bottom: 35px;
-    }
-
-    .main-footer .footer-contact {
-        grid-column: auto;
-    }
-
-    .main-footer .footer-logo {
-        width: 185px !important;
-    }
-
-    .main-footer .footer-about p {
-        font-size: 15px;
-    }
-
-    .main-footer .footer-container h3 {
-        font-size: 19px;
-    }
-
-    .main-footer .copyright {
-        flex-direction: column !important;
-        justify-content: center !important;
-        text-align: center !important;
-        gap: 12px;
-    }
-
-    .main-footer .footer-credit {
-        text-align: center;
-        font-size: 13px;
-    }
-
-    .main-footer .copyright p {
-        text-align: center;
-        font-size: 13px;
-    }
-}
-
-
-/* Footer Logo - White Background */
-
-.main-footer .footer-logo {
-    display: block;
-    width: 220px !important;
-    height: 80px !important;
-    padding: 8px;
-    background: #ffffff;
-    border-radius: 7px;
-    object-fit: contain;
-    object-position: center;
-    box-sizing: border-box;
-    margin-bottom: 25px !important;
-}
 </style>
 </head>
 
 <body>
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
 <header class="navbar">
 
-    <!-- LOGO -->
     <a href="#home" class="navbar-logo" aria-label="Centerline Home">
         <img src="{% static 'images/centerline-logo-transparent.png' %}"
              alt="Centerline Technical Services"
              class="navbar-logo-img">
     </a>
 
-    <!-- HAMBURGER BUTTON -->
     <button class="menu-toggle"
             id="menuToggle"
             aria-label="Open navigation menu"
             aria-expanded="false"
-            aria-controls="navMenu">
+            aria-controls="navMenu"
+            type="button">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- NAVIGATION MENU -->
     <div class="nav-menu" id="navMenu">
 
         <nav>
             <ul class="nav-links">
-                <li><a href="/about/">About</a></li>
-                <li><a href="/services/">Services</a></li>
+
+                <!-- ABOUT DROPDOWN -->
+
+                <li class="nav-dropdown">
+
+                    <button class="dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        About <span class="dropdown-arrow">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+
+                        <a href="/about/#about-centerline" class="dropdown-item">
+                            <span class="dropdown-number">01</span>
+                            <span>About Centerline</span>
+                        </a>
+
+                        <a href="/about/#who-we-are" class="dropdown-item">
+                            <span class="dropdown-number">02</span>
+                            <span>Who We Are</span>
+                        </a>
+
+                        <a href="/about/#why-centerline" class="dropdown-item">
+                            <span class="dropdown-number">03</span>
+                            <span>Why Centerline</span>
+                        </a>
+
+                        <a href="/about/#our-approach" class="dropdown-item">
+                            <span class="dropdown-number">04</span>
+                            <span>Our Approach</span>
+                        </a>
+
+                        <a href="/about/#message-from-management" class="dropdown-item">
+                            <span class="dropdown-number">05</span>
+                            <span>Management Message</span>
+                        </a>
+
+                        <a href="/about/#our-history" class="dropdown-item">
+                            <span class="dropdown-number">06</span>
+                            <span>Our History</span>
+                        </a>
+
+                        <a href="/about/" class="dropdown-view-all">
+                            Explore About Us <span>→</span>
+                        </a>
+
+                    </div>
+                </li>
+
+                <!-- SERVICES DROPDOWN -->
+
+                <li class="nav-dropdown">
+
+                    <button class="dropdown-toggle"
+                            type="button"
+                            aria-expanded="false">
+                        Services <span class="dropdown-arrow">⌄</span>
+                    </button>
+
+                    <div class="dropdown-menu">
+
+                        <a href="/services/#healthcare-hvac" class="dropdown-item">
+                            <span class="dropdown-number">01</span>
+                            <span>Healthcare HVAC</span>
+                        </a>
+
+                        <a href="/services/#modular-construction" class="dropdown-item">
+                            <span class="dropdown-number">02</span>
+                            <span>Modular Construction</span>
+                        </a>
+
+                        <a href="/services/#infection-control" class="dropdown-item">
+                            <span class="dropdown-number">03</span>
+                            <span>Infection Control</span>
+                        </a>
+
+                        <a href="/services/#medical-gas" class="dropdown-item">
+                            <span class="dropdown-number">04</span>
+                            <span>Medical Gas Systems</span>
+                        </a>
+
+                        <a href="/services/#hospital-electrical" class="dropdown-item">
+                            <span class="dropdown-number">05</span>
+                            <span>Hospital Electrical</span>
+                        </a>
+
+                        <a href="/services/" class="dropdown-view-all">
+                            Explore All Services <span>→</span>
+                        </a>
+
+                    </div>
+                </li>
+
                 <li><a href="/solutions/">Solutions</a></li>
                 <li><a href="/clients/">Clients</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
+
             </ul>
         </nav>
 
@@ -1999,81 +1923,90 @@ footer.main-footer {
 
 </header>
 
-    <!-- HOME / HERO -->
+<!-- =========================================
+     HOME / HERO
+========================================= -->
 
-    <section class="hero" id="home">
-        <div class="hero-content">
+<section class="hero" id="home">
 
-            <p class="hero-subtitle">
-                HEALTHCARE INFRASTRUCTURE SOLUTION PROVIDER
+    <div class="hero-content">
+
+        <p class="hero-subtitle">
+            HEALTHCARE INFRASTRUCTURE SOLUTION PROVIDER
+        </p>
+
+        <h1 class="hero-title">
+            Engineering<br>
+            safer, smarter<br>
+            healthcare environments.
+        </h1>
+
+        <p class="hero-description">
+            Centerline delivers turnkey healthcare infrastructure
+            solutions spanning ventilation, modular construction,
+            infection control, medical gas and hospital electrical systems.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="/services/" class="explore-button">
+                Explore Our Services <span>→</span>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section class="about-section" id="about">
+
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="{% static 'images/Gemini_Generated_Image_29ap3u29ap3u29ap.png' %}"
+                 alt="Centerline HVAC and healthcare infrastructure">
+        </div>
+
+        <div class="about-content">
+
+            <p class="about-label">ABOUT CENTERLINE</p>
+
+            <h2>Built around healthcare needs.</h2>
+
+            <p>
+                Founded in 2024, Centerline addresses critical
+                infrastructural needs with a focus on efficiency,
+                safety and adaptability.
             </p>
 
-            <h1 class="hero-title">
-                Engineering<br>
-                safer, smarter<br>
-                healthcare environments.
-            </h1>
-
-            <p class="hero-description">
-                Centerline delivers turnkey healthcare infrastructure
-                solutions spanning ventilation, modular construction,
-                infection control, medical gas and hospital electrical systems.
+            <p>
+                We design, develop, supply, install, test,
+                commission and maintain healthcare infrastructure.
             </p>
 
-            <div class="hero-buttons">
-                <a href="/services/" class="explore-button">
-                    Explore Our Services <span>→</span>
-                </a>
+            <div class="about-features">
+                <div>Turnkey solutions</div>
+                <div>Latest technology</div>
+                <div>Project management</div>
+                <div>Safety &amp; reliability</div>
+                <div>Patient-care focus</div>
             </div>
 
         </div>
-    </section>
 
-    <!-- ABOUT -->
+    </div>
 
-    <section class="about-section" id="about">
-        <div class="about-container">
+</section>
 
-            <div class="about-image">
-    <img src="{% static 'images/Gemini_Generated_Image_29ap3u29ap3u29ap.png' %}"
-         alt="Centerline HVAC and healthcare infrastructure">
-</div>
-
-            <div class="about-content">
-                <p class="about-label">ABOUT CENTERLINE</p>
-
-                <h2>Built around healthcare needs.</h2>
-
-                <p>
-                    Founded in 2024, Centerline addresses critical
-                    infrastructural needs with a focus on efficiency,
-                    safety and adaptability.
-                </p>
-
-                <p>
-                    We design, develop, supply, install, test,
-                    commission and maintain healthcare infrastructure.
-                </p>
-
-                <div class="about-features">
-                    <div>Turnkey solutions</div>
-                    <div>Latest technology</div>
-                    <div>Project management</div>
-                    <div>Safety &amp; reliability</div>
-                    <div>Patient-care focus</div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-
-    <!-- SERVICES -->
+<!-- =========================================
+     SERVICES
+========================================= -->
 
 <section class="services-section" id="services">
 
-    <!-- HEADING CONTAINER -->
     <div class="services-container">
 
         <p class="services-label">WHAT WE DO</p>
@@ -2089,7 +2022,6 @@ footer.main-footer {
 
     </div>
 
-    <!-- FULL WIDTH MOVING CARDS -->
     <div class="services-marquee">
 
         <div class="services-grid services-track">
@@ -2148,118 +2080,142 @@ footer.main-footer {
 
 </section>
 
-    <!-- SOLUTIONS -->
+<!-- =========================================
+     SOLUTIONS
+========================================= -->
 
-    <section id="solutions" class="solutions-section">
-        <div class="solutions-container">
+<section id="solutions" class="solutions-section">
 
-            <div class="solutions-heading">
-                <div class="solutions-eyebrow">Technical solutions</div>
+    <div class="solutions-container">
 
-                <h2>Designed for demanding clinical environments.</h2>
+        <div class="solutions-heading">
 
-                <p class="solutions-lead">
-                    The company profile highlights application-specific engineering
-                    across operating rooms, isolation rooms, protective environments,
-                    pharmacies, laboratories and imaging spaces.
-                </p>
-            </div>
+            <div class="solutions-eyebrow">Technical solutions</div>
 
-            <div class="solutions-grid">
+            <h2>Designed for demanding clinical environments.</h2>
 
-                <div class="solutions-card">
-                    <h3>Healthcare HVAC</h3>
-                    <p>
-                        Application-focused airflow and pressure strategies
-                        support different clinical modalities.
-                    </p>
+            <p class="solutions-lead">
+                The company profile highlights application-specific engineering
+                across operating rooms, isolation rooms, protective environments,
+                pharmacies, laboratories and imaging spaces.
+            </p>
 
-                    <div class="solutions-tags">
-                        <span class="solutions-tag">Positive pressure</span>
-                        <span class="solutions-tag">Negative pressure</span>
-                        <span class="solutions-tag">HEPA filtration</span>
-                        <span class="solutions-tag">Laminar flow</span>
-                        <span class="solutions-tag">Differential pressure monitoring</span>
-                        <span class="solutions-tag">UV exhaust</span>
-                    </div>
-                </div>
-
-                <div class="solutions-card">
-                    <h3>Infection Control</h3>
-                    <p>
-                        Infrastructure measures include patient-room design,
-                        negative-pressure rooms, protective environments,
-                        UV-C disinfection, water safety and electronic monitoring.
-                    </p>
-
-                    <div class="solutions-tags">
-                        <span class="solutions-tag">AIIR</span>
-                        <span class="solutions-tag">PE rooms</span>
-                        <span class="solutions-tag">UV-C</span>
-                        <span class="solutions-tag">Water safety</span>
-                        <span class="solutions-tag">RTLS</span>
-                        <span class="solutions-tag">Telehealth</span>
-                    </div>
-                </div>
-
-                <div class="solutions-card">
-                    <h3>Medical Gas &amp; Pendants</h3>
-                    <p>
-                        Bed Head Units and pendants consolidate critical utilities
-                        at the point of care while improving floor clearance
-                        and flexibility.
-                    </p>
-
-                    <div class="solutions-tags">
-                        <span class="solutions-tag">O₂</span>
-                        <span class="solutions-tag">Vacuum</span>
-                        <span class="solutions-tag">Medical Air</span>
-                        <span class="solutions-tag">N₂</span>
-                        <span class="solutions-tag">N₂O</span>
-                        <span class="solutions-tag">AGSS</span>
-                        <span class="solutions-tag">Data</span>
-                    </div>
-                </div>
-
-                <div class="solutions-card">
-                    <h3>Hospital Electrical</h3>
-                    <p>
-                        Layered backup architecture supports continuity
-                        of critical healthcare operations.
-                    </p>
-
-                    <div class="solutions-tags">
-                        <span class="solutions-tag">Generators</span>
-                        <span class="solutions-tag">UPS</span>
-                        <span class="solutions-tag">ATS</span>
-                        <span class="solutions-tag">Technical grounding</span>
-                        <span class="solutions-tag">IPS</span>
-                        <span class="solutions-tag">LIM</span>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </section>
 
+        <div class="solutions-grid">
 
-<!-- CLIENTS -->
+            <div class="solutions-card">
+
+                <h3>Healthcare HVAC</h3>
+
+                <p>
+                    Application-focused airflow and pressure strategies
+                    support different clinical modalities.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">Positive pressure</span>
+                    <span class="solutions-tag">Negative pressure</span>
+                    <span class="solutions-tag">HEPA filtration</span>
+                    <span class="solutions-tag">Laminar flow</span>
+                    <span class="solutions-tag">Differential pressure monitoring</span>
+                    <span class="solutions-tag">UV exhaust</span>
+                </div>
+
+            </div>
+
+            <div class="solutions-card">
+
+                <h3>Infection Control</h3>
+
+                <p>
+                    Infrastructure measures include patient-room design,
+                    negative-pressure rooms, protective environments,
+                    UV-C disinfection, water safety and electronic monitoring.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">AIIR</span>
+                    <span class="solutions-tag">PE rooms</span>
+                    <span class="solutions-tag">UV-C</span>
+                    <span class="solutions-tag">Water safety</span>
+                    <span class="solutions-tag">RTLS</span>
+                    <span class="solutions-tag">Telehealth</span>
+                </div>
+
+            </div>
+
+            <div class="solutions-card">
+
+                <h3>Medical Gas &amp; Pendants</h3>
+
+                <p>
+                    Bed Head Units and pendants consolidate critical utilities
+                    at the point of care while improving floor clearance
+                    and flexibility.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">O₂</span>
+                    <span class="solutions-tag">Vacuum</span>
+                    <span class="solutions-tag">Medical Air</span>
+                    <span class="solutions-tag">N₂</span>
+                    <span class="solutions-tag">N₂O</span>
+                    <span class="solutions-tag">AGSS</span>
+                    <span class="solutions-tag">Data</span>
+                </div>
+
+            </div>
+
+            <div class="solutions-card">
+
+                <h3>Hospital Electrical</h3>
+
+                <p>
+                    Layered backup architecture supports continuity
+                    of critical healthcare operations.
+                </p>
+
+                <div class="solutions-tags">
+                    <span class="solutions-tag">Generators</span>
+                    <span class="solutions-tag">UPS</span>
+                    <span class="solutions-tag">ATS</span>
+                    <span class="solutions-tag">Technical grounding</span>
+                    <span class="solutions-tag">IPS</span>
+                    <span class="solutions-tag">LIM</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     CLIENTS
+========================================= -->
+
 <section id="clients">
+
     <div class="clients-container">
 
-        <!-- SECTION HEADING -->
         <div class="clients-heading">
+
             <h2>Trusted by healthcare organizations.</h2>
+
             <p>
                 Our clientele includes healthcare institutions,
                 hospitals and organizations across the region.
             </p>
+
         </div>
 
-        <!-- CLIENT GRID -->
         <div class="clients-grid">
 
             <!-- CLIENT 1 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2280,6 +2236,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 2 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2300,6 +2257,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 3 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2320,6 +2278,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 4 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2334,12 +2293,13 @@ footer.main-footer {
                     <div class="client-card-back">
                         <h3>Sheikh Khalifa Hospital</h3>
                         <p>Mubadarat – Fujairah</p>
-                    </div> 
+                    </div>
 
                 </div>
             </div>
 
             <!-- CLIENT 5 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2360,6 +2320,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 6 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2380,6 +2341,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 7 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2400,6 +2362,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 8 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2420,6 +2383,7 @@ footer.main-footer {
             </div>
 
             <!-- CLIENT 9 -->
+
             <div class="client-card">
                 <div class="client-card-inner">
 
@@ -2440,90 +2404,97 @@ footer.main-footer {
             </div>
 
         </div>
+
     </div>
+
 </section>
 
+<!-- =========================================
+     CONTACT
+========================================= -->
 
+<section class="contact-section" id="contact">
 
-    <!-- CONTACT -->
+    <div class="contact-container">
 
-    <section class="contact-section" id="contact">
-        <div class="contact-container">
+        <div class="contact-content">
 
-            <div class="contact-content">
-                <p class="contact-label">GET IN TOUCH</p>
+            <p class="contact-label">GET IN TOUCH</p>
 
-                <h2 class="contact-title">
-                    Let's build better healthcare infrastructure.
-                </h2>
+            <h2 class="contact-title">
+                Let's build better healthcare infrastructure.
+            </h2>
 
-                <p class="contact-description">
-                    Centerline supports healthcare projects with integrated
-                    design, supply, installation, testing, commissioning
-                    and maintenance capabilities.
-                </p>
+            <p class="contact-description">
+                Centerline supports healthcare projects with integrated
+                design, supply, installation, testing, commissioning
+                and maintenance capabilities.
+            </p>
 
-                <a href="mailto:sales@centerline.ae" class="contact-button">
-                    Email Centerline
-                </a>
-            </div>
+            <a href="mailto:sales@centerline.ae" class="contact-button">
+                Email Centerline
+            </a>
 
-            <div class="contact-card">
-
-                <div class="contact-item">
-                    <h3>WEBSITE</h3>
-                    <p>
-                        <a href="https://www.centerline.ae" target="_blank" rel="noopener">
-                            www.centerline.ae
-                        </a>
-                    </p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>EMAIL</h3>
-                    <p>
-                        <a href="mailto:sales@centerline.ae">
-                            sales@centerline.ae
-                        </a>
-                    </p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>PHONE</h3>
-                    <p>
-                        <a href="tel:+971505204975">+971 50 520 4975</a><br>
-                        <a href="tel:+971553106547">+971 55 310 6547</a>
-                    </p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>EMAIL</h3>
-                    <p>
-                        <a href="mailto:syedmohd@centerline.ae">
-                            syedmohd@centerline.ae
-                        </a>
-                    </p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>LOCATIONS</h3>
-                    <p>Dubai · Abu Dhabi</p>
-                </div>
-
-            </div>
         </div>
-    </section>
 
-</main><!-- FOOTER -->
+        <div class="contact-card">
 
+            <div class="contact-item">
+                <h3>WEBSITE</h3>
+                <p>
+                    <a href="https://www.centerline.ae" target="_blank" rel="noopener">
+                        www.centerline.ae
+                    </a>
+                </p>
+            </div>
 
-{% load static %}
+            <div class="contact-item">
+                <h3>EMAIL</h3>
+                <p>
+                    <a href="mailto:sales@centerline.ae">
+                        sales@centerline.ae
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>PHONE</h3>
+                <p>
+                    <a href="tel:+971505204975">+971 50 520 4975</a><br>
+                    <a href="tel:+971553106547">+971 55 310 6547</a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>EMAIL</h3>
+                <p>
+                    <a href="mailto:syedmohd@centerline.ae">
+                        syedmohd@centerline.ae
+                    </a>
+                </p>
+            </div>
+
+            <div class="contact-item">
+                <h3>LOCATIONS</h3>
+                <p>Dubai · Abu Dhabi</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer class="main-footer">
 
     <div class="footer-container">
 
         <!-- COMPANY INFORMATION -->
+
         <div class="footer-about">
 
             <img src="{% static 'images/centerline-logo-transparent.png' %}"
@@ -2539,6 +2510,7 @@ footer.main-footer {
         </div>
 
         <!-- QUICK LINKS -->
+
         <div class="footer-links">
 
             <h3>Quick Links</h3>
@@ -2552,6 +2524,7 @@ footer.main-footer {
         </div>
 
         <!-- CONTACT -->
+
         <div class="footer-contact">
 
             <h3>Get in Touch</h3>
@@ -2567,6 +2540,7 @@ footer.main-footer {
     </div>
 
     <!-- COPYRIGHT -->
+
     <div class="copyright">
 
         <p>
@@ -2589,72 +2563,215 @@ footer.main-footer {
 
 </footer>
 
+<!-- =========================================
+     EXTERNAL ANIMATIONS
+========================================= -->
 
 <script src="{% static 'animations.js' %}" defer></script>
+
+<!-- =========================================
+     WEBSITE JAVASCRIPT
+========================================= -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+    // ==========================================
+    // 1. DUPLICATE SERVICE CARDS
+    // ==========================================
+
     const track = document.querySelector(".services-track");
 
-    if (!track) return;
+    if (track && !track.dataset.duplicated) {
 
-    // Get the original five cards
-    const cards = Array.from(track.children);
+        const cards = Array.from(track.children);
 
-    // Duplicate the cards for continuous movement
-    cards.forEach(card => {
+        cards.forEach(function (card) {
 
-        const clone = card.cloneNode(true);
+            const clone = card.cloneNode(true);
 
-        clone.setAttribute("aria-hidden", "true");
+            clone.setAttribute("aria-hidden", "true");
 
-        track.appendChild(clone);
+            track.appendChild(clone);
 
-    });
+        });
 
-});
+        track.dataset.duplicated = "true";
+    }
 
 
-document.addEventListener("DOMContentLoaded", function () {
+    // ==========================================
+    // 2. MOBILE HAMBURGER MENU
+    // ==========================================
 
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
 
-    if (!menuToggle || !navMenu) return;
+    function closeMobileMenu() {
 
-    menuToggle.addEventListener("click", function () {
+        if (!menuToggle || !navMenu) return;
 
-        const isOpen = navMenu.classList.toggle("active");
+        navMenu.classList.remove("active");
+        menuToggle.classList.remove("active");
 
-        menuToggle.classList.toggle("active", isOpen);
-
-        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute("aria-expanded", "false");
 
         menuToggle.setAttribute(
             "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
+            "Open navigation menu"
         );
+    }
 
-    });
+    if (menuToggle && navMenu) {
 
-    // Close menu after clicking a navigation link
+        menuToggle.addEventListener("click", function () {
 
-    navMenu.querySelectorAll("a").forEach(function (link) {
+            const isOpen = navMenu.classList.toggle("active");
 
-        link.addEventListener("click", function () {
+            menuToggle.classList.toggle("active", isOpen);
 
-            navMenu.classList.remove("active");
-            menuToggle.classList.remove("active");
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
 
-            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+        });
+
+    }
+
+
+    // ==========================================
+    // 3. ABOUT AND SERVICES DROPDOWNS
+    // ==========================================
+
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+    function closeAllDropdowns() {
+
+        dropdowns.forEach(function (dropdown) {
+
+            dropdown.classList.remove("is-open");
+
+            const button = dropdown.querySelector(".dropdown-toggle");
+
+            if (button) {
+                button.setAttribute("aria-expanded", "false");
+            }
+
+        });
+
+    }
+
+    dropdowns.forEach(function (dropdown) {
+
+        const dropdownButton =
+            dropdown.querySelector(".dropdown-toggle");
+
+        if (!dropdownButton) return;
+
+        dropdownButton.addEventListener("click", function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            const isAlreadyOpen =
+                dropdown.classList.contains("is-open");
+
+            closeAllDropdowns();
+
+            if (!isAlreadyOpen) {
+
+                dropdown.classList.add("is-open");
+
+                dropdownButton.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+            }
 
         });
 
     });
 
-});
 
+    // ==========================================
+    // 4. CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+    // ==========================================
+
+    document.addEventListener("click", function (event) {
+
+        if (!event.target.closest(".nav-dropdown")) {
+
+            closeAllDropdowns();
+
+        }
+
+    });
+
+
+    // ==========================================
+    // 5. CLOSE MENU AFTER CLICKING A LINK
+    // ==========================================
+
+    if (navMenu) {
+
+        navMenu.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                closeMobileMenu();
+
+                closeAllDropdowns();
+
+            });
+
+        });
+
+    }
+
+
+    // ==========================================
+    // 6. CLOSE MENUS USING ESCAPE KEY
+    // ==========================================
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            closeMobileMenu();
+
+            closeAllDropdowns();
+
+        }
+
+    });
+
+
+    // ==========================================
+    // 7. RESET MENU WHEN RESIZING TO DESKTOP
+    // ==========================================
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 760) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+});
 </script>
+
 </body>
 </html>
+
