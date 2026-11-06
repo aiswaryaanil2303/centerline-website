@@ -1416,14 +1416,237 @@ footer {
         padding: 30px 25px;
     }
 
-    /* FOOTER */
+   
+/* =========================================
+   CENTERLINE FOOTER
+========================================= */
 
-    footer {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        gap: 12px;
+.main-footer {
+    display: block;
+    width: 100%;
+    padding: 75px 6% 25px;
+    margin: 0;
+    background: #082b3a;
+    color: #b7cbd1;
+    text-align: left;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.35fr 0.55fr 1fr;
+    gap: 70px;
+    padding-bottom: 65px;
+}
+
+/* COMPANY INFORMATION */
+
+.footer-about {
+    max-width: 550px;
+}
+
+.footer-logo {
+    display: block;
+    width: 220px;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+    object-position: left center;
+    margin-bottom: 24px;
+}
+
+.footer-about p {
+    color: #b7cbd1;
+    font-size: 17px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* QUICK LINKS */
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-container h3 {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #b7cbd1;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #20a8b8;
+    padding-left: 4px;
+}
+
+/* GET IN TOUCH */
+
+.footer-contact p {
+    color: #b7cbd1;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+/* COPYRIGHT AND DEVELOPER CREDIT */
+
+.main-footer .copyright {
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    text-align: left;
+    color: #b7cbd1;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.main-footer .copyright p {
+    margin: 0;
+}
+
+.footer-credit {
+    color: #b7cbd1;
+    font-size: 14px;
+    text-align: right;
+}
+
+.footer-credit a {
+    color: #20a8b8;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: #ffffff;
+}
+
+/* =========================================
+   FOOTER TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 992px) {
+
+    .footer-container {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 45px;
     }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+    }
+}
+
+/* =========================================
+   FOOTER MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 760px) {
+
+    .main-footer {
+        padding: 50px 6% 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-bottom: 40px;
+    }
+
+    .footer-about {
+        max-width: 100%;
+    }
+
+    .footer-logo {
+        width: 190px;
+        max-height: 85px;
+        margin-bottom: 20px;
+    }
+
+    .footer-about p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .footer-container h3 {
+        font-size: 19px;
+        margin-bottom: 8px;
+    }
+
+    .footer-links {
+        gap: 16px;
+    }
+
+    .footer-links a {
+        font-size: 15px;
+    }
+
+    .footer-contact {
+        grid-column: auto;
+    }
+
+    .footer-contact p {
+        font-size: 15px;
+    }
+
+    .main-footer .copyright {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding-top: 22px;
+    }
+
+    .footer-credit {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .main-footer .copyright p {
+        font-size: 13px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+    .main-footer {
+        padding: 40px 5% 22px;
+    }
+
+    .footer-logo {
+        width: 175px;
+    }
+
+    .footer-container {
+        gap: 30px;
+    }
+}
+
 
     /* SCROLL ANIMATIONS */
 
@@ -1524,6 +1747,212 @@ footer {
     #clients .client-card-inner {
         transition: none;
     }
+}
+
+
+/* ======================================
+   CENTERLINE FOOTER - FINAL OVERRIDE
+====================================== */
+
+footer.main-footer {
+    display: block !important;
+    width: 100% !important;
+    background: #082b3a !important;
+    color: #b7cbd1 !important;
+    padding: 75px 7% 25px !important;
+    margin: 0 !important;
+    text-align: left !important;
+    box-sizing: border-box;
+}
+
+.main-footer .footer-container {
+    display: grid !important;
+    grid-template-columns: 1.35fr 0.65fr 1fr !important;
+    gap: 65px !important;
+    max-width: 1650px;
+    width: 100%;
+    margin: 0 auto !important;
+    padding-bottom: 65px;
+    text-align: left !important;
+}
+
+.main-footer .footer-about {
+    text-align: left !important;
+}
+
+.main-footer .footer-logo {
+    display: block !important;
+    width: 220px !important;
+    max-width: 100%;
+    height: auto !important;
+    max-height: 100px;
+    object-fit: contain;
+    object-position: left center;
+    margin: 0 0 24px 0 !important;
+}
+
+.main-footer .footer-about p {
+    color: #b7cbd1 !important;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 530px;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+.main-footer .footer-container h3 {
+    color: #ffffff !important;
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0 0 22px 0 !important;
+    text-align: left !important;
+}
+
+.main-footer .footer-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 17px !important;
+    text-align: left !important;
+}
+
+.main-footer .footer-links a {
+    display: block;
+    color: #b7cbd1 !important;
+    text-decoration: none !important;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.main-footer .footer-links a:hover {
+    color: #20a8b8 !important;
+}
+
+.main-footer .footer-contact {
+    display: block !important;
+    text-align: left !important;
+}
+
+.main-footer .footer-contact p {
+    color: #b7cbd1 !important;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 0 15px 0 !important;
+    text-align: left !important;
+}
+
+/* COPYRIGHT */
+
+.main-footer .copyright {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto !important;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: left !important;
+}
+
+.main-footer .copyright p {
+    color: #b7cbd1 !important;
+    font-size: 14px;
+    margin: 0 !important;
+}
+
+.main-footer .footer-credit {
+    color: #b7cbd1 !important;
+    font-size: 14px;
+    text-align: right;
+}
+
+.main-footer .footer-credit a {
+    color: #20a8b8 !important;
+    text-decoration: none !important;
+    font-weight: 700;
+}
+
+.main-footer .footer-credit a:hover {
+    color: #ffffff !important;
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+    .main-footer .footer-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 40px !important;
+    }
+
+    .main-footer .footer-contact {
+        grid-column: 1 / -1;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+    footer.main-footer {
+        padding: 45px 6% 25px !important;
+    }
+
+    .main-footer .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 35px !important;
+        padding-bottom: 35px;
+    }
+
+    .main-footer .footer-contact {
+        grid-column: auto;
+    }
+
+    .main-footer .footer-logo {
+        width: 185px !important;
+    }
+
+    .main-footer .footer-about p {
+        font-size: 15px;
+    }
+
+    .main-footer .footer-container h3 {
+        font-size: 19px;
+    }
+
+    .main-footer .copyright {
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 12px;
+    }
+
+    .main-footer .footer-credit {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .main-footer .copyright p {
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+
+/* Footer Logo - White Background */
+
+.main-footer .footer-logo {
+    display: block;
+    width: 220px !important;
+    height: 80px !important;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 7px;
+    object-fit: contain;
+    object-position: center;
+    box-sizing: border-box;
+    margin-bottom: 25px !important;
 }
 </style>
 </head>
@@ -2087,20 +2516,79 @@ footer {
 
 </main><!-- FOOTER -->
 
-<footer>
+
+{% load static %}
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <!-- COMPANY INFORMATION -->
+        <div class="footer-about">
+
+            <img src="{% static 'images/centerline-logo-transparent.png' %}"
+                 alt="Centerline Technical Services Logo"
+                 class="footer-logo">
+
+            <p>
+                Centerline Technical Services delivers integrated
+                healthcare infrastructure solutions with a focus
+                on quality, safety and reliability.
+            </p>
+
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="/">Home</a>
+            <a href="/about/">About Us</a>
+            <a href="/services/">Services</a>
+            <a href="/solutions/">Solutions</a>
+            <a href="/contact/">Contact</a>
+
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-contact">
+
+            <h3>Get in Touch</h3>
+
+            <p>Centerline Technical Services</p>
+
+            <p>
+                Contact us for healthcare infrastructure enquiries.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
     <div class="copyright">
-        © 2026 Centerline Technical Services. All Rights Reserved.
+
+        <p>
+            © 2026 Centerline Technical Services. All Rights Reserved.
+        </p>
 
         <div class="footer-credit">
+
             Designed and Developed by
+
             <a href="https://www.inspirezesttechnologies.com/"
                target="_blank"
                rel="noopener noreferrer">
                 InspireZest Technologies
             </a>
+
         </div>
+
     </div>
+
 </footer>
+
 
 <script src="{% static 'animations.js' %}" defer></script>
 
