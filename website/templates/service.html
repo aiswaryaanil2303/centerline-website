@@ -992,8 +992,8 @@
         <div class="copyright">
 
             <p>
-                © 2026 Centerline Technical Services. All Rights Reserved.
-            </p>
+    © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
+</p>
 
             <div class="footer-credit">
 
@@ -1141,6 +1141,7 @@
         });
 
     });
+     document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
 
 </body>

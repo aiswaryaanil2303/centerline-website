@@ -1242,6 +1242,16 @@
             }
         }
 
+
+      /* JUSTIFIED PARAGRAPH TEXT */
+
+.about-content p,
+.message-content p,
+.history-content p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+  
     </style>
 </head>
 
@@ -1713,9 +1723,9 @@
 
         <div class="copyright">
 
-            <p>
-                © 2026 Centerline Technical Services. All Rights Reserved.
-            </p>
+           <p>
+    © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
+</p>
 
             <div class="footer-credit">
                 Designed and Developed by
@@ -1884,7 +1894,11 @@
 
         });
 
-    </script>
+// year changing
+        
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+   
 
 </body>
 </html>
