@@ -128,16 +128,7 @@ img {
     color: #20a8b8;
 }
 
-.dropdown-arrow {
-    display: inline-block;
-    font-size: 18px;
-    transition: transform 0.3s ease;
-}
 
-.nav-dropdown:hover .dropdown-arrow,
-.nav-dropdown.is-open .dropdown-arrow {
-    transform: rotate(180deg);
-}
 
 .dropdown-menu {
     display: block;
@@ -1782,6 +1773,45 @@ footer.main-footer {
     }
 }
 
+/* MOBILE RESPONSIVE CLIENT CARDS - BOTH PAGES */
+
+@media screen and (max-width: 760px) {
+
+    .clients-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        gap: 15px;
+        padding: 10px 5px 20px;
+
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .client-card {
+        flex: 0 0 250px !important;
+        width: 250px !important;
+        height: 260px !important;
+        min-height: 260px !important;
+
+        scroll-snap-align: start;
+    }
+
+    .clients-grid::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .clients-grid::-webkit-scrollbar-thumb {
+        background: #20a8b8;
+        border-radius: 10px;
+    }
+}
+
+
 </style>
 </head>
 
@@ -1819,11 +1849,11 @@ footer.main-footer {
 
                 <li class="nav-dropdown">
 
-                    <button class="dropdown-toggle"
-                            type="button"
-                            aria-expanded="false">
-                        About <span class="dropdown-arrow">⌄</span>
-                    </button>
+                   <button class="dropdown-toggle"
+        type="button"
+        aria-expanded="false">
+    About
+</button>
 
                     <div class="dropdown-menu">
 
@@ -1869,10 +1899,10 @@ footer.main-footer {
                 <li class="nav-dropdown">
 
                     <button class="dropdown-toggle"
-                            type="button"
-                            aria-expanded="false">
-                        Services <span class="dropdown-arrow">⌄</span>
-                    </button>
+        type="button"
+        aria-expanded="false">
+    Services
+</button>
 
                     <div class="dropdown-menu">
 
