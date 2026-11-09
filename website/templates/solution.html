@@ -41,12 +41,12 @@
         }
 
         .logo img,
-.navbar-logo-img {
-    width: 175px;
-    max-height: 60px;
-    object-fit: contain;
-    display: block;
-}
+        .navbar-logo-img {
+            width: 175px;
+            max-height: 60px;
+            object-fit: contain;
+            display: block;
+        }
 
         .logo img:hover {
             transform: scale(1.04);
@@ -71,6 +71,67 @@
             color: #078a91;
         }
 
+        /* NAVBAR DROPDOWNS */
+
+        .nav-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-toggle {
+            padding: 12px 0;
+            border: none;
+            background: transparent;
+            color: #183b47;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle.active {
+            color: #078a91;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 240px;
+            padding: 9px 0;
+            display: none;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
+            z-index: 1200;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu,
+        .nav-dropdown.is-open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 11px 18px;
+            color: #183b47;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: normal;
+            transition: 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #eaf5f5;
+            color: #078a91;
+        }
+
         .nav-contact {
             text-decoration: none;
             background: #087e86;
@@ -88,67 +149,68 @@
 
         /* Hero with Background Video */
 
-.solution-hero {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    min-height: 480px;
-    background: #073542;
-    color: white;
-    padding: 100px 6%;
-    text-align: center;
+        .solution-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 480px;
+            background: #073542;
+            color: white;
+            padding: 100px 6%;
+            text-align: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Background Video */
+        /* Background Video */
 
-.solution-hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-}
+        .solution-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
 
-/* Dark Overlay */
+        /* Dark Overlay */
 
-.solution-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        120deg,
-        rgba(7, 53, 66, 0.85),
-        rgba(7, 82, 97, 0.70)
-    );
-    z-index: -1;
-}
+        .solution-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                120deg,
+                rgba(7, 53, 66, 0.85),
+                rgba(7, 82, 97, 0.70)
+            );
+            z-index: -1;
+        }
 
-/* Hero Content */
+        /* Hero Content */
 
-.hero-content {
-    max-width: 950px;
-    margin: auto;
-    position: relative;
-    z-index: 1;
-}
+        .hero-content {
+            max-width: 950px;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
 
-/* Hero Label */
+        /* Hero Label */
 
-.hero-label {
-    color: #8de1df;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
+        .hero-label {
+            color: #8de1df;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
 
         /* Solutions section */
+
         .solutions-section {
             padding: 90px 5% 110px;
             background: linear-gradient(135deg, #082e3b, #073d4b);
@@ -247,6 +309,7 @@
         }
 
         /* Closing section */
+
         .solution-closing {
             padding: 75px 6%;
             text-align: center;
@@ -283,210 +346,212 @@
             transform: translateY(-3px);
         }
 
-/* ======================================
-   CENTERLINE COMMON FOOTER
-====================================== */
+        /* ======================================
+           CENTERLINE COMMON FOOTER
+        ====================================== */
 
-footer.main-footer {
-    display: block;
-    width: 100%;
-    background: #082b3a;
-    color: #b7cbd1;
-    padding: 75px 7% 25px;
-    margin: 0;
-    text-align: left;
-    box-sizing: border-box;
-}
+        footer.main-footer {
+            display: block;
+            width: 100%;
+            background: #082b3a;
+            color: #b7cbd1;
+            padding: 75px 7% 25px;
+            margin: 0;
+            text-align: left;
+            box-sizing: border-box;
+        }
 
-.main-footer .footer-container {
-    display: grid;
-    grid-template-columns: 1.35fr 0.65fr 1fr;
-    gap: 65px;
-    max-width: 1650px;
-    width: 100%;
-    margin: 0 auto;
-    padding-bottom: 65px;
-}
+        .main-footer .footer-container {
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr 1fr;
+            gap: 65px;
+            max-width: 1650px;
+            width: 100%;
+            margin: 0 auto;
+            padding-bottom: 65px;
+        }
 
-/* COMPANY INFORMATION */
+        /* COMPANY INFORMATION */
 
-.main-footer .footer-about {
-    text-align: left;
-}
+        .main-footer .footer-about {
+            text-align: left;
+        }
 
-.main-footer .footer-logo {
-    display: block;
-    width: 220px;
-    height: 80px;
-    padding: 8px;
-    background: #ffffff;
-    border-radius: 7px;
-    object-fit: contain;
-    object-position: center;
-    box-sizing: border-box;
-    margin: 0 0 25px 0;
-}
+        .main-footer .footer-logo {
+            display: block;
+            width: 220px;
+            height: 80px;
+            padding: 8px;
+            background: #ffffff;
+            border-radius: 7px;
+            object-fit: contain;
+            object-position: center;
+            box-sizing: border-box;
+            margin: 0 0 25px 0;
+        }
 
-.main-footer .footer-about p {
-    color: #b7cbd1;
-    font-size: 17px;
-    line-height: 1.8;
-    max-width: 530px;
-    margin: 0;
-    text-align: left;
-}
+        .main-footer .footer-about p {
+            color: #b7cbd1;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 530px;
+            margin: 0;
+            text-align: left;
+        }
 
-/* QUICK LINKS */
+        /* QUICK LINKS */
 
-.main-footer .footer-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 17px;
-}
+        .main-footer .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 17px;
+        }
 
-.main-footer .footer-container h3 {
-    color: #ffffff;
-    font-size: 21px;
-    font-weight: 700;
-    margin: 0 0 5px;
-}
+        .main-footer .footer-container h3 {
+            color: #ffffff;
+            font-size: 21px;
+            font-weight: 700;
+            margin: 0 0 5px;
+        }
 
-.main-footer .footer-links a {
-    display: block;
-    color: #b7cbd1;
-    font-size: 16px;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
+        .main-footer .footer-links a {
+            display: block;
+            color: #b7cbd1;
+            font-size: 16px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
 
-.main-footer .footer-links a:hover {
-    color: #20a8b8;
-}
+        .main-footer .footer-links a:hover {
+            color: #20a8b8;
+        }
 
-/* GET IN TOUCH */
+        /* GET IN TOUCH */
 
-.main-footer .footer-contact {
-    text-align: left;
-}
+        .main-footer .footer-contact {
+            text-align: left;
+        }
 
-.main-footer .footer-contact p {
-    color: #b7cbd1;
-    font-size: 16px;
-    line-height: 1.8;
-    margin: 0 0 15px;
-}
+        .main-footer .footer-contact p {
+            color: #b7cbd1;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 0 0 15px;
+        }
 
-/* COPYRIGHT */
+        /* COPYRIGHT */
 
-.main-footer .copyright {
-    width: 100%;
-    max-width: 1650px;
-    margin: 0 auto;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.15);
+        .main-footer .copyright {
+            width: 100%;
+            max-width: 1650px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.15);
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    text-align: left;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: left;
+        }
 
-.main-footer .copyright p {
-    color: #b7cbd1;
-    font-size: 14px;
-    margin: 0;
-}
+        .main-footer .copyright p {
+            color: #b7cbd1;
+            font-size: 14px;
+            margin: 0;
+        }
 
-.main-footer .footer-credit {
-    color: #b7cbd1;
-    font-size: 14px;
-    text-align: right;
-}
+        .main-footer .footer-credit {
+            color: #b7cbd1;
+            font-size: 14px;
+            text-align: right;
+        }
 
-.main-footer .footer-credit a {
-    color: #20a8b8;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
+        .main-footer .footer-credit a {
+            color: #20a8b8;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
 
-.main-footer .footer-credit a:hover {
-    color: #ffffff;
-}
+        .main-footer .footer-credit a:hover {
+            color: #ffffff;
+        }
 
-/* TABLET RESPONSIVE */
+        /* TABLET RESPONSIVE */
 
-@media (max-width: 992px) {
+        @media (max-width: 992px) {
 
-    .main-footer .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
+            .main-footer .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
 
-    .main-footer .footer-contact {
-        grid-column: 1 / -1;
-    }
-}
+            .main-footer .footer-contact {
+                grid-column: 1 / -1;
+            }
+        }
 
-/* MOBILE RESPONSIVE */
+        /* MOBILE RESPONSIVE */
 
-@media (max-width: 760px) {
+        @media (max-width: 760px) {
 
-    footer.main-footer {
-        padding: 45px 6% 25px;
-    }
+            footer.main-footer {
+                padding: 45px 6% 25px;
+            }
 
-    .main-footer .footer-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding-bottom: 35px;
-    }
+            .main-footer .footer-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding-bottom: 35px;
+            }
 
-    .main-footer .footer-contact {
-        grid-column: auto;
-    }
+            .main-footer .footer-contact {
+                grid-column: auto;
+            }
 
-    .main-footer .footer-logo {
-        width: 185px;
-        height: 75px;
-    }
+            .main-footer .footer-logo {
+                width: 185px;
+                height: 75px;
+            }
 
-    .main-footer .footer-about p {
-        font-size: 15px;
-    }
+            .main-footer .footer-about p {
+                font-size: 15px;
+            }
 
-    .main-footer .footer-container h3 {
-        font-size: 19px;
-    }
+            .main-footer .footer-container h3 {
+                font-size: 19px;
+            }
 
-    .main-footer .footer-links {
-        gap: 16px;
-    }
+            .main-footer .footer-links {
+                gap: 16px;
+            }
 
-    .main-footer .copyright {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 12px;
-    }
+            .main-footer .copyright {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
+            }
 
-    .main-footer .copyright p {
-        font-size: 13px;
-        text-align: center;
-    }
+            .main-footer .copyright p {
+                font-size: 13px;
+                text-align: center;
+            }
 
-    .main-footer .footer-credit {
-        font-size: 13px;
-        text-align: center;
-    }
-}
+            .main-footer .footer-credit {
+                font-size: 13px;
+                text-align: center;
+            }
+        }
 
-              /* Responsive */
+        /* Responsive */
+
         @media (max-width: 900px) {
+
             .nav-links {
                 gap: 16px;
             }
@@ -501,6 +566,7 @@ footer.main-footer {
         }
 
         @media (max-width: 760px) {
+
             .navbar {
                 flex-wrap: wrap;
                 gap: 15px;
@@ -516,6 +582,34 @@ footer.main-footer {
 
             .nav-contact {
                 padding: 10px 15px;
+            }
+
+            /* MOBILE DROPDOWNS */
+
+            .nav-dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dropdown-toggle {
+                padding: 7px 0;
+                font-size: 13px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: min(280px, 85vw);
+                min-width: 0;
+                margin-top: 5px;
+                border: 1px solid #e0ebed;
+                border-radius: 8px;
+                box-shadow: 0 5px 18px rgba(0, 0, 0, 0.09);
+            }
+
+            .dropdown-menu a {
+                padding: 10px 14px;
+                font-size: 12px;
             }
 
             .solution-hero {
@@ -540,6 +634,7 @@ footer.main-footer {
         }
 
         @media (max-width: 480px) {
+
             .logo img {
                 width: 135px;
             }
@@ -568,49 +663,89 @@ footer.main-footer {
 
     <!-- Navbar -->
     <header class="navbar">
-     <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
-    <img src="{% static 'images/centerline-logo-transparent.png' %}"
-         alt="Centerline Technical Services"
-         class="navbar-logo-img">
-</a>
+
+        <a href="/" class="navbar-logo" aria-label="Centerline Technical Services">
+            <img src="{% static 'images/centerline-logo-transparent.png' %}"
+                 alt="Centerline Technical Services"
+                 class="navbar-logo-img">
+        </a>
 
         <nav class="nav-links">
-            <a href="/about/">About</a>
-            <a href="/services/">Services</a>
+
+            <!-- ABOUT DROPDOWN -->
+            <div class="nav-dropdown">
+
+                <button class="dropdown-toggle" type="button">
+                    About
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="/about/#about-centerline">About Us</a>
+                    <a href="/about/#who-we-are">Who We Are</a>
+                    <a href="/about/#message-from-management">Message from Management</a>
+                    <a href="/about/#our-history">Our History</a>
+                    <a href="/about/#why-centerline">Why Choose Us</a>
+                    <a href="/about/#our-approach">Our Approach</a>
+                </div>
+
+            </div>
+
+            <!-- SERVICES DROPDOWN -->
+            <div class="nav-dropdown">
+
+                <button class="dropdown-toggle" type="button">
+                    Services
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="/services/">All Services</a>
+                    <a href="/services/hvac/">Healthcare HVAC Systems</a>
+                    <a href="/services/modular-construction/">Healthcare Modular Construction</a>
+                    <a href="/services/infection-control/">Infection Control Systems</a>
+                    <a href="/services/medical-gas/">Medical Gas Supply Systems</a>
+                    <a href="/services/hospital-electrical/">Hospital Electrical Systems</a>
+                </div>
+
+            </div>
+
             <a href="/solutions/" class="active">Solutions</a>
             <a href="/clients/">Clients</a>
             <a href="/contact/">Contact</a>
+
         </nav>
 
         <a href="/contact/" class="nav-contact">Talk to us</a>
+
     </header>
 
     <!-- Hero -->
-  
-<!-- Hero -->
-<section class="solution-hero">
 
-    <!-- Background Video -->
-    <video class="solution-hero-video" autoplay muted loop playsinline>
-        <source src="{% static 'images/stock-video-rooftop-modern-energy-efficient-office-featuring-ventilation-systems-solar-panels.mp4' %}" type="video/mp4">
-    </video>
+    <section class="solution-hero">
 
-    <div class="hero-content">
+        <!-- Background Video -->
+        <video class="solution-hero-video" autoplay muted loop playsinline>
+            <source src="{% static 'images/stock-video-rooftop-modern-energy-efficient-office-featuring-ventilation-systems-solar-panels.mp4' %}" type="video/mp4">
+        </video>
 
-        <div class="hero-label">OUR SOLUTIONS</div>
+        <div class="hero-content">
 
-        <h1>Integrated solutions for modern healthcare environments.</h1>
+            <div class="hero-label">OUR SOLUTIONS</div>
 
-        <p>
-            We bring together application-specific engineering and
-            healthcare infrastructure solutions to support safer,
-            smarter and more reliable clinical environments.
-        </p>
+            <h1>Integrated solutions for modern healthcare environments.</h1>
 
-    </div>
-</section>
+            <p>
+                We bring together application-specific engineering and
+                healthcare infrastructure solutions to support safer,
+                smarter and more reliable clinical environments.
+            </p>
+
+        </div>
+    </section>
+
     <!-- Solutions -->
+
     <section class="solutions-section">
+
         <div class="solutions-container">
 
             <div class="section-heading">
@@ -704,6 +839,7 @@ footer.main-footer {
     </section>
 
     <!-- Closing -->
+
     <section class="solution-closing">
         <h2>Building better healthcare environments.</h2>
         <p>
@@ -713,108 +849,146 @@ footer.main-footer {
         <a href="/services/" class="closing-button">Explore Our Services</a>
     </section>
 
-<!-- FOOTER -->
+    <!-- FOOTER -->
 
-<footer class="main-footer">
+    <footer class="main-footer">
 
-    <div class="footer-container">
+        <div class="footer-container">
 
-        <!-- COMPANY INFORMATION -->
-        <div class="footer-about">
+            <!-- COMPANY INFORMATION -->
+            <div class="footer-about">
 
-            <img src="{% static 'images/centerline-logo-transparent.png' %}"
-                 alt="Centerline Technical Services Logo"
-                 class="footer-logo">
+                <img src="{% static 'images/centerline-logo-transparent.png' %}"
+                     alt="Centerline Technical Services Logo"
+                     class="footer-logo">
+
+                <p>
+                    Centerline Technical Services delivers integrated
+                    healthcare infrastructure solutions with a focus
+                    on quality, safety and reliability.
+                </p>
+
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <a href="/">Home</a>
+                <a href="/about/">About Us</a>
+                <a href="/services/">Services</a>
+                <a href="/solutions/">Solutions</a>
+                <a href="/contact/">Contact</a>
+
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-contact">
+
+                <h3>Get in Touch</h3>
+
+                <p>Centerline Technical Services</p>
+
+                <p>
+                    Contact us for healthcare infrastructure enquiries.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT AND DEVELOPER CREDIT -->
+        <div class="copyright">
 
             <p>
-                Centerline Technical Services delivers integrated
-                healthcare infrastructure solutions with a focus
-                on quality, safety and reliability.
+                © 2026 Centerline Technical Services. All Rights Reserved.
             </p>
 
-        </div>
+            <div class="footer-credit">
 
-        <!-- QUICK LINKS -->
-        <div class="footer-links">
+                Designed and Developed by
 
-            <h3>Quick Links</h3>
+                <a href="https://www.inspirezesttechnologies.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    InspireZest Technologies
+                </a>
 
-            <a href="/">Home</a>
-            <a href="/about/">About Us</a>
-            <a href="/services/">Services</a>
-            <a href="/solutions/">Solutions</a>
-            <a href="/contact/">Contact</a>
-
-        </div>
-
-        <!-- CONTACT -->
-        <div class="footer-contact">
-
-            <h3>Get in Touch</h3>
-
-            <p>Centerline Technical Services</p>
-
-            <p>
-                Contact us for healthcare infrastructure enquiries.
-            </p>
+            </div>
 
         </div>
 
-    </div>
+    </footer>
 
-    <!-- COPYRIGHT AND DEVELOPER CREDIT -->
-    <div class="copyright">
+    <!-- Scroll animation and Navbar Dropdowns -->
 
-        <p>
-            © 2026 Centerline Technical Services. All Rights Reserved.
-        </p>
+    <script>
+        const animatedElements = document.querySelectorAll(
+            '.section-heading, .solution-card'
+        );
 
-        <div class="footer-credit">
+        const observer = new IntersectionObserver((entries) => {
 
-            Designed and Developed by
+            entries.forEach((entry) => {
 
-            <a href="https://www.inspirezesttechnologies.com/"
-               target="_blank"
-               rel="noopener noreferrer">
-                InspireZest Technologies
-            </a>
+                if (entry.isIntersecting) {
 
-        </div>
+                    entry.target.classList.add('show');
 
-    </div>
+                    observer.unobserve(entry.target);
 
-</footer>
+                }
 
-    
-    <!-- Scroll animation -->
-   <script>
-    const animatedElements = document.querySelectorAll(
-        '.section-heading, .solution-card'
-    );
+            });
 
-    const observer = new IntersectionObserver((entries) => {
+        }, {
+            threshold: 0.15
+        });
 
-        entries.forEach((entry) => {
+        animatedElements.forEach((element) => {
+            observer.observe(element);
+        });
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add('show');
+        /* NAVBAR DROPDOWNS */
 
-                observer.unobserve(entry.target);
+        const dropdowns = document.querySelectorAll(".nav-dropdown");
 
-            }
+        dropdowns.forEach(function (dropdown) {
+
+            const toggle = dropdown.querySelector(".dropdown-toggle");
+
+            toggle.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+                dropdowns.forEach(function (otherDropdown) {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove("is-open");
+                    }
+                });
+
+                dropdown.classList.toggle("is-open");
+
+            });
 
         });
 
-    }, {
-        threshold: 0.15
-    });
+        document.addEventListener("click", function () {
+            dropdowns.forEach(function (dropdown) {
+                dropdown.classList.remove("is-open");
+            });
+        });
 
-    animatedElements.forEach((element) => {
-        observer.observe(element);
-    });
-</script>
-   
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                dropdowns.forEach(function (dropdown) {
+                    dropdown.classList.remove("is-open");
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>

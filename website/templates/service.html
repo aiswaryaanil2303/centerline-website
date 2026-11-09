@@ -73,6 +73,66 @@
             color: #168b9b;
         }
 
+        /* NAVBAR DROPDOWNS */
+
+        .nav-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-toggle {
+            padding: 12px 0;
+            border: none;
+            background: transparent;
+            color: #183b48;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle.active {
+            color: #168b9b;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 240px;
+            padding: 9px 0;
+            display: none;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+            z-index: 1200;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu,
+        .nav-dropdown.is-open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 11px 18px;
+            color: #183b48;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: normal;
+            transition: 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #eaf5f5;
+            color: #138b98;
+        }
+
         .nav-contact {
             padding: 12px 23px;
             border-radius: 6px;
@@ -89,9 +149,7 @@
             transform: translateY(-2px);
         }
 
-        /* =================================
-           HERO WITH BACKGROUND VIDEO
-        ================================= */
+        /* HERO WITH BACKGROUND VIDEO */
 
         .services-hero {
             min-height: 440px;
@@ -320,9 +378,7 @@
             line-height: 1.9;
         }
 
-        /* =================================
-           FOOTER
-        ================================= */
+        /* FOOTER */
 
         footer.main-footer {
             display: block;
@@ -440,9 +496,7 @@
             color: #ffffff;
         }
 
-        /* =================================
-           SCROLL REVEAL ANIMATIONS
-        ================================= */
+        /* SCROLL REVEAL ANIMATIONS */
 
         .service-reveal {
             opacity: 0;
@@ -507,9 +561,7 @@
             }
         }
 
-        /* =================================
-           MOBILE NAVIGATION
-        ================================= */
+        /* MOBILE NAVIGATION */
 
         @media (max-width: 760px) {
 
@@ -533,6 +585,34 @@
 
             .nav-links > a {
                 font-size: 13px;
+            }
+
+            /* MOBILE DROPDOWNS */
+
+            .nav-dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dropdown-toggle {
+                padding: 7px 0;
+                font-size: 13px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: min(280px, 85vw);
+                min-width: 0;
+                margin-top: 5px;
+                border: 1px solid #e0ebed;
+                border-radius: 8px;
+                box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+            }
+
+            .dropdown-menu a {
+                padding: 10px 14px;
+                font-size: 12px;
             }
 
             .nav-contact {
@@ -684,8 +764,42 @@
 
         <nav class="nav-links" aria-label="Main navigation">
 
-            <a href="/about/">About</a>
-            <a href="/services/" class="active">Services</a>
+            <!-- ABOUT DROPDOWN -->
+            <div class="nav-dropdown">
+
+                <button class="dropdown-toggle" type="button">
+                    About
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="/about/#about-centerline">About Us</a>
+                    <a href="/about/#who-we-are">Who We Are</a>
+                    <a href="/about/#message-from-management">Message from Management</a>
+                    <a href="/about/#our-history">Our History</a>
+                    <a href="/about/#why-centerline">Why Choose Us</a>
+                    <a href="/about/#our-approach">Our Approach</a>
+                </div>
+
+            </div>
+
+            <!-- SERVICES DROPDOWN -->
+            <div class="nav-dropdown">
+
+                <button class="dropdown-toggle active" type="button">
+                    Services
+                </button>
+
+                <div class="dropdown-menu">
+                    <a href="/services/">All Services</a>
+                    <a href="/services/hvac/">Healthcare HVAC Systems</a>
+                    <a href="/services/modular-construction/">Healthcare Modular Construction</a>
+                    <a href="/services/infection-control/">Infection Control Systems</a>
+                    <a href="/services/medical-gas/">Medical Gas Supply Systems</a>
+                    <a href="/services/hospital-electrical/">Hospital Electrical Systems</a>
+                </div>
+
+            </div>
+
             <a href="/solutions/">Solutions</a>
             <a href="/clients/">Clients</a>
             <a href="/contact/">Contact</a>
@@ -902,9 +1016,7 @@
     <script>
     document.addEventListener("DOMContentLoaded", function () {
 
-        /* =================================
-           SCROLL REVEAL ANIMATIONS
-        ================================= */
+        /* SCROLL REVEAL ANIMATIONS */
 
         const animationGroups = [
             {
@@ -985,6 +1097,48 @@
             });
 
         }
+
+        /* NAVBAR DROPDOWNS */
+
+        const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+        dropdowns.forEach(function (dropdown) {
+
+            const toggle = dropdown.querySelector(".dropdown-toggle");
+
+            toggle.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+                dropdowns.forEach(function (otherDropdown) {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove("is-open");
+                    }
+                });
+
+                dropdown.classList.toggle("is-open");
+
+            });
+
+        });
+
+        document.addEventListener("click", function () {
+
+            dropdowns.forEach(function (dropdown) {
+                dropdown.classList.remove("is-open");
+            });
+
+        });
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+                dropdowns.forEach(function (dropdown) {
+                    dropdown.classList.remove("is-open");
+                });
+            }
+
+        });
 
     });
     </script>

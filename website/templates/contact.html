@@ -86,6 +86,67 @@
             color: #20a8b8;
         }
 
+        /* NAVBAR DROPDOWNS */
+
+        .nav-dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .dropdown-toggle {
+            padding: 12px 0;
+            border: none;
+            background: transparent;
+            color: #304953;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-toggle:hover {
+            color: #20a8b8;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 240px;
+            padding: 9px 0;
+            display: none;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
+            z-index: 1200;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu,
+        .nav-dropdown.is-open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 11px 18px;
+            color: #304953;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: normal;
+            transition: 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #eaf5f5;
+            color: #20a8b8;
+        }
+
         .cta-button {
             display: inline-block;
             background: #20a8b8;
@@ -441,6 +502,10 @@
                 font-size: 14px;
             }
 
+            .dropdown-toggle {
+                font-size: 14px;
+            }
+
             .contact-container {
                 grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
                 gap: 35px;
@@ -532,6 +597,36 @@
                 font-size: 12px;
                 padding: 5px 0;
                 display: block;
+            }
+
+            /* MOBILE DROPDOWNS */
+
+            .nav-dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dropdown-toggle {
+                padding: 7px 0;
+                font-size: 12px;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: min(280px, 85vw);
+                min-width: 0;
+                margin-top: 5px;
+                border: 1px solid #e0ebed;
+                border-radius: 8px;
+                box-shadow: 0 5px 18px rgba(0, 0, 0, 0.09);
+            }
+
+            .dropdown-menu a {
+                padding: 10px 14px;
+                font-size: 12px;
             }
 
             /* CONTACT MOBILE */
@@ -680,7 +775,8 @@
                 gap: 6px;
             }
 
-            .nav-links a {
+            .nav-links a,
+            .dropdown-toggle {
                 font-size: 11px;
             }
 
@@ -722,11 +818,43 @@
 
         <nav>
             <ul class="nav-links">
-                <li><a href="/about/">About</a></li>
-                <li><a href="/services/">Services</a></li>
+
+                <!-- ABOUT DROPDOWN -->
+                <li class="nav-dropdown">
+                    <button class="dropdown-toggle" type="button">
+                        About
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="/about/#about-centerline">About Us</a>
+                        <a href="/about/#who-we-are">Who We Are</a>
+                        <a href="/about/#message-from-management">Message from Management</a>
+                        <a href="/about/#our-history">Our History</a>
+                        <a href="/about/#why-centerline">Why Choose Us</a>
+                        <a href="/about/#our-approach">Our Approach</a>
+                    </div>
+                </li>
+
+                <!-- SERVICES DROPDOWN -->
+                <li class="nav-dropdown">
+                    <button class="dropdown-toggle" type="button">
+                        Services
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="/services/">All Services</a>
+                        <a href="/services/hvac/">Healthcare HVAC Systems</a>
+                        <a href="/services/modular-construction/">Healthcare Modular Construction</a>
+                        <a href="/services/infection-control/">Infection Control Systems</a>
+                        <a href="/services/medical-gas/">Medical Gas Supply Systems</a>
+                        <a href="/services/hospital-electrical/">Hospital Electrical Systems</a>
+                    </div>
+                </li>
+
                 <li><a href="/solutions/">Solutions</a></li>
                 <li><a href="/clients/">Clients</a></li>
                 <li><a href="/contact/" class="active">Contact</a></li>
+
             </ul>
         </nav>
 
@@ -915,6 +1043,42 @@
         </div>
 
     </footer>
+
+    <!-- DROPDOWN JAVASCRIPT -->
+
+    <script>
+        const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+        dropdowns.forEach(function (dropdown) {
+            const toggle = dropdown.querySelector(".dropdown-toggle");
+
+            toggle.addEventListener("click", function (event) {
+                event.stopPropagation();
+
+                dropdowns.forEach(function (otherDropdown) {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove("is-open");
+                    }
+                });
+
+                dropdown.classList.toggle("is-open");
+            });
+        });
+
+        document.addEventListener("click", function () {
+            dropdowns.forEach(function (dropdown) {
+                dropdown.classList.remove("is-open");
+            });
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                dropdowns.forEach(function (dropdown) {
+                    dropdown.classList.remove("is-open");
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
