@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +148,7 @@
             transform: translateY(-2px);
         }
 
-        /* HERO WITH BACKGROUND VIDEO */
+        /* HERO WITH BACKGROUND IMAGE */
 
         .services-hero {
             min-height: 440px;
@@ -162,10 +161,9 @@
             background: #092f3d;
         }
 
-        .services-hero-video {
+        .services-hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -177,7 +175,11 @@
         .services-hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(3, 30, 42, 0.55);
+            background: linear-gradient(
+                115deg,
+                rgba(5, 34, 46, 0.86),
+                rgba(9, 74, 88, 0.72)
+            );
             z-index: 1;
         }
 
@@ -782,7 +784,7 @@
 
             </div>
 
-            <!-- SERVICES DROPDOWN -->
+            <!-- SERVICES DROPDOWN (FIRE SAFETY REMOVED) -->
             <div class="nav-dropdown">
 
                 <button class="dropdown-toggle active" type="button">
@@ -794,8 +796,8 @@
                     <a href="/services/hvac/">Healthcare HVAC Systems</a>
                     <a href="/services/modular-construction/">Healthcare Modular Construction</a>
                     <a href="/services/infection-control/">Infection Control Systems</a>
-                    <a href="/services/medical-gas/">Medical Gas Supply Systems</a>
-                    <a href="/services/hospital-electrical/">Hospital Electrical Systems</a>
+                    <a href="/services/medical-gas/">Medical Gas Supply Units (BHU &amp; Pendants)</a>
+                    <a href="/services/hospital-electrical/">Hospital Electrical System</a>
                 </div>
 
             </div>
@@ -810,20 +812,13 @@
 
     </header>
 
-    <!-- HERO WITH BACKGROUND VIDEO -->
+    <!-- HERO -->
 
     <section class="services-hero">
 
-        <video class="services-hero-video"
-               autoplay
-               muted
-               loop
-               playsinline>
-
-            <source src="{% static 'images/stock-video-rooftop-modern-energy-efficient-office-featuring-ventilation-systems-solar-panels.mp4' %}"
-                    type="video/mp4">
-
-        </video>
+        <img src="{% static 'images/hvac-ahu.png' %}"
+             alt="Hospital HVAC air handling unit and ductwork"
+             class="services-hero-bg">
 
         <div class="services-hero-overlay"></div>
 
@@ -831,12 +826,12 @@
 
             <div class="eyebrow">OUR SERVICES</div>
 
-            <h1>Integrated solutions for better healthcare.</h1>
+            <h1>Turnkey delivery for healthcare facilities.</h1>
 
             <p>
-                Delivering reliable healthcare infrastructure services
-                through technical expertise, quality execution and
-                a commitment to safer healthcare environments.
+                We design, supply, install, test, commission, and maintain
+                essential hospital infrastructure so clinical spaces stay safe,
+                compliant, and ready for care.
             </p>
 
         </div>
@@ -849,14 +844,13 @@
 
         <div class="section-heading">
 
-            <div class="eyebrow">WHAT WE DO</div>
+            <div class="eyebrow">HOW WE DELIVER</div>
 
             <h2>Our Healthcare Infrastructure Services</h2>
 
             <p>
-                We provide integrated infrastructure services designed
-                to support the operational needs of modern healthcare
-                facilities.
+                Explore how we deliver and support core clinical systems across
+                hospitals, clinics, and laboratories.
             </p>
 
         </div>
@@ -867,9 +861,8 @@
                 <div class="service-number">01</div>
                 <h3>Healthcare HVAC Systems</h3>
                 <p>
-                    Healthcare HVAC systems designed to support
-                    ventilation, air quality and suitable environmental
-                    conditions within healthcare facilities.
+                    Clean airflow, HEPA filtration, and room pressure control
+                    engineered to protect patients, staff, visitors, and clinical areas.
                 </p>
                 <div class="card-link">Explore Service <span>→</span></div>
             </a>
@@ -878,9 +871,9 @@
                 <div class="service-number">02</div>
                 <h3>Healthcare Modular Construction</h3>
                 <p>
-                    Modular construction solutions for healthcare
-                    environments, supporting organized spaces and
-                    functional medical facility requirements.
+                    Organized modular buildouts for patient towers, ER/urgent care,
+                    imaging suites, BSL-2 labs, pharmacies, surgical suites, clinics,
+                    and temporary spaces.
                 </p>
                 <div class="card-link">Explore Service <span>→</span></div>
             </a>
@@ -889,31 +882,29 @@
                 <div class="service-number">03</div>
                 <h3>Infection Control Systems</h3>
                 <p>
-                    Infrastructure solutions focused on infection
-                    control requirements and safer healthcare
-                    environments.
+                    JCI-aligned room layouts, negative pressure (AIIR) and protective
+                    (PE) rooms, hands-free hygiene sinks, and hygienic surfaces.
                 </p>
                 <div class="card-link">Explore Service <span>→</span></div>
             </a>
 
             <a href="/services/medical-gas/" class="service-card">
                 <div class="service-number">04</div>
-                <h3>Medical Gas Supply Systems (BHU & Pendants)</h3>
+                <h3>Medical Gas Supply Units (BHU &amp; Pendants)</h3>
                 <p>
-                    Medical gas supply infrastructure, including
-                    Bed Head Units (BHU) and medical pendants,
-                    for healthcare facility requirements.
+                    Bed head units and ceiling pendants delivering medical gases
+                    (O₂, vacuum, medical air, N₂, N₂O, AGSS, CO₂), power, data,
+                    and lighting at the point of care.
                 </p>
                 <div class="card-link">Explore Service <span>→</span></div>
             </a>
 
             <a href="/services/hospital-electrical/" class="service-card">
                 <div class="service-number">05</div>
-                <h3>Hospital Electrical Systems</h3>
+                <h3>Hospital Electrical System</h3>
                 <p>
-                    Electrical infrastructure solutions to support
-                    the operational and technical requirements
-                    of hospital facilities.
+                    Reliable power distribution, automatic transfer switches (ATS),
+                    generators, and UPS backup for continuous clinical operations.
                 </p>
                 <div class="card-link">Explore Service <span>→</span></div>
             </a>
@@ -928,15 +919,14 @@
 
         <div class="commitment-container">
 
-            <div class="eyebrow">OUR COMMITMENT</div>
+            <div class="eyebrow">FULL PROJECT LIFECYCLE</div>
 
-            <h2>Supporting safer and smarter healthcare environments.</h2>
+            <h2>From planning and supply to testing and ongoing support.</h2>
 
             <p>
-                From planning and supply to installation, testing and
-                commissioning, Centerline focuses on delivering
-                dependable healthcare infrastructure solutions
-                with quality, safety and reliability.
+                Centerline Technical Services Co. LLC coordinates design, modular
+                and equipment supply, installation, testing, commissioning, and
+                maintenance with a focus on safety, compliance, and reliability.
             </p>
 
         </div>
@@ -971,6 +961,7 @@
                 <a href="/about/">About Us</a>
                 <a href="/services/">Services</a>
                 <a href="/solutions/">Solutions</a>
+                <a href="/clients/">Clients</a>
                 <a href="/contact/">Contact</a>
 
             </div>
@@ -979,10 +970,10 @@
 
                 <h3>Get in Touch</h3>
 
-                <p>Centerline Technical Services</p>
+                <p>Centerline Technical Services Co. LLC</p>
 
                 <p>
-                    Contact us for healthcare infrastructure enquiries.
+                    Dubai · Abu Dhabi · <a href="mailto:sales@centerline.ae">sales@centerline.ae</a>
                 </p>
 
             </div>
@@ -992,8 +983,8 @@
         <div class="copyright">
 
             <p>
-    © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
-</p>
+                © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
+            </p>
 
             <div class="footer-credit">
 
@@ -1140,8 +1131,9 @@
 
         });
 
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
     });
-     document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
 
 </body>

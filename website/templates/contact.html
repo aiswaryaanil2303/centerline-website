@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +50,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
         }
 
         .navbar-logo {
@@ -116,7 +116,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 240px;
+            min-width: 260px;
             padding: 9px 0;
             display: none;
             background: #ffffff;
@@ -178,8 +178,8 @@
                 #107080 100%
             );
             color: #ffffff;
-            padding: 90px 5%;
-            min-height: 650px;
+            padding: 85px 5%;
+            min-height: 620px;
             display: flex;
             align-items: center;
         }
@@ -209,12 +209,12 @@
             margin: auto;
             display: grid;
             grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
-            gap: 65px;
+            gap: 60px;
             align-items: center;
         }
 
         .contact-content {
-            max-width: 750px;
+            max-width: 720px;
             min-width: 0;
             animation: fadeInLeft 1s ease both;
         }
@@ -224,32 +224,32 @@
             font-size: 14px;
             font-weight: 800;
             letter-spacing: 3px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .contact-title {
-            max-width: 750px;
-            font-size: clamp(38px, 4vw, 54px);
+            max-width: 720px;
+            font-size: clamp(36px, 4vw, 52px);
             line-height: 1.15;
             font-weight: 800;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             overflow-wrap: break-word;
         }
 
         .contact-description {
             color: #e0e9ed;
-            max-width: 700px;
+            max-width: 660px;
             font-size: 18px;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .contact-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 52px;
-            padding: 15px 27px;
+            min-height: 50px;
+            padding: 14px 26px;
             background: #20a8b8;
             color: #ffffff;
             text-decoration: none;
@@ -276,7 +276,7 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(205, 239, 242, 0.3);
             border-radius: 20px;
-            padding: 38px;
+            padding: 36px;
             box-shadow: 0 15px 45px rgba(0, 20, 30, 0.18);
             animation: fadeInRight 1s ease both;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -289,8 +289,8 @@
 
         .contact-item {
             min-width: 0;
-            margin-bottom: 27px;
-            padding-bottom: 22px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.14);
         }
 
@@ -302,10 +302,10 @@
 
         .contact-item h3 {
             color: #9de5e9;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 800;
             letter-spacing: 1.5px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .contact-item p {
@@ -498,10 +498,7 @@
                 gap: 18px;
             }
 
-            .nav-links a {
-                font-size: 14px;
-            }
-
+            .nav-links a,
             .dropdown-toggle {
                 font-size: 14px;
             }
@@ -593,13 +590,12 @@
                 flex: 0 0 auto;
             }
 
-            .nav-links a {
+            .nav-links a,
+            .dropdown-toggle {
                 font-size: 12px;
                 padding: 5px 0;
                 display: block;
             }
-
-            /* MOBILE DROPDOWNS */
 
             .nav-dropdown {
                 display: flex;
@@ -609,7 +605,6 @@
 
             .dropdown-toggle {
                 padding: 7px 0;
-                font-size: 12px;
             }
 
             .dropdown-menu {
@@ -835,7 +830,7 @@
                     </div>
                 </li>
 
-                <!-- SERVICES DROPDOWN -->
+                <!-- SERVICES DROPDOWN (FIRE SAFETY REMOVED) -->
                 <li class="nav-dropdown">
                     <button class="dropdown-toggle" type="button">
                         Services
@@ -846,8 +841,8 @@
                         <a href="/services/hvac/">Healthcare HVAC Systems</a>
                         <a href="/services/modular-construction/">Healthcare Modular Construction</a>
                         <a href="/services/infection-control/">Infection Control Systems</a>
-                        <a href="/services/medical-gas/">Medical Gas Supply Systems</a>
-                        <a href="/services/hospital-electrical/">Hospital Electrical Systems</a>
+                        <a href="/services/medical-gas/">Medical Gas Supply Units (BHU &amp; Pendants)</a>
+                        <a href="/services/hospital-electrical/">Hospital Electrical System</a>
                     </div>
                 </li>
 
@@ -877,13 +872,13 @@
                 <p class="contact-label">GET IN TOUCH</p>
 
                 <h1 class="contact-title">
-                    Let's build better healthcare infrastructure.
+                    Let's build safer healthcare spaces.
                 </h1>
 
                 <p class="contact-description">
-                    Centerline supports healthcare projects with integrated
-                    design, supply, installation, testing, commissioning
-                    and maintenance capabilities.
+                    Reach out to Centerline for planning, supply, installation,
+                    testing, commissioning, and ongoing support across healthcare
+                    infrastructure projects.
                 </p>
 
                 <a href="mailto:sales@centerline.ae" class="contact-button">
@@ -891,7 +886,6 @@
                 </a>
 
             </div>
-            
 
             <!-- RIGHT CONTACT DETAILS -->
 
@@ -1028,7 +1022,7 @@
         <div class="copyright">
 
             <p>
-                © 2026 Centerline Technical Services.
+                © <span id="current-year"></span> Centerline Technical Services.
                 All Rights Reserved.
             </p>
 
@@ -1079,6 +1073,8 @@
                 });
             }
         });
+
+        document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
 
 </body>

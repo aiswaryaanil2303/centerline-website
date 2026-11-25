@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -147,16 +146,16 @@
             transform: translateY(-3px);
         }
 
-        /* Hero with Background Video */
+        /* Hero with Background Image */
 
         .solution-hero {
             position: relative;
             isolation: isolate;
             overflow: hidden;
-            min-height: 480px;
+            min-height: 460px;
             background: #073542;
             color: white;
-            padding: 100px 6%;
+            padding: 95px 6%;
             text-align: center;
 
             display: flex;
@@ -164,19 +163,15 @@
             justify-content: center;
         }
 
-        /* Background Video */
-
-        .solution-hero-video {
+        .solution-hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             z-index: -2;
         }
-
-        /* Dark Overlay */
 
         .solution-hero::before {
             content: "";
@@ -184,29 +179,41 @@
             inset: 0;
             background: linear-gradient(
                 120deg,
-                rgba(7, 53, 66, 0.85),
-                rgba(7, 82, 97, 0.70)
+                rgba(7, 53, 66, 0.86),
+                rgba(7, 82, 97, 0.72)
             );
             z-index: -1;
         }
 
-        /* Hero Content */
-
         .hero-content {
-            max-width: 950px;
+            max-width: 920px;
             margin: auto;
             position: relative;
             z-index: 1;
         }
-
-        /* Hero Label */
 
         .hero-label {
             color: #8de1df;
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(36px, 4.8vw, 56px);
+            font-weight: 800;
+            line-height: 1.18;
+            margin-bottom: 18px;
+        }
+
+        .hero-content p {
+            max-width: 780px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e0edef;
         }
 
         /* Solutions section */
@@ -275,7 +282,7 @@
         .solution-card h3 {
             font-family: 'Manrope', sans-serif;
             font-size: 23px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .solution-card p {
@@ -690,7 +697,7 @@
 
             </div>
 
-            <!-- SERVICES DROPDOWN -->
+            <!-- SERVICES DROPDOWN (FIRE SAFETY REMOVED) -->
             <div class="nav-dropdown">
 
                 <button class="dropdown-toggle" type="button">
@@ -722,21 +729,20 @@
 
     <section class="solution-hero">
 
-        <!-- Background Video -->
-        <video class="solution-hero-video" autoplay muted loop playsinline>
-            <source src="{% static 'images/stock-video-rooftop-modern-energy-efficient-office-featuring-ventilation-systems-solar-panels.mp4' %}" type="video/mp4">
-        </video>
+        <img src="{% static 'images/infection-control.png' %}"
+             alt="Clinical healthcare room with clean airflow and monitoring"
+             class="solution-hero-bg">
 
         <div class="hero-content">
 
-            <div class="hero-label">OUR SOLUTIONS</div>
+            <div class="hero-label">CLINICAL SOLUTIONS</div>
 
-            <h1>Integrated solutions for modern healthcare environments.</h1>
+            <h1>Specialized systems for clinical spaces.</h1>
 
             <p>
-                We bring together application-specific engineering and
-                healthcare infrastructure solutions to support safer,
-                smarter and more reliable clinical environments.
+                Purpose-built infrastructure for operating rooms, isolation and
+                protective rooms, patient bays, pharmacies, laboratories, and
+                imaging areas.
             </p>
 
         </div>
@@ -749,11 +755,11 @@
         <div class="solutions-container">
 
             <div class="section-heading">
-                <h2>Designed for demanding clinical environments.</h2>
+                <h2>Engineered for demanding clinical environments.</h2>
                 <p>
-                    The company profile highlights application-specific engineering
-                    across operating rooms, isolation rooms, protective environments,
-                    pharmacies, laboratories and imaging spaces.
+                    Each system supports specific room requirements—from clean airflow
+                    and modular spaces to infection control, bedside utilities, and
+                    uninterrupted hospital power.
                 </p>
             </div>
 
@@ -761,76 +767,91 @@
 
                 <!-- Healthcare HVAC -->
                 <div class="solution-card">
-                    <h3>Healthcare HVAC</h3>
+                    <h3>Healthcare HVAC Systems</h3>
                     <p>
-                        Application-focused airflow and pressure strategies
-                        support different clinical modalities.
+                        Controlled air supply, filtration, and room pressure to
+                        protect patients, staff, visitors, and surrounding spaces.
                     </p>
 
                     <div class="solution-tags">
-                        <span>Positive pressure</span>
-                        <span>Negative pressure</span>
+                        <span>Positive &amp; negative pressure</span>
                         <span>HEPA filtration</span>
                         <span>Laminar flow</span>
-                        <span>Differential pressure monitoring</span>
-                        <span>UV exhaust</span>
+                        <span>Pressure monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Healthcare Modular Construction -->
+                <div class="solution-card">
+                    <h3>Healthcare Modular Construction</h3>
+                    <p>
+                        Organized modular buildouts for patient towers, emergency
+                        and urgent care, imaging suites, BSL-2 labs, pharmacies,
+                        surgical suites, clinics, and temporary spaces.
+                    </p>
+
+                    <div class="solution-tags">
+                        <span>Patient towers</span>
+                        <span>ED &amp; urgent care</span>
+                        <span>Imaging suites</span>
+                        <span>BSL-2 labs</span>
+                        <span>Pharmacies</span>
+                        <span>Surgical suites</span>
+                        <span>Clinical &amp; admin</span>
+                        <span>Temporary facilities</span>
                     </div>
                 </div>
 
                 <!-- Infection Control -->
                 <div class="solution-card">
-                    <h3>Infection Control</h3>
+                    <h3>Infection Control Systems</h3>
                     <p>
-                        Infrastructure measures include patient-room design,
-                        negative-pressure rooms, protective environments,
-                        UV-C disinfection, water safety and electronic monitoring.
+                        JCI-aligned patient rooms, AIIR and protective rooms,
+                        hands-free hand hygiene sinks, and easy-to-clean
+                        non-porous and copper-alloy surfaces.
                     </p>
 
                     <div class="solution-tags">
-                        <span>AIIR</span>
-                        <span>PE rooms</span>
-                        <span>UV-C</span>
-                        <span>Water safety</span>
-                        <span>RTLS</span>
-                        <span>Telehealth</span>
+                        <span>AIIR (negative pressure)</span>
+                        <span>PE rooms (positive pressure)</span>
+                        <span>Hands-free sinks</span>
+                        <span>Non-porous surfaces</span>
+                        <span>Copper-alloy touchpoints</span>
                     </div>
                 </div>
 
-                <!-- Medical Gas -->
+                <!-- Medical Gas & Pendants -->
                 <div class="solution-card">
-                    <h3>Medical Gas &amp; Pendants</h3>
+                    <h3>Medical Gas Supply Units (BHU &amp; Pendants)</h3>
                     <p>
-                        Bed Head Units and pendants consolidate critical
-                        utilities at the point of care while improving
-                        floor clearance and flexibility.
+                        Bed head units and ceiling pendants that keep medical gases,
+                        power, data, and lighting neat and accessible at the bed
+                        or procedure table.
                     </p>
 
                     <div class="solution-tags">
-                        <span>O₂</span>
-                        <span>Vacuum</span>
+                        <span>O₂ &amp; Vacuum</span>
                         <span>Medical Air</span>
-                        <span>N₂</span>
-                        <span>N₂O</span>
-                        <span>AGSS</span>
-                        <span>Data</span>
+                        <span>N₂ &amp; N₂O</span>
+                        <span>AGSS &amp; CO₂</span>
+                        <span>Power, data &amp; lighting</span>
+                        <span>Clear floor space</span>
                     </div>
                 </div>
 
                 <!-- Hospital Electrical -->
                 <div class="solution-card">
-                    <h3>Hospital Electrical</h3>
+                    <h3>Hospital Electrical System</h3>
                     <p>
-                        Layered backup architecture supports continuity
-                        of critical healthcare operations.
+                        Layered power distribution and backup systems so critical
+                        medical equipment stays running during utility outages.
                     </p>
 
                     <div class="solution-tags">
+                        <span>Normal power</span>
+                        <span>Automatic transfer (ATS)</span>
                         <span>Generators</span>
-                        <span>UPS</span>
-                        <span>ATS</span>
-                        <span>Technical grounding</span>
-                        <span>IPS</span>
-                        <span>LIM</span>
+                        <span>UPS backup</span>
                     </div>
                 </div>
 
@@ -841,12 +862,12 @@
     <!-- Closing -->
 
     <section class="solution-closing">
-        <h2>Building better healthcare environments.</h2>
+        <h2>Need help choosing the right setup?</h2>
         <p>
-            Explore our services to learn more about the infrastructure
-            solutions we provide for healthcare facilities.
+            Talk to Centerline Technical Services about planning, installing,
+            testing, and supporting these clinical systems for your facility.
         </p>
-        <a href="/services/" class="closing-button">Explore Our Services</a>
+        <a href="/contact/" class="closing-button">Talk to us</a>
     </section>
 
     <!-- FOOTER -->
@@ -879,6 +900,7 @@
                 <a href="/about/">About Us</a>
                 <a href="/services/">Services</a>
                 <a href="/solutions/">Solutions</a>
+                <a href="/clients/">Clients</a>
                 <a href="/contact/">Contact</a>
 
             </div>
@@ -891,7 +913,7 @@
                 <p>Centerline Technical Services</p>
 
                 <p>
-                    Contact us for healthcare infrastructure enquiries.
+                    Dubai · Abu Dhabi · <a href="mailto:sales@centerline.ae" style="color:#b7cbd1;">sales@centerline.ae</a>
                 </p>
 
             </div>
@@ -901,9 +923,9 @@
         <!-- COPYRIGHT AND DEVELOPER CREDIT -->
         <div class="copyright">
 
-           <p>
-    © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
-</p>
+            <p>
+                © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
+            </p>
 
             <div class="footer-credit">
 
@@ -988,6 +1010,7 @@
                 });
             }
         });
+
         document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
 

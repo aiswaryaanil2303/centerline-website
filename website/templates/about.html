@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Centerline Technical Services</title>
+    <title>About Us | Centerline Technical Services Co. LLC</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,13 +59,15 @@
 
         .navbar-logo {
             flex: 0 0 auto;
-            display: flex;
+            display: inline-flex;
             align-items: center;
         }
 
         .navbar-logo-img {
             display: block;
-            width: 165px;
+            flex-shrink: 0;
+            width: 175px;
+            height: auto;
             max-height: 58px;
             object-fit: contain;
         }
@@ -168,7 +170,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            min-width: 240px;
+            min-width: 260px;
             padding: 9px 0;
             display: none;
             background: #fff;
@@ -351,6 +353,8 @@
             color: #627780;
             font-size: 14.5px;
             line-height: 1.85;
+            text-align: justify;
+            text-justify: inter-word;
         }
 
         .company-highlight {
@@ -928,7 +932,6 @@
         ===================================== */
 
         @media (max-width: 760px) {
-
             html {
                 scroll-padding-top: 145px;
             }
@@ -965,8 +968,6 @@
                 padding: 7px 0;
                 font-size: 12px;
             }
-
-            /* MOBILE DROPDOWNS */
 
             .nav-dropdown {
                 position: relative;
@@ -1146,7 +1147,6 @@
         ===================================== */
 
         @media (max-width: 480px) {
-
             .navbar-logo-img {
                 width: 120px;
             }
@@ -1158,8 +1158,6 @@
             .nav-links > a {
                 font-size: 11px;
             }
-
-            /* SMALL PHONE DROPDOWNS */
 
             .dropdown-toggle {
                 font-size: 11px;
@@ -1241,17 +1239,6 @@
                 transition: none;
             }
         }
-
-
-      /* JUSTIFIED PARAGRAPH TEXT */
-
-.about-content p,
-.message-content p,
-.history-content p {
-    text-align: justify;
-    text-justify: inter-word;
-}
-  
     </style>
 </head>
 
@@ -1263,47 +1250,45 @@
 
         <a href="/" class="navbar-logo" aria-label="Go to Centerline Home">
             <img src="{% static 'images/centerline-logo-transparent.png' %}"
-                 alt="Centerline Technical Services"
+                 alt="Centerline Technical Services Co. LLC"
                  class="navbar-logo-img">
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
 
             <a href="/">Home</a>
-<!-- ABOUT DROPDOWN -->
-<div class="nav-dropdown">
 
-    <button class="dropdown-toggle" type="button">
-        About
-    </button>
+            <!-- ABOUT DROPDOWN -->
+            <div class="nav-dropdown">
+                <button class="dropdown-toggle active" type="button">
+                    About
+                </button>
 
-    <div class="dropdown-menu">
-        <a href="/about/#about-centerline">About Us</a>
-        <a href="/about/#who-we-are">Who We Are</a>
-        <a href="/about/#message-from-management">Message from Management</a>
-        <a href="/about/#our-history">Our History</a>
-        <a href="/about/#why-centerline">Why Choose Us</a>
-        <a href="/about/#our-approach">Our Approach</a>
-    </div>
+                <div class="dropdown-menu">
+                    <a href="/about/#about-centerline">About Us</a>
+                    <a href="/about/#who-we-are">Who We Are</a>
+                    <a href="/about/#message-from-management">Message from Management</a>
+                    <a href="/about/#our-history">Our History</a>
+                    <a href="/about/#why-centerline">Why Choose Us</a>
+                    <a href="/about/#our-approach">Our Approach</a>
+                </div>
+            </div>
 
-</div>
+            <!-- SERVICES DROPDOWN (FIRE SAFETY REMOVED) -->
+            <div class="nav-dropdown">
+                <button type="button" class="dropdown-toggle">
+                    Services
+                </button>
 
-            <!-- SERVICES DROPDOWN -->
-<div class="nav-dropdown">
-
-    <button type="button" class="dropdown-toggle">
-        Services
-    </button>
-
-    <div class="dropdown-menu">
-        <a href="/services/">All Services</a>
-        <a href="/services/#hvac">HVAC Systems</a>
-        <a href="/services/#medical-gas">Medical Gas Systems</a>
-        <a href="/services/#fire-safety">Fire Safety Systems</a>
-        <a href="/services/#electrical">Electrical Systems</a>
-    </div>
-
-</div>
+                <div class="dropdown-menu">
+                    <a href="/services/">All Services</a>
+                    <a href="/services/hvac/">Healthcare HVAC Systems</a>
+                    <a href="/services/modular-construction/">Healthcare Modular Construction</a>
+                    <a href="/services/infection-control/">Infection Control Systems</a>
+                    <a href="/services/medical-gas/">Medical Gas Supply Units (BHU &amp; Pendants)</a>
+                    <a href="/services/hospital-electrical/">Hospital Electrical System</a>
+                </div>
+            </div>
 
             <a href="/solutions/">Solutions</a>
             <a href="/clients/">Clients</a>
@@ -1311,7 +1296,7 @@
 
         </nav>
 
-        <a href="/#contact" class="nav-contact">Talk to us</a>
+        <a href="/contact/" class="nav-contact">Talk to us</a>
 
     </header>
 
@@ -1332,8 +1317,8 @@
             <h1>Building better healthcare infrastructure.</h1>
 
             <p>
-                Delivering integrated healthcare infrastructure solutions
-                through expertise, innovation and a commitment to quality
+                Delivering complete turnkey healthcare infrastructure solutions
+                through expertise, innovation, and a commitment to quality
                 patient care.
             </p>
         </div>
@@ -1349,7 +1334,7 @@
 
             <div class="company-image">
                 <img src="{% static 'images/Gemini_Generated_Image_29ap3u29ap3u29ap.png' %}"
-                     alt="Centerline HVAC and healthcare infrastructure">
+                     alt="Centerline Technical Services healthcare infrastructure">
             </div>
 
             <div class="company-content">
@@ -1359,35 +1344,34 @@
                 <h2>Complete solutions. Better healthcare environments.</h2>
 
                 <p>
-                    At Centerline Technical Services, we specialize in
-                    delivering complete turnkey solutions tailored for
-                    the healthcare industry and beyond. As the medical
-                    equipment and infrastructure market continues to
-                    evolve, we recognize the importance of integrated
-                    systems that ensure safety, efficiency, and
-                    high-quality patient care.
+                    At Centerline Technical Services Co. LLC, we specialize in
+                    delivering complete turnkey solutions tailored for the
+                    healthcare industry and beyond. As the medical equipment and
+                    infrastructure market continues to evolve, we recognize the
+                    importance of integrated systems that ensure safety,
+                    efficiency, and high-quality patient care.
                 </p>
 
                 <p>
-                    Our project management team works with precision
-                    and dedication to meet client expectations,
-                    providing innovative, value-added products and
-                    services that improve community well-being.
+                    Our project management team works with precision and
+                    dedication to meet client expectations, providing innovative,
+                    value-added products and services that improve community
+                    well-being.
                 </p>
 
                 <p>
-                    With a strong foundation in knowledge, experience
-                    and global best practices, we design, develop,
-                    supply, install, test, commission and maintain
-                    state-of-the-art healthcare infrastructure
-                    solutions, aligning with the latest technologies
-                    and industry standards.
+                    With a strong foundation in knowledge, experience, and
+                    global best practices, we deliver reliable solutions that
+                    empower hospitals, laboratories, doctors, and patients
+                    alike. We design, develop, supply, install, test,
+                    commission, and maintain state-of-the-art healthcare
+                    infrastructure solutions, aligning with the latest
+                    technologies and industry standards.
                 </p>
 
                 <div class="company-highlight">
-                    Our commitment is to create safer, smarter and more
-                    efficient healthcare environments through reliable
-                    infrastructure solutions.
+                    Empowering hospitals, laboratories, doctors, and patients
+                    through safe, compliant, and reliable healthcare infrastructure.
                 </div>
 
             </div>
@@ -1455,7 +1439,7 @@
 
                 <div class="management-signature">
                     Sincerely,<br>
-                    Management Team, Centerline
+                    Management Team, Centerline Technical Services Co. LLC
                 </div>
 
             </div>
@@ -1495,10 +1479,7 @@
                     to address challenges faced by healthcare providers,
                     including outdated infrastructure, compliance with
                     stringent regulations, and the need for advanced,
-                    patient-centric environments. With a vision to support
-                    the healthcare industry through innovative solutions,
-                    the company set out to build a strong foundation for
-                    safer, more efficient, and adaptive healthcare spaces.
+                    patient-centric environments.
                 </p>
 
                 <p>
@@ -1512,34 +1493,19 @@
                 </p>
 
                 <p>
-                    Recognizing the unique challenges faced by healthcare
-                    providers—such as maintaining optimal air quality,
-                    ensuring reliable power systems, and adapting to
-                    rapidly evolving medical needs—Centerline positioned
-                    itself to deliver tailored solutions. From designing
-                    advanced ventilation systems that promote clean, safe
-                    air to pioneering modular construction methods for
-                    rapid and cost-effective facility development, the
-                    company has made significant strides in supporting
-                    the healthcare sector.
-                </p>
-
-                <p>
-                    Additionally, Centerline's expertise in electrical
-                    practices ensures the seamless integration of modern
-                    medical technologies and robust power infrastructure.
-                    Its infection control systems, advanced HVAC solutions,
-                    and modular construction methods are designed to
-                    support safer, more efficient healthcare environments.
+                    From designing advanced ventilation systems that promote
+                    clean, safe air to pioneering modular construction methods
+                    for rapid and cost-effective facility development, the
+                    company supports healthcare providers with tailored
+                    solutions across medical gas supply units and hospital
+                    electrical infrastructure.
                 </p>
 
                 <p>
                     Centerline continues to drive innovation and excellence,
                     setting new benchmarks in healthcare infrastructure
-                    services. With a commitment to quality, reliability,
-                    and continuous improvement, the company remains focused
-                    on supporting the evolving needs of healthcare
-                    facilities.
+                    services with a commitment to quality, reliability,
+                    and continuous improvement.
                 </p>
 
                 <a href="https://www.centerline.ae/"
@@ -1563,12 +1529,11 @@
         <div class="section-heading">
             <div class="eyebrow">WHY CENTERLINE</div>
 
-            <h2>Why Choose Centerline?</h2>
+            <h2>Why Choose Us?</h2>
 
             <p>
-                We bring together technical expertise, dependable
-                project execution and a clear understanding of
-                healthcare infrastructure requirements.
+                Delivering dependable healthcare infrastructure through
+                technical expertise, compliance, and disciplined project execution.
             </p>
         </div>
 
@@ -1587,17 +1552,17 @@
                 <div class="feature-number">02</div>
                 <h3>Industry Expertise</h3>
                 <p>
-                    Deep industry knowledge combined with the
-                    integration of the latest technologies.
+                    Deep industry expertise with latest technology
+                    integration across medical facilities.
                 </p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">03</div>
-                <h3>Safety &amp; Reliability</h3>
+                <h3>Safety &amp; Compliance</h3>
                 <p>
-                    A strong commitment to safety, reliability
-                    and applicable industry standards.
+                    Commitment to safety, reliability, and strict
+                    healthcare compliance standards.
                 </p>
             </div>
 
@@ -1605,17 +1570,17 @@
                 <div class="feature-number">04</div>
                 <h3>Project Excellence</h3>
                 <p>
-                    Precise project management focused on quality
-                    and client expectations.
+                    Proven project management excellence from planning
+                    through commissioning.
                 </p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-number">05</div>
-                <h3>Patient-care Focus</h3>
+                <h3>Patient-Care Focus</h3>
                 <p>
-                    Improving healthcare facility efficiency
-                    and supporting better patient care.
+                    Enhancing patient care and overall healthcare
+                    facility efficiency.
                 </p>
             </div>
 
@@ -1637,9 +1602,7 @@
             <p>
                 We support healthcare infrastructure projects through
                 a coordinated process that brings together planning,
-                technical expertise, installation and ongoing support.
-                Our approach is focused on delivering dependable
-                solutions at every stage.
+                technical expertise, installation, and ongoing support.
             </p>
 
             <div class="approach-steps">
@@ -1676,13 +1639,13 @@
             <div class="footer-about">
 
                 <img src="{% static 'images/centerline-logo-transparent.png' %}"
-                     alt="Centerline Technical Services Logo"
+                     alt="Centerline Technical Services Co. LLC"
                      class="footer-logo">
 
                 <p>
-                    Centerline Technical Services delivers integrated
+                    Centerline Technical Services Co. LLC delivers integrated
                     healthcare infrastructure solutions with a focus
-                    on quality, safety and reliability.
+                    on quality, safety, and reliability.
                 </p>
 
             </div>
@@ -1704,7 +1667,7 @@
 
                 <h3>Get in Touch</h3>
 
-                <p>Centerline Technical Services</p>
+                <p>Centerline Technical Services Co. LLC</p>
 
                 <p>
                     Contact us for healthcare infrastructure enquiries.
@@ -1723,9 +1686,9 @@
 
         <div class="copyright">
 
-           <p>
-    © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
-</p>
+            <p>
+                © <span id="current-year"></span> Centerline Technical Services Co. LLC. All Rights Reserved.
+            </p>
 
             <div class="footer-credit">
                 Designed and Developed by
@@ -1747,100 +1710,45 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             const animationGroups = [
-
-                {
-                    selector: ".hero-content",
-                    effect: "from-up"
-                },
-
-                {
-                    selector: ".company-image",
-                    effect: "from-left"
-                },
-
-                {
-                    selector: ".company-content",
-                    effect: "from-right"
-                },
-
-                {
-                    selector: ".management-heading, .management-card",
-                    effect: "from-up"
-                },
-
-                {
-                    selector: ".history-heading, .history-card",
-                    effect: "from-up"
-                },
-
-                {
-                    selector: ".section-heading",
-                    effect: "from-up"
-                },
-
-                {
-                    selector: ".feature-card",
-                    effect: "from-up",
-                    stagger: true
-                },
-
-                {
-                    selector: ".approach-container > .eyebrow, .approach-container > h2, .approach-container > p",
-                    effect: "from-up"
-                },
-
-                {
-                    selector: ".approach-step",
-                    effect: "from-up",
-                    stagger: true
-                },
-
-                {
-                    selector: ".footer-about, .footer-links, .footer-contact",
-                    effect: "from-up"
-                }
-
+                { selector: ".hero-content", effect: "from-up" },
+                { selector: ".company-image", effect: "from-left" },
+                { selector: ".company-content", effect: "from-right" },
+                { selector: ".management-heading, .management-card", effect: "from-up" },
+                { selector: ".history-heading, .history-card", effect: "from-up" },
+                { selector: ".section-heading", effect: "from-up" },
+                { selector: ".feature-card", effect: "from-up", stagger: true },
+                { selector: ".approach-container > .eyebrow, .approach-container > h2, .approach-container > p", effect: "from-up" },
+                { selector: ".approach-step", effect: "from-up", stagger: true },
+                { selector: ".footer-about, .footer-links, .footer-contact", effect: "from-up" }
             ];
 
             const animatedElements = [];
 
             animationGroups.forEach(function (group) {
-
                 document.querySelectorAll(group.selector).forEach(function (element, index) {
-
                     element.classList.add("about-reveal", group.effect);
-
                     if (group.stagger) {
                         element.style.transitionDelay = (index * 100) + "ms";
                     }
-
                     animatedElements.push(element);
-
                 });
-
             });
 
             if (!("IntersectionObserver" in window)) {
-
                 animatedElements.forEach(function (element) {
                     element.classList.add("is-visible");
                 });
-
                 return;
             }
 
             const observer = new IntersectionObserver(function (entries) {
-
                 entries.forEach(function (entry) {
-
                     if (entry.isIntersecting) {
                         entry.target.classList.add("is-visible");
                     } else {
                         entry.target.classList.remove("is-visible");
                     }
-
                 });
-
             }, {
                 threshold: 0.12
             });
@@ -1851,17 +1759,13 @@
 
         });
 
-
         document.addEventListener("DOMContentLoaded", function () {
-
             const dropdowns = document.querySelectorAll(".nav-dropdown");
 
             dropdowns.forEach(function (dropdown) {
-
                 const toggle = dropdown.querySelector(".dropdown-toggle");
 
                 toggle.addEventListener("click", function (event) {
-
                     event.stopPropagation();
 
                     dropdowns.forEach(function (otherDropdown) {
@@ -1871,9 +1775,7 @@
                     });
 
                     dropdown.classList.toggle("is-open");
-
                 });
-
             });
 
             document.addEventListener("click", function () {
@@ -1883,22 +1785,16 @@
             });
 
             document.addEventListener("keydown", function (event) {
-
                 if (event.key === "Escape") {
                     dropdowns.forEach(function (dropdown) {
                         dropdown.classList.remove("is-open");
                     });
                 }
-
             });
-
         });
 
-// year changing
-        
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-</script>
-   
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>

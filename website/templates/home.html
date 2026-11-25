@@ -1,11 +1,10 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CENTERLINE - Healthcare Infrastructure</title>
+    <title>Centerline Technical Services Co. LLC | Healthcare Infrastructure</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,8 +127,6 @@ img {
     color: #20a8b8;
 }
 
-
-
 .dropdown-menu {
     display: block;
     position: absolute;
@@ -238,20 +235,24 @@ img {
 ========================================= */
 
 .hero {
-    min-height: 800px;
-    padding: 100px 6%;
+    min-height: calc(100vh - 75px);
+    padding: 80px 6%;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background: none;
+    background: #073542;
+    margin-bottom: 0;
 }
 
 .hero::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -2;
     background-image: url("{% static 'images/Gemini_Generated_Image_upzxmoupzxmoupzx.png' %}");
     background-size: cover;
@@ -450,7 +451,7 @@ img {
 }
 
 /* =========================================
-   SERVICES SECTION
+   SERVICES SECTION (DELIVERY & EXECUTION)
 ========================================= */
 
 .services-section {
@@ -539,11 +540,6 @@ img {
         border-color 0.4s ease;
 }
 
-.service-card:nth-child(2) { animation-delay: 0.1s; }
-.service-card:nth-child(3) { animation-delay: 0.2s; }
-.service-card:nth-child(4) { animation-delay: 0.3s; }
-.service-card:nth-child(5) { animation-delay: 0.4s; }
-
 .service-card:hover {
     transform: translateY(-12px) scale(1.025);
     background: #ffffff !important;
@@ -570,17 +566,6 @@ img {
     line-height: 1.7;
 }
 
-@keyframes serviceAppear {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* SERVICES MARQUEE */
 
 .services-marquee {
@@ -592,7 +577,6 @@ img {
     padding: 25px 0 40px;
 }
 
-
 .services-section .services-grid.services-track {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -602,11 +586,9 @@ img {
     will-change: transform;
 }
 
-/* Start animation only after cards are duplicated */
 .services-section .services-grid.services-track.is-ready {
     animation: servicesMarquee 40s linear infinite;
 }
-
 
 .services-section .services-track .service-card {
     flex: 0 0 360px;
@@ -668,7 +650,7 @@ img {
 }
 
 /* =========================================
-   SOLUTIONS SECTION
+   SOLUTIONS SECTION (TECHNICAL SYSTEMS)
 ========================================= */
 
 .solutions-section {
@@ -1169,116 +1151,41 @@ footer.main-footer {
 }
 
 /* =========================================
-   TABLET - 1200PX
+   TABLET & MOBILE RESPONSIVE
 ========================================= */
 
 @media (max-width: 1200px) {
-
-    .about-container {
-        gap: 35px;
-    }
-
-    .about-features {
-        gap: 12px;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+    .about-container { gap: 35px; }
+    .about-features { gap: 12px; }
+    .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* =========================================
-   TABLET - 992PX
-========================================= */
-
 @media (max-width: 992px) {
-
     .navbar {
         min-height: 75px;
         padding: 10px 4%;
         gap: 15px;
         flex-wrap: wrap;
     }
-
-    .navbar-logo {
-        width: 170px;
-        height: 55px;
-    }
-
-    .nav-menu {
-        gap: 15px;
-    }
-
-    .nav-links {
-        gap: 15px;
-    }
-
-    .nav-links a,
-    .dropdown-toggle {
-        font-size: 14px;
-    }
-
-    .cta-button {
-        padding: 12px 18px;
-        font-size: 15px;
-    }
-
-    .hero {
-        min-height: 650px;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .about-image {
-        max-width: 500px;
-        height: 450px;
-    }
-
-    .about-features {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .services-section .services-track .service-card {
-        flex-basis: 320px;
-        width: 320px;
-        min-height: 360px;
-    }
-
-    .solutions-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .clients-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .main-footer .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-
-    .main-footer .footer-contact {
-        grid-column: 1 / -1;
-    }
+    .navbar-logo { width: 170px; height: 55px; }
+    .nav-menu { gap: 15px; }
+    .nav-links { gap: 15px; }
+    .nav-links a, .dropdown-toggle { font-size: 14px; }
+    .cta-button { padding: 12px 18px; font-size: 15px; }
+    .hero { min-height: calc(100vh - 75px); }
+    .about-container { grid-template-columns: 1fr; gap: 40px; }
+    .about-image { max-width: 500px; height: 450px; }
+    .about-features { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .services-section .services-track .service-card { flex-basis: 320px; width: 320px; min-height: 360px; }
+    .solutions-grid { grid-template-columns: 1fr; }
+    .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .contact-container { grid-template-columns: 1fr; }
+    .main-footer .footer-container { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .main-footer .footer-contact { grid-column: 1 / -1; }
 }
 
-/* =========================================
-   MOBILE - 760PX
-========================================= */
-
 @media (max-width: 760px) {
-
     .navbar {
         min-height: 75px;
         height: auto;
@@ -1291,12 +1198,7 @@ footer.main-footer {
         z-index: 1000;
         background: #ffffff;
     }
-
-    .navbar-logo {
-        width: 175px;
-        height: 55px;
-    }
-
+    .navbar-logo { width: 175px; height: 55px; }
     .menu-toggle {
         display: flex;
         flex-direction: column;
@@ -1310,7 +1212,6 @@ footer.main-footer {
         cursor: pointer;
         z-index: 1002;
     }
-
     .menu-toggle span {
         display: block;
         width: 26px;
@@ -1319,19 +1220,9 @@ footer.main-footer {
         border-radius: 5px;
         transition: 0.3s ease;
     }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
     .nav-menu {
         display: none;
         position: absolute;
@@ -1346,38 +1237,11 @@ footer.main-footer {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.10);
         border-top: 1px solid #edf1f2;
     }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        width: 100%;
-    }
-
-    .nav-links li {
-        width: 100%;
-        border-bottom: 1px solid #edf1f2;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 14px 5px;
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    /* MOBILE DROPDOWNS */
-
-    .nav-links .nav-dropdown {
-        width: 100%;
-        border-bottom: 1px solid #edf1f2;
-    }
-
+    .nav-menu.active { display: flex; }
+    .nav-links { display: flex; flex-direction: column; align-items: stretch; gap: 0; width: 100%; }
+    .nav-links li { width: 100%; border-bottom: 1px solid #edf1f2; }
+    .nav-links a { display: block; padding: 14px 5px; font-size: 16px; font-weight: 600; }
+    .nav-links .nav-dropdown { width: 100%; border-bottom: 1px solid #edf1f2; }
     .nav-links .dropdown-toggle {
         display: flex;
         width: 100%;
@@ -1387,7 +1251,6 @@ footer.main-footer {
         font-size: 16px;
         font-weight: 600;
     }
-
     .nav-links .dropdown-menu {
         display: none;
         position: static;
@@ -1403,424 +1266,115 @@ footer.main-footer {
         pointer-events: auto;
         transform: none;
     }
-
-    .nav-links .nav-dropdown.is-open .dropdown-menu {
-        display: block;
-    }
-
-    .nav-links .dropdown-item {
-        padding: 15px 12px !important;
-        font-size: 14px !important;
-    }
-
-    .nav-links .dropdown-view-all {
-        padding: 15px 12px !important;
-    }
-
-    .nav-cta {
-        width: 100%;
-    }
-
-    .nav-cta .cta-button {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 13px 20px;
-        font-size: 16px;
-    }
-
-    /* HERO */
-
-    .hero {
-        min-height: 600px;
-        padding: 65px 6%;
-    }
-
-    .hero::before {
-        background-position: center;
-        animation-duration: 25s;
-    }
-
-    .hero::after {
-        background: linear-gradient(
-            90deg,
-            rgba(3, 35, 48, 0.85),
-            rgba(3, 48, 64, 0.65)
-        );
-    }
-
-    .hero-subtitle {
-        font-size: 13px;
-        letter-spacing: 2px;
-    }
-
-    .hero-title {
-        font-size: clamp(36px, 8vw, 46px);
-        line-height: 1.12;
-        letter-spacing: -1px;
-    }
-
-    .hero-description {
-        font-size: 16px;
-        line-height: 1.7;
-    }
-
-    .explore-button {
-        padding: 15px 22px;
-        font-size: 16px;
-    }
-
-    /* ABOUT */
-
-    .about-section {
-        padding: 60px 5%;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-
-    .about-image {
-        width: 100%;
-        height: 320px;
-    }
-
-    .about-content h2 {
-        font-size: 34px;
-    }
-
-    .about-content p {
-        font-size: 16px;
-    }
-
-    .about-features {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-    .about-features div {
-        min-height: 90px;
-        font-size: 15px;
-    }
-
-    /* SERVICES */
-
-    .services-section {
-        padding: 55px 5%;
-    }
-
-    .services-title {
-        font-size: 38px;
-    }
-
-    .services-description {
-        font-size: 18px;
-        margin-bottom: 35px;
-    }
-
-    .services-marquee {
-        padding: 20px 0;
-    }
-
-    .services-section .services-track .service-card {
-        flex-basis: 285px;
-        width: 285px;
-        min-height: 320px;
-        padding: 28px 24px;
-    }
-
-    .services-track .service-card h3 {
-        font-size: 20px;
-    }
-
-    .services-track .service-card p {
-        font-size: 15px;
-    }
-
-    /* SOLUTIONS */
-
-    .solutions-section {
-        padding: 60px 0;
-    }
-
-    .solutions-heading {
-        margin-bottom: 35px;
-    }
-
-    .solutions-heading h2 {
-        font-size: 32px;
-    }
-
-    .solutions-lead {
-        font-size: 16px;
-    }
-
-    .solutions-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .solutions-card {
-        padding: 25px;
-    }
-
-    .solutions-card h3 {
-        font-size: 21px;
-    }
-
-    .solutions-card p {
-        font-size: 16px;
-    }
-
-    .solutions-tag {
-        font-size: 13px;
-        padding: 8px 12px;
-    }
-
-    /* CLIENTS */
-
-    #clients {
-        padding: 65px 5%;
-    }
-
-    #clients .clients-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    #clients .client-card {
-        height: 290px;
-        min-height: 290px;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-        padding: 70px 6%;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .contact-title {
-        font-size: 38px;
-    }
-
-    .contact-description {
-        font-size: 17px;
-    }
-
-    .contact-card {
-        min-height: auto;
-        padding: 30px 25px;
-    }
-
-    /* FOOTER */
-
-    footer.main-footer {
-        padding: 45px 6% 25px;
-    }
-
-    .main-footer .footer-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding-bottom: 35px;
-    }
-
-    .main-footer .footer-contact {
-        grid-column: auto;
-    }
-
-    .main-footer .footer-logo {
-        width: 185px;
-    }
-
-    .main-footer .footer-about p {
-        font-size: 15px;
-    }
-
-    .main-footer .footer-container h3 {
-        font-size: 19px;
-    }
-
-    .main-footer .footer-links {
-        gap: 16px;
-    }
-
-    .main-footer .copyright {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 12px;
-    }
-
-    .main-footer .footer-credit {
-        text-align: center;
-        font-size: 13px;
-    }
-
-    .main-footer .copyright p {
-        text-align: center;
-        font-size: 13px;
-    }
-
-    /* SCROLL ANIMATIONS */
-
-    .reveal-up,
-    .reveal-left,
-    .reveal-right {
-        transform: translateY(25px);
-    }
-
-    .reveal-visible {
-        transform: translateY(0);
-    }
+    .nav-links .nav-dropdown.is-open .dropdown-menu { display: block; }
+    .nav-links .dropdown-item { padding: 15px 12px !important; font-size: 14px !important; }
+    .nav-links .dropdown-view-all { padding: 15px 12px !important; }
+    .nav-cta { width: 100%; }
+    .nav-cta .cta-button { display: block; width: 100%; text-align: center; padding: 13px 20px; font-size: 16px; }
+    .hero { min-height: calc(100vh - 75px); padding: 65px 6%; }
+    .hero::before { background-position: center; animation-duration: 25s; }
+    .hero::after { background: linear-gradient(90deg, rgba(3, 35, 48, 0.85), rgba(3, 48, 64, 0.65)); }
+    .hero-subtitle { font-size: 13px; letter-spacing: 2px; }
+    .hero-title { font-size: clamp(36px, 8vw, 46px); line-height: 1.12; letter-spacing: -1px; }
+    .hero-description { font-size: 16px; line-height: 1.7; }
+    .explore-button { padding: 15px 22px; font-size: 16px; }
+    .about-section { padding: 60px 5%; }
+    .about-container { grid-template-columns: 1fr; }
+    .about-image { width: 100%; height: 320px; }
+    .about-content h2 { font-size: 34px; }
+    .about-content p { font-size: 16px; }
+    .about-features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .about-features div { min-height: 90px; font-size: 15px; }
+    .services-section { padding: 55px 5%; }
+    .services-title { font-size: 38px; }
+    .services-description { font-size: 18px; margin-bottom: 35px; }
+    .services-marquee { padding: 20px 0; }
+    .services-section .services-track .service-card { flex-basis: 285px; width: 285px; min-height: 320px; padding: 28px 24px; }
+    .services-track .service-card h3 { font-size: 20px; }
+    .services-track .service-card p { font-size: 15px; }
+    .solutions-section { padding: 60px 0; }
+    .solutions-heading { margin-bottom: 35px; }
+    .solutions-heading h2 { font-size: 32px; }
+    .solutions-lead { font-size: 16px; }
+    .solutions-grid { grid-template-columns: 1fr; gap: 20px; }
+    .solutions-card { padding: 25px; }
+    .solutions-card h3 { font-size: 21px; }
+    .solutions-card p { font-size: 16px; }
+    .solutions-tag { font-size: 13px; padding: 8px 12px; }
+    #clients { padding: 65px 5%; }
+    #clients .clients-grid { grid-template-columns: 1fr; gap: 20px; }
+    #clients .client-card { height: 290px; min-height: 290px; }
+    .contact-section { padding: 70px 6%; }
+    .contact-container { grid-template-columns: 1fr; gap: 30px; }
+    .contact-title { font-size: 38px; }
+    .contact-description { font-size: 17px; }
+    .contact-card { min-height: auto; padding: 30px 25px; }
+    footer.main-footer { padding: 45px 6% 25px; }
+    .main-footer .footer-container { grid-template-columns: 1fr; gap: 35px; padding-bottom: 35px; }
+    .main-footer .footer-contact { grid-column: auto; }
+    .main-footer .footer-logo { width: 185px; }
+    .main-footer .footer-about p { font-size: 15px; }
+    .main-footer .footer-container h3 { font-size: 19px; }
+    .main-footer .footer-links { gap: 16px; }
+    .main-footer .copyright { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 12px; }
+    .main-footer .footer-credit { text-align: center; font-size: 13px; }
+    .main-footer .copyright p { text-align: center; font-size: 13px; }
+    .reveal-up, .reveal-left, .reveal-right { transform: translateY(25px); }
+    .reveal-visible { transform: translateY(0); }
 }
-
-/* =========================================
-   SMALL MOBILE - 480PX
-========================================= */
 
 @media (max-width: 480px) {
-
-    .navbar-logo {
-        width: 155px;
-        height: 48px;
-    }
-
-    .hero {
-        min-height: 570px;
-        padding: 50px 6%;
-    }
-
-    .hero-title {
-        font-size: 35px;
-        letter-spacing: -0.8px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-    }
-
-    .hero-buttons {
-        margin-top: 25px;
-    }
-
-    .explore-button {
-        padding: 14px 18px;
-        font-size: 14px;
-    }
-
-    .about-image {
-        height: 320px;
-    }
-
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services-section .services-track .service-card {
-        flex-basis: 260px;
-        width: 260px;
-        min-height: 290px;
-        padding: 25px 20px;
-    }
-
-    .solutions-container {
-        width: 90%;
-    }
-
-    .solutions-card {
-        padding: 22px;
-    }
-
-    .contact-card {
-        padding: 25px 20px;
-    }
-
-    .main-footer {
-        padding: 40px 5% 22px !important;
-    }
-
-    .main-footer .footer-logo {
-        width: 175px !important;
-    }
-
-    .main-footer .footer-container {
-        gap: 30px;
-    }
+    .navbar-logo { width: 155px; height: 48px; }
+    .hero { min-height: calc(100vh - 75px); padding: 50px 6%; }
+    .hero-title { font-size: 35px; letter-spacing: -0.8px; }
+    .hero-description { font-size: 15px; }
+    .hero-buttons { margin-top: 25px; }
+    .explore-button { padding: 14px 18px; font-size: 14px; }
+    .about-image { height: 320px; }
+    .about-features { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-section .services-track .service-card { flex-basis: 260px; width: 260px; min-height: 290px; padding: 25px 20px; }
+    .solutions-container { width: 90%; }
+    .solutions-card { padding: 22px; }
+    .contact-card { padding: 25px 20px; }
+    .main-footer { padding: 40px 5% 22px !important; }
+    .main-footer .footer-logo { width: 175px !important; }
+    .main-footer .footer-container { gap: 30px; }
 }
 
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
-   .services-section .services-grid.services-track.is-ready {
-    animation: none !important;
+    .services-section .services-grid.services-track.is-ready { animation: none !important; }
+    #clients .client-card-inner { transition: none; }
 }
-
-    #clients .client-card-inner {
-        transition: none;
-    }
-}
-
-/* MOBILE RESPONSIVE CLIENT CARDS - BOTH PAGES */
 
 @media screen and (max-width: 760px) {
-
     .clients-grid {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-
         overflow-x: auto !important;
         overflow-y: hidden !important;
-
         gap: 15px;
         padding: 10px 5px 20px;
-
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
     }
-
     .client-card {
         flex: 0 0 250px !important;
         width: 250px !important;
         height: 260px !important;
         min-height: 260px !important;
-
         scroll-snap-align: start;
     }
-
-    .clients-grid::-webkit-scrollbar {
-        height: 5px;
-    }
-
-    .clients-grid::-webkit-scrollbar-thumb {
-        background: #20a8b8;
-        border-radius: 10px;
-    }
+    .clients-grid::-webkit-scrollbar { height: 5px; }
+    .clients-grid::-webkit-scrollbar-thumb { background: #20a8b8; border-radius: 10px; }
 }
-
-
 </style>
 </head>
 
@@ -1834,7 +1388,7 @@ footer.main-footer {
 
     <a href="#home" class="navbar-logo" aria-label="Centerline Home">
         <img src="{% static 'images/centerline-logo-transparent.png' %}"
-             alt="Centerline Technical Services"
+             alt="Centerline Technical Services Co. LLC"
              class="navbar-logo-img">
     </a>
 
@@ -1855,95 +1409,72 @@ footer.main-footer {
             <ul class="nav-links">
 
                 <!-- ABOUT DROPDOWN -->
-
                 <li class="nav-dropdown">
-
-                   <button class="dropdown-toggle"
-        type="button"
-        aria-expanded="false">
-    About
-</button>
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        About
+                    </button>
 
                     <div class="dropdown-menu">
-
                         <a href="/about/#about-centerline" class="dropdown-item">
                             <span class="dropdown-number">01</span>
                             <span>About Centerline</span>
                         </a>
-
                         <a href="/about/#who-we-are" class="dropdown-item">
                             <span class="dropdown-number">02</span>
                             <span>Who We Are</span>
                         </a>
-
                         <a href="/about/#why-centerline" class="dropdown-item">
                             <span class="dropdown-number">03</span>
-                            <span>Why Centerline</span>
+                            <span>Why Choose Us</span>
                         </a>
-
                         <a href="/about/#our-approach" class="dropdown-item">
                             <span class="dropdown-number">04</span>
                             <span>Our Approach</span>
                         </a>
-
                         <a href="/about/#message-from-management" class="dropdown-item">
                             <span class="dropdown-number">05</span>
                             <span>Management Message</span>
                         </a>
-
                         <a href="/about/#our-history" class="dropdown-item">
                             <span class="dropdown-number">06</span>
                             <span>Our History</span>
                         </a>
-
                         <a href="/about/" class="dropdown-view-all">
                             Explore About Us <span>→</span>
                         </a>
-
                     </div>
                 </li>
 
                 <!-- SERVICES DROPDOWN -->
-
                 <li class="nav-dropdown">
-
-                    <button class="dropdown-toggle"
-        type="button"
-        aria-expanded="false">
-    Services
-</button>
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        Services
+                    </button>
 
                     <div class="dropdown-menu">
-
                         <a href="/services/#healthcare-hvac" class="dropdown-item">
                             <span class="dropdown-number">01</span>
-                            <span>Healthcare HVAC</span>
+                            <span>Healthcare HVAC Systems</span>
                         </a>
-
                         <a href="/services/#modular-construction" class="dropdown-item">
                             <span class="dropdown-number">02</span>
-                            <span>Modular Construction</span>
+                            <span>Healthcare Modular Construction</span>
                         </a>
-
                         <a href="/services/#infection-control" class="dropdown-item">
                             <span class="dropdown-number">03</span>
-                            <span>Infection Control</span>
+                            <span>Infection Control Systems</span>
                         </a>
-
                         <a href="/services/#medical-gas" class="dropdown-item">
                             <span class="dropdown-number">04</span>
-                            <span>Medical Gas Systems</span>
+                            <span>Medical Gas Supply Units</span>
                         </a>
-
                         <a href="/services/#hospital-electrical" class="dropdown-item">
                             <span class="dropdown-number">05</span>
-                            <span>Hospital Electrical</span>
+                            <span>Hospital Electrical System</span>
                         </a>
-
                         <a href="/services/" class="dropdown-view-all">
                             Explore All Services <span>→</span>
                         </a>
-
                     </div>
                 </li>
 
@@ -1971,19 +1502,19 @@ footer.main-footer {
     <div class="hero-content">
 
         <p class="hero-subtitle">
-            HEALTHCARE INFRASTRUCTURE SOLUTION PROVIDER
+            CENTERLINE TECHNICAL SERVICES CO. LLC
         </p>
 
         <h1 class="hero-title">
             Engineering<br>
             safer, smarter<br>
-            healthcare environments.
+            healthcare spaces.
         </h1>
 
         <p class="hero-description">
-            Centerline delivers turnkey healthcare infrastructure
-            solutions spanning ventilation, modular construction,
-            infection control, medical gas and hospital electrical systems.
+            Turnkey healthcare infrastructure for hospitals, clinics, laboratories,
+            and medical facilities—covering ventilation, modular spaces, infection
+            control, medical gas units, and electrical power.
         </p>
 
         <div class="hero-buttons">
@@ -2006,31 +1537,32 @@ footer.main-footer {
 
         <div class="about-image">
             <img src="{% static 'images/Gemini_Generated_Image_29ap3u29ap3u29ap.png' %}"
-                 alt="Centerline HVAC and healthcare infrastructure">
+                 alt="Centerline Technical Services healthcare infrastructure">
         </div>
 
         <div class="about-content">
 
-            <p class="about-label">ABOUT CENTERLINE</p>
+            <p class="about-label">ABOUT US</p>
 
-            <h2>Built around healthcare needs.</h2>
+            <h2>Turnkey solutions for modern healthcare.</h2>
 
             <p>
-                Founded in 2024, Centerline addresses critical
-                infrastructural needs with a focus on efficiency,
-                safety and adaptability.
+                Founded in 2024, Centerline Technical Services Co. LLC delivers
+                end-to-end infrastructure solutions tailored for hospitals,
+                laboratories, doctors, and patients.
             </p>
 
             <p>
-                We design, develop, supply, install, test,
-                commission and maintain healthcare infrastructure.
+                We design, develop, supply, install, test, commission, and
+                maintain integrated systems aligned with healthcare safety and
+                compliance standards.
             </p>
 
             <div class="about-features">
                 <div>Turnkey solutions</div>
                 <div>Latest technology</div>
                 <div>Project management</div>
-                <div>Safety &amp; reliability</div>
+                <div>Safety &amp; compliance</div>
                 <div>Patient-care focus</div>
             </div>
 
@@ -2041,22 +1573,22 @@ footer.main-footer {
 </section>
 
 <!-- =========================================
-     SERVICES
+     SERVICES (HOW WE DELIVER END-TO-END)
 ========================================= -->
 
 <section class="services-section" id="services">
 
     <div class="services-container">
 
-        <p class="services-label">WHAT WE DO</p>
+        <p class="services-label">OUR SERVICES</p>
 
         <h2 class="services-title">
-            Integrated healthcare infrastructure services.
+            How we deliver healthcare projects from start to finish.
         </h2>
 
         <p class="services-description">
-            A focused portfolio designed around the technical and operational
-            requirements of modern healthcare facilities.
+            From early planning and modular buildouts to testing, commissioning,
+            and ongoing facility support.
         </p>
 
     </div>
@@ -2067,49 +1599,46 @@ footer.main-footer {
 
             <div class="service-card">
                 <span class="service-number">01</span>
-                <h3>Healthcare HVAC Systems</h3>
+                <h3>Design &amp; Engineering</h3>
                 <p>
-                    Specialized ventilation and air-handling solutions
-                    supporting infection control, patient safety and
-                    clinical operations.
+                    Planning mechanical, modular, infection-control, medical gas,
+                    and electrical layouts around clinical workflows and compliance.
                 </p>
             </div>
 
             <div class="service-card">
                 <span class="service-number">02</span>
-                <h3>Healthcare Modular Construction</h3>
+                <h3>Modular &amp; Turnkey Supply</h3>
                 <p>
-                    Fast, precise and scalable modular solutions for
-                    patient rooms, diagnostic areas, laboratories and
-                    other facilities.
+                    Delivering modular patient wings, diagnostic and imaging suites,
+                    BSL-2 labs, sterile pharmacies, surgical suites, and surge units.
                 </p>
             </div>
 
             <div class="service-card">
                 <span class="service-number">03</span>
-                <h3>Infection Control Systems</h3>
+                <h3>Installation &amp; Integration</h3>
                 <p>
-                    Multi-layered infrastructure integrating design,
-                    engineering, equipment and operational controls.
+                    Coordinated site installation of ductwork, bed head units,
+                    medical pendants, surfaces, and backup power systems.
                 </p>
             </div>
 
             <div class="service-card">
                 <span class="service-number">04</span>
-                <h3>Medical Gas Supply</h3>
+                <h3>Testing &amp; Commissioning</h3>
                 <p>
-                    BHU and pendant solutions delivering medical gases,
-                    power, data and lighting at the point of care.
+                    Verifying airflow, pressure differentials, filtration, and
+                    switchover readiness before clinical handover.
                 </p>
             </div>
 
             <div class="service-card">
                 <span class="service-number">05</span>
-                <h3>Hospital Electrical Systems</h3>
+                <h3>Maintenance &amp; Support</h3>
                 <p>
-                    Redundant, reliable electrical infrastructure with
-                    emergency power, ATS, UPS, grounding and
-                    specialized systems.
+                    Ongoing upkeep and technical support to keep hospital
+                    environments safe, adaptable, and operational.
                 </p>
             </div>
 
@@ -2120,7 +1649,7 @@ footer.main-footer {
 </section>
 
 <!-- =========================================
-     SOLUTIONS
+     SOLUTIONS (CLINICAL TECHNICAL SYSTEMS)
 ========================================= -->
 
 <section id="solutions" class="solutions-section">
@@ -2129,14 +1658,13 @@ footer.main-footer {
 
         <div class="solutions-heading">
 
-            <div class="solutions-eyebrow">Technical solutions</div>
+            <div class="solutions-eyebrow">TECHNICAL SOLUTIONS</div>
 
-            <h2>Designed for demanding clinical environments.</h2>
+            <h2>Specialized systems for clinical spaces.</h2>
 
             <p class="solutions-lead">
-                The company profile highlights application-specific engineering
-                across operating rooms, isolation rooms, protective environments,
-                pharmacies, laboratories and imaging spaces.
+                Application-specific systems engineered for operating rooms,
+                ICUs, isolation and protective rooms, labs, and imaging areas.
             </p>
 
         </div>
@@ -2145,11 +1673,11 @@ footer.main-footer {
 
             <div class="solutions-card">
 
-                <h3>Healthcare HVAC</h3>
+                <h3>Healthcare HVAC Systems</h3>
 
                 <p>
-                    Application-focused airflow and pressure strategies
-                    support different clinical modalities.
+                    Controlled air-handling and pressure strategies designed to
+                    protect patients, staff, visitors, and surrounding spaces.
                 </p>
 
                 <div class="solutions-tags">
@@ -2165,33 +1693,33 @@ footer.main-footer {
 
             <div class="solutions-card">
 
-                <h3>Infection Control</h3>
+                <h3>Infection Control Systems</h3>
 
                 <p>
-                    Infrastructure measures include patient-room design,
-                    negative-pressure rooms, protective environments,
-                    UV-C disinfection, water safety and electronic monitoring.
+                    Multi-layered controls spanning JCI-aligned room design,
+                    isolation and protective rooms, airflow direction, and
+                    easy-to-clean surfaces.
                 </p>
 
                 <div class="solutions-tags">
-                    <span class="solutions-tag">AIIR</span>
-                    <span class="solutions-tag">PE rooms</span>
-                    <span class="solutions-tag">UV-C</span>
-                    <span class="solutions-tag">Water safety</span>
-                    <span class="solutions-tag">RTLS</span>
-                    <span class="solutions-tag">Telehealth</span>
+                    <span class="solutions-tag">AIIR (&ge;12 ACH)</span>
+                    <span class="solutions-tag">Protective (PE) rooms</span>
+                    <span class="solutions-tag">Hand hygiene sinks</span>
+                    <span class="solutions-tag">Uni-directional airflow</span>
+                    <span class="solutions-tag">Non-porous surfaces</span>
+                    <span class="solutions-tag">Copper-alloy fixtures</span>
                 </div>
 
             </div>
 
             <div class="solutions-card">
 
-                <h3>Medical Gas &amp; Pendants</h3>
+                <h3>Medical Gas Supply Units (BHU &amp; Pendants)</h3>
 
                 <p>
-                    Bed Head Units and pendants consolidate critical utilities
-                    at the point of care while improving floor clearance
-                    and flexibility.
+                    Wall-mounted bed head units and ceiling pendants that clear
+                    floor space while bringing gases, power, data, and lighting
+                    to the bed or operating table.
                 </p>
 
                 <div class="solutions-tags">
@@ -2200,28 +1728,26 @@ footer.main-footer {
                     <span class="solutions-tag">Medical Air</span>
                     <span class="solutions-tag">N₂</span>
                     <span class="solutions-tag">N₂O</span>
-                    <span class="solutions-tag">AGSS</span>
-                    <span class="solutions-tag">Data</span>
+                    <span class="solutions-tag">AGSS &amp; CO₂</span>
+                    <span class="solutions-tag">AC Power, Data &amp; Lighting</span>
                 </div>
 
             </div>
 
             <div class="solutions-card">
 
-                <h3>Hospital Electrical</h3>
+                <h3>Hospital Electrical System</h3>
 
                 <p>
-                    Layered backup architecture supports continuity
-                    of critical healthcare operations.
+                    Layered backup power built for continuous clinical operation
+                    and rapid automatic transfer during grid interruptions.
                 </p>
 
                 <div class="solutions-tags">
+                    <span class="solutions-tag">Normal power source</span>
+                    <span class="solutions-tag">ATS (&le;10s transfer)</span>
                     <span class="solutions-tag">Generators</span>
                     <span class="solutions-tag">UPS</span>
-                    <span class="solutions-tag">ATS</span>
-                    <span class="solutions-tag">Technical grounding</span>
-                    <span class="solutions-tag">IPS</span>
-                    <span class="solutions-tag">LIM</span>
                 </div>
 
             </div>
@@ -2245,8 +1771,8 @@ footer.main-footer {
             <h2>Trusted by healthcare organizations.</h2>
 
             <p>
-                Our clientele includes healthcare institutions,
-                hospitals and organizations across the region.
+                Working with hospitals, health authorities, and medical
+                institutions across the region.
             </p>
 
         </div>
@@ -2254,10 +1780,8 @@ footer.main-footer {
         <div class="clients-grid">
 
             <!-- CLIENT 1 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/emirates-health-services.jpg' %}"
@@ -2265,20 +1789,16 @@ footer.main-footer {
                         </div>
                         <h3>Emirates Health Services</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Emirates Health Services</h3>
                         <p>Ministry of Health, UAE</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 2 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/burjeel.jpg' %}"
@@ -2286,20 +1806,16 @@ footer.main-footer {
                         </div>
                         <h3>Burjeel</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Burjeel</h3>
                         <p>Burjeel Holdings</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 3 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/art.jpg' %}"
@@ -2307,20 +1823,16 @@ footer.main-footer {
                         </div>
                         <h3>ART</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>ART</h3>
                         <p>Healthcare organization</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 4 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/mubadarat-sheikh-khalifa-hospital.jpg' %}"
@@ -2328,20 +1840,16 @@ footer.main-footer {
                         </div>
                         <h3>Sheikh Khalifa Hospital</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Sheikh Khalifa Hospital</h3>
                         <p>Mubadarat – Fujairah</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 5 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/elyzee-hospital.jpg' %}"
@@ -2349,20 +1857,16 @@ footer.main-footer {
                         </div>
                         <h3>Elyzee Hospital</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Elyzee Hospital</h3>
                         <p>Healthcare institution</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 6 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/mediclinic.jpg' %}"
@@ -2370,20 +1874,16 @@ footer.main-footer {
                         </div>
                         <h3>Mediclinic</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Mediclinic</h3>
                         <p>Healthcare provider</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 7 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/ministry-of-health-oman.jpg' %}"
@@ -2391,20 +1891,16 @@ footer.main-footer {
                         </div>
                         <h3>Ministry of Health</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Ministry of Health</h3>
                         <p>Oman</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 8 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/royal-hospital.jpg' %}"
@@ -2412,20 +1908,16 @@ footer.main-footer {
                         </div>
                         <h3>Royal Hospital</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Royal Hospital</h3>
                         <p>Healthcare institution</p>
                     </div>
-
                 </div>
             </div>
 
             <!-- CLIENT 9 -->
-
             <div class="client-card">
                 <div class="client-card-inner">
-
                     <div class="client-card-front">
                         <div class="client-logo">
                             <img src="{% static 'images/clients/al-qassimi-hospital.jpg' %}"
@@ -2433,12 +1925,10 @@ footer.main-footer {
                         </div>
                         <h3>Al Qassimi Hospital</h3>
                     </div>
-
                     <div class="client-card-back">
                         <h3>Al Qassimi Hospital</h3>
                         <p>Ministry of Health, UAE</p>
                     </div>
-
                 </div>
             </div>
 
@@ -2461,13 +1951,12 @@ footer.main-footer {
             <p class="contact-label">GET IN TOUCH</p>
 
             <h2 class="contact-title">
-                Let's build better healthcare infrastructure.
+                Let's build better healthcare spaces.
             </h2>
 
             <p class="contact-description">
-                Centerline supports healthcare projects with integrated
-                design, supply, installation, testing, commissioning
-                and maintenance capabilities.
+                Reach out for healthcare infrastructure enquiries, project
+                planning, installation, testing, commissioning, and support.
             </p>
 
             <a href="mailto:sales@centerline.ae" class="contact-button">
@@ -2505,7 +1994,7 @@ footer.main-footer {
             </div>
 
             <div class="contact-item">
-                <h3>EMAIL</h3>
+                <h3>DIRECT EMAIL</h3>
                 <p>
                     <a href="mailto:syedmohd@centerline.ae">
                         syedmohd@centerline.ae
@@ -2532,294 +2021,174 @@ footer.main-footer {
 
     <div class="footer-container">
 
-        <!-- COMPANY INFORMATION -->
-
         <div class="footer-about">
-
             <img src="{% static 'images/centerline-logo-transparent.png' %}"
-                 alt="Centerline Technical Services Logo"
+                 alt="Centerline Technical Services Co. LLC"
                  class="footer-logo">
-
             <p>
-                Centerline Technical Services delivers integrated
-                healthcare infrastructure solutions with a focus
-                on quality, safety and reliability.
+                Centerline Technical Services Co. LLC delivers turnkey
+                healthcare infrastructure solutions focused on safety,
+                reliability, and quality.
             </p>
-
         </div>
 
-        <!-- QUICK LINKS -->
-
         <div class="footer-links">
-
             <h3>Quick Links</h3>
-
             <a href="/">Home</a>
             <a href="/about/">About Us</a>
             <a href="/services/">Services</a>
             <a href="/solutions/">Solutions</a>
             <a href="/contact/">Contact</a>
-
         </div>
 
-        <!-- CONTACT -->
-
         <div class="footer-contact">
-
             <h3>Get in Touch</h3>
-
-            <p>Centerline Technical Services</p>
-
-            <p>
-                Contact us for healthcare infrastructure enquiries.
-            </p>
-
+            <p>Centerline Technical Services Co. LLC</p>
+            <p>Contact us for healthcare infrastructure enquiries.</p>
         </div>
 
     </div>
 
-    <!-- COPYRIGHT -->
-
     <div class="copyright">
-
         <p>
-    © <span id="current-year"></span> Centerline Technical Services. All Rights Reserved.
-</p>
+            © <span id="current-year"></span> Centerline Technical Services Co. LLC. All Rights Reserved.
+        </p>
 
         <div class="footer-credit">
-
             Designed and Developed by
-
             <a href="https://www.inspirezesttechnologies.com/"
                target="_blank"
                rel="noopener noreferrer">
                 InspireZest Technologies
             </a>
-
         </div>
-
     </div>
 
 </footer>
 
 <!-- =========================================
-     EXTERNAL ANIMATIONS
+     EXTERNAL ANIMATIONS & SCRIPTS
 ========================================= -->
 
 <script src="{% static 'animations.js' %}" defer></script>
 
-<!-- =========================================
-     WEBSITE JAVASCRIPT
-========================================= -->
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
- // ==========================================
-// 1. DUPLICATE SERVICE CARDS
-// ==========================================
+    // 1. DUPLICATE SERVICE CARDS
+    const track = document.querySelector(".services-track");
 
-const track = document.querySelector(".services-track");
+    if (track && !track.dataset.duplicated) {
+        const cards = Array.from(track.children);
 
-if (track && !track.dataset.duplicated) {
+        cards.forEach(function (card) {
+            const clone = card.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            track.appendChild(clone);
+        });
 
-    const cards = Array.from(track.children);
+        track.dataset.duplicated = "true";
 
-    cards.forEach(function (card) {
+        requestAnimationFrame(function () {
+            track.classList.add("is-ready");
+        });
+    }
 
-        const clone = card.cloneNode(true);
-
-        clone.setAttribute("aria-hidden", "true");
-
-        track.appendChild(clone);
-
-    });
-
-    // Mark duplication as complete
-    track.dataset.duplicated = "true";
-
-    // Start animation after all cards are added
-    requestAnimationFrame(function () {
-        track.classList.add("is-ready");
-    });
-}
-
-    // ==========================================
     // 2. MOBILE HAMBURGER MENU
-    // ==========================================
-
     const menuToggle = document.getElementById("menuToggle");
     const navMenu = document.getElementById("navMenu");
 
     function closeMobileMenu() {
-
         if (!menuToggle || !navMenu) return;
-
         navMenu.classList.remove("active");
         menuToggle.classList.remove("active");
-
         menuToggle.setAttribute("aria-expanded", "false");
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-        );
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
 
     if (menuToggle && navMenu) {
-
         menuToggle.addEventListener("click", function () {
-
             const isOpen = navMenu.classList.toggle("active");
-
             menuToggle.classList.toggle("active", isOpen);
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
             menuToggle.setAttribute(
                 "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
+                isOpen ? "Close navigation menu" : "Open navigation menu"
             );
-
         });
-
     }
 
-
-    // ==========================================
     // 3. ABOUT AND SERVICES DROPDOWNS
-    // ==========================================
-
     const dropdowns = document.querySelectorAll(".nav-dropdown");
 
     function closeAllDropdowns() {
-
         dropdowns.forEach(function (dropdown) {
-
             dropdown.classList.remove("is-open");
-
             const button = dropdown.querySelector(".dropdown-toggle");
-
             if (button) {
                 button.setAttribute("aria-expanded", "false");
             }
-
         });
-
     }
 
     dropdowns.forEach(function (dropdown) {
-
-        const dropdownButton =
-            dropdown.querySelector(".dropdown-toggle");
-
+        const dropdownButton = dropdown.querySelector(".dropdown-toggle");
         if (!dropdownButton) return;
 
         dropdownButton.addEventListener("click", function (event) {
-
             event.preventDefault();
             event.stopPropagation();
 
-            const isAlreadyOpen =
-                dropdown.classList.contains("is-open");
-
+            const isAlreadyOpen = dropdown.classList.contains("is-open");
             closeAllDropdowns();
 
             if (!isAlreadyOpen) {
-
                 dropdown.classList.add("is-open");
-
-                dropdownButton.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
+                dropdownButton.setAttribute("aria-expanded", "true");
             }
-
         });
-
     });
 
-
-    // ==========================================
     // 4. CLOSE DROPDOWN WHEN CLICKING OUTSIDE
-    // ==========================================
-
     document.addEventListener("click", function (event) {
-
         if (!event.target.closest(".nav-dropdown")) {
-
             closeAllDropdowns();
-
         }
-
     });
 
-
-    // ==========================================
     // 5. CLOSE MENU AFTER CLICKING A LINK
-    // ==========================================
-
     if (navMenu) {
-
         navMenu.querySelectorAll("a").forEach(function (link) {
-
             link.addEventListener("click", function () {
-
                 closeMobileMenu();
-
                 closeAllDropdowns();
-
             });
-
         });
-
     }
 
-
-    // ==========================================
     // 6. CLOSE MENUS USING ESCAPE KEY
-    // ==========================================
-
     document.addEventListener("keydown", function (event) {
-
         if (event.key === "Escape") {
-
             closeMobileMenu();
-
             closeAllDropdowns();
-
         }
-
     });
 
-
-    // ==========================================
     // 7. RESET MENU WHEN RESIZING TO DESKTOP
-    // ==========================================
-
     window.addEventListener("resize", function () {
-
         if (window.innerWidth > 760) {
-
             closeMobileMenu();
-
         }
-
     });
+
+    // 8. CURRENT YEAR
+    const yearEl = document.getElementById("current-year");
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 
 });
-
-
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-
 </script>
 
 </body>
 </html>
-
